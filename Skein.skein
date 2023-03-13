@@ -1,0 +1,2010 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skein rootNode="node-0x55e2008cc290" xmlns="http://www.logicalshift.org.uk/IF/Skein">
+  <generator>Inform 7</generator>
+  <activeNode nodeId="node-0x55e203406db0"/>
+  <item nodeId="node-0x55e2008cc290">
+    <command xml:space="preserve">- start -</command>
+    <result xml:space="preserve">
+
+
+
+They&apos;ve taken your arm. They said they&apos;d do it if - when - you left, said it in the contract. It had all seemed perfectly sensible at the time; if you were going to survive on their warehouse floor, you needed to keep up with the loading mechs, and that meant replacing your last &apos;ganic arm with some industrial chrome. And since you didn&apos;t have the chips, well, they&apos;d buy it for you - with a hitch: they&apos;d take it back if you left before you&apos;d done enough work to pay it off. And that&apos;s if they let you go before then at all. So you&apos;d let them chop your arm off and jack you in, and felt grateful. Now, not so much. Now, all that perfectly rational explanation makes you sick. Doesn&apos;t do shit for the sense of absence on your left side, the dislocation that poisons you every time you try to use what isn&apos;t there anymore.
+
+It wasn&apos;t like you&apos;d have chosen to leave, given that choice. It was good work, for what it was. You&apos;d show up every morning at 0700 below the warehouses&apos;s brutalist square concrete walls and take the rickety freight elevator to the tenth floor squeezed between mechs and cargo boxes. You&apos;d push your way out of the elevator squeezing your noise cancelling &apos;buds in to find your loading team and start organizing the work for the day with the management AR-bot that ran the floor. It was loud, hot, uncomfortable, and often actively dangerous - more than once you&apos;d barely evaded being maimed by falling crates or rushing mechs, and you&apos;d seen more than a few of your buddies initiate indenture contracts with the corp to pay off the loan for replacements - but it was work you could do.
+
+The problem was that another orchestrator had had it in for you from day zero, and they&apos;d been at the company far longer. Today, he&apos;d finally gotten the best of you: had you framed for petty theft, actually, stealing low value company property. They&apos;d promptly &quot;repossessed&quot; your bike for not returning something you&apos;d never had in the first place and kicked you to the curb - but not before taking back that arm.
+
+In a sense, you were lucky. It could&apos;ve been far worse.
+
+You&apos;d walked back home after that, pushing through the crowded streets fast and rough to match the rush of your thoughts, railing at the unfairness. You&apos;d think after so long in the city you would&apos;ve gotten used to this kind of shit, but not for a minute. Not yet anyway. Maybe that&apos;s a good sign, a sign they haven&apos;t worn you down, broken you. Or maybe it&apos;s a sign that you&apos;re too inflexible, that one day, instead of bending under the weight, you&apos;ll just snap, jump from one of the buildings or go psycho... 
+
+                             /press any key to continue/</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2008cc410"/>
+      <child nodeId="node-0x55e2008cc590"/>
+      <child nodeId="node-0x55e200a77ed0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2008cc410">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Street Outside Apartment 154
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e2008cc590">
+    <command xml:space="preserve"> </command>
+    <result xml:space="preserve">
+Circuitboard Streets and Electric Life
+An Interactive Fiction by Alexis Purslane
+Release 1 / Serial number 230312 / Inform 7 v10.1.2 / D
+
+Now you&apos;re standing outside the mega-arcology that holds your tiny apartment along with several thousand others, wondering what to do next. Suddenly you feel completely lost. The comforting monotony of work for most of the day and mindless entertainment for the rest is gone. You&apos;ve been cut free, and free in this world means dead, because this is a world where you need protection and income and nobody competes with the corps by themselves. The only lead you have now is Jamie &quot;Nano&quot; Rivest, a retired cracker who offered you a job awhile back.
+
+Welcome to the City. We hope you enjoy your stay.
+
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. Pedestrians clog the streets around you, rushing to or from work. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200668ee0"/>
+      <child nodeId="node-0x55e2008cc890"/>
+      <child nodeId="node-0x55e2008ccd10"/>
+      <child nodeId="node-0x55e2008cce90"/>
+      <child nodeId="node-0x55e200932110"/>
+      <child nodeId="node-0x55e200932290"/>
+      <child nodeId="node-0x55e20096d760"/>
+      <child nodeId="node-0x55e200a354a0"/>
+      <child nodeId="node-0x55e200a35620"/>
+      <child nodeId="node-0x55e200a35aa0"/>
+      <child nodeId="node-0x55e200a5d720"/>
+      <child nodeId="node-0x55e200a5d8a0"/>
+      <child nodeId="node-0x55e200a77a50"/>
+      <child nodeId="node-0x55e200a77d50"/>
+      <child nodeId="node-0x55e1ff576d40"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200668ee0">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. Pedestrians clog the streets around you, rushing to or from work. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+As the early-morning rush to work dies off, the city sidewalks slowly begin to empty out. Soon, there is no one left.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2008cc710"/>
+      <child nodeId="node-0x55e201650b90"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2008cc710">
+    <command xml:space="preserve">look at pedestrians</command>
+    <result xml:space="preserve">You see pedestrians here.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e201650b90">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. Pedestrians clog the streets around you, rushing to or from work. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+As the early-morning rush to work dies off, the city sidewalks slowly begin to empty out. Soon, there is no one left.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2015f3180"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2015f3180">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You wait for a gap in the traffic, then dodge across the street as quickly as you can, shoes splashing in potholes as you pound across the asphalt.
+
+Shop Fronts
+You see a long line of shop fronts stretching away to the north and south here, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. This shopping district, a whole city block in size just like the megablock, has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose. To the west you can see a wide but shallow flight of stairs leading under an archway between two nearby buildings and into the center of the shopping district.
+
+Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult.
+
+As the early-morning rush to work dies off, the city sidewalks slowly begin to empty out. Soon, there is no one left.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e201650e90"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e201650e90">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You wait for a gap in the traffic, then dodge across the street as quickly as you can, shoes splashing in potholes as you pound across the asphalt.
+
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. Pedestrians clog the streets around you, rushing to or from work. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+As the early-morning rush to work dies off, the city sidewalks slowly begin to empty out. Soon, there is no one left.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e203406630"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e203406630">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You wait for a gap in the traffic, then dodge across the street as quickly as you can, shoes splashing in potholes as you pound across the asphalt.
+
+Shop Fronts
+You see a long line of shop fronts stretching away to the north and south here, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. This shopping district, a whole city block in size just like the megablock, has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose. To the west you can see a wide but shallow flight of stairs leading under an archway between two nearby buildings and into the center of the shopping district.
+
+Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water that didn&apos;t quite make it into the sewer system - or didn&apos;t quite stay there - behind them. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you&apos;re not used to it.
+
+As the early-morning rush to work dies off, the city sidewalks slowly begin to empty out. Soon, there is no one left.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e203406db0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e203406db0">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You wait for a gap in the traffic, then dodge across the street as quickly as you can, shoes splashing in potholes as you pound across the asphalt.
+
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. Pedestrians clog the streets around you, rushing to or from work. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+As the early-morning rush to work dies off, the city sidewalks slowly begin to empty out. Soon, there is no one left.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e2008cc890">
+    <command xml:space="preserve">look up</command>
+    <result xml:space="preserve">The sun filters down through a sky filled so fully with acrid pollutants that it is tinted a dingy green. Here and there, streamers of smoke or steam trail upward to add to the pervasive miasma.
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2008cca10"/>
+      <child nodeId="node-0x55e2008ccb90"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2008cca10">
+    <command xml:space="preserve">look at the sky</command>
+    <result xml:space="preserve">The sun filters down through a sky filled so fully with acrid pollutants that it is tinted a dingy green.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e2008ccb90">
+    <command xml:space="preserve">look east</command>
+    <result xml:space="preserve">You can&apos;t see anything promising that way.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e2008ccd10">
+    <command xml:space="preserve">look at the pedestrians</command>
+    <result xml:space="preserve">You see pedestrians here.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e2008cce90">
+    <command xml:space="preserve">look east</command>
+    <result xml:space="preserve">The Megablock blocks out the entirety of the horizon in that direction, making you feel simultaneously overawed with airy scale and trapped.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200932110">
+    <command xml:space="preserve">look west</command>
+    <result xml:space="preserve">You see a long line of shop fronts stretching away to the north and south across the street in that direction, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. The shopping district those shop fronts belong to has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200932290">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932410"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932410">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932590"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932590">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932710"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932710">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932890"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932890">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932a10"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932a10">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932b90"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932b90">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932d10"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932d10">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200932e90"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200932e90">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200925170"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200925170">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009252f0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009252f0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200925470"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200925470">
+    <command xml:space="preserve">wait 10</command>
+    <result xml:space="preserve">I only understood you as far as wanting to wait.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009255f0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009255f0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200925770"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200925770">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009258f0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009258f0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200925a70"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200925a70">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200925bf0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200925bf0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200925d70"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200925d70">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200925ef0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200925ef0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096d160"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096d160">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096d2e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096d2e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096d460"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096d460">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096d5e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096d5e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e20096d760">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096d8e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096d8e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096da60"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096da60">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096dbe0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096dbe0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096dd60"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096dd60">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e20096dee0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e20096dee0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997100"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997100">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997280"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997280">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997400"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997400">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997580"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997580">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997700"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997700">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997880"/>
+      <child nodeId="node-0x55e200997d00"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997880">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997a00"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997a00">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997b80"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997b80">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200997d00">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200997e80"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200997e80">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b01b0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b01b0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b0330"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b0330">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b04b0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b04b0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b0630"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b0630">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b07b0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b07b0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b0930"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b0930">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b0ab0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b0ab0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b0c30"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b0c30">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b0db0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b0db0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009b0f30"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009b0f30">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d6140"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d6140">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d62c0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d62c0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d6440"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d6440">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d65c0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d65c0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d6740"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d6740">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d68c0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d68c0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d6a40"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d6a40">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d6bc0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d6bc0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d6d40"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d6d40">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009d6ec0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009d6ec0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f1160"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f1160">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f12e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f12e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f1460"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f1460">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f15e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f15e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f1760"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f1760">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f18e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f18e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f1a60"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f1a60">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f1be0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f1be0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f1d60"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f1d60">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009f1ee0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009f1ee0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200992160"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200992160">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009922e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009922e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200992460"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200992460">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009925e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009925e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200992760"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200992760">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2009928e0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2009928e0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200992a60"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200992a60">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200992be0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200992be0">
+    <command xml:space="preserve">wait</command>
+    <result xml:space="preserve">Time passes.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200992d60"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200992d60">
+    <command xml:space="preserve">looik east</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200992ee0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200992ee0">
+    <command xml:space="preserve">look east</command>
+    <result xml:space="preserve">The Megablock blocks out the entirety of the horizon in that direction, making you feel simultaneously overawed with the airy scale of the thing and trapped.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a351a0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a351a0">
+    <command xml:space="preserve">look west</command>
+    <result xml:space="preserve">You see a long line of shop fronts stretching away to the north and south across the street in that direction, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. The shopping district those shop fronts belong to has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a35320"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a35320">
+    <command xml:space="preserve">look north</command>
+    <result xml:space="preserve">You can&apos;t see anything special that way.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a354a0">
+    <command xml:space="preserve">look north</command>
+    <result xml:space="preserve">You can&apos;t see anything special the north.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a35620">
+    <command xml:space="preserve">lok north</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a357a0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a357a0">
+    <command xml:space="preserve">look north</command>
+    <result xml:space="preserve">You can&apos;t see anything special north.
+
+Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water that didn&apos;t quite make it into the sewer system - or didn&apos;t quite stay there - behind them. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you&apos;re not used to it.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a35920"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a35920">
+    <command xml:space="preserve">look at pedestrians</command>
+    <result xml:space="preserve">You see pedestrians here.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a35aa0">
+    <command xml:space="preserve">x pipes</command>
+    <result xml:space="preserve">That noun did not make sense in this context.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a35c20"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a35c20">
+    <command xml:space="preserve">x pedestrians</command>
+    <result xml:space="preserve">The pedestrians here in the Mulanosonic District are basically like the pedestrians in any other place, except poorer and more downtrodden. Instead of the stylish body-mods and upware you might see in other districts, typically all wrapped up in artificially fit bodies and stylish, tight-fitting clothing, what you see here is an endless parade of grimy, unhealthy people with utilitarian cyberware intended to serve a single function - work - and usually worse than what they gave up to get it for anything else. That&apos;s the kind of crowed the mega-arcologies are for, after all - the people that can&apos;t afford the luxury of a regular apartment, let alone an actual house, in this new reality of extreme urban density. There are benefits to such density, especially in places like Mulanosonic, because it means you don&apos;t need to pay for a car, transportation, or a (new) motorcycle, but those benefits aren&apos;t attracting anyone here. Anyone with a choice is elsewhere.
+
+Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water that didn&apos;t quite make it into the sewer system - or didn&apos;t quite stay there - behind them. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you&apos;re not used to it.
+Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a35da0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a35da0">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a35f20"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a35f20">
+    <command xml:space="preserve">look east</command>
+    <result xml:space="preserve">The Megablock blocks out the entirety of the horizon in that direction, making you feel simultaneously overawed with the airy scale of the thing and trapped.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a5d120"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a5d120">
+    <command xml:space="preserve">look west</command>
+    <result xml:space="preserve">You see a long line of shop fronts stretching away to the north and south across the street in that direction, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. The shopping district those shop fronts belong to has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a5d2a0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a5d2a0">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a5d420"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a5d420">
+    <command xml:space="preserve">n</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a5d5a0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a5d5a0">
+    <command xml:space="preserve">look up</command>
+    <result xml:space="preserve">The sun filters down through a sky filled so fully with acrid pollutants that it is tinted a dingy green. Here and there, streamers of smoke or steam trail upward to add to the pervasive miasma.
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a5d720">
+    <command xml:space="preserve">x megablock</command>
+    <result xml:space="preserve">The tower is rectangular in cross section and in profile, covered in rows of plumbing and ventilation pipes. It is made of crumbling concrete painted in a dismal, chipping sky-blue, as if in an attempt to make the building a replacement for the sky itself, occasionally crisscrossed by rusting steel girders framing the concrete slab sides. There are a few slits here and there in the concrete, short windows every storey of the several hundred storeys that make up the building.
+
+Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a5d8a0">
+    <command xml:space="preserve">x pedestrians</command>
+    <result xml:space="preserve">The pedestrians here in the Mulanosonic District are basically like the pedestrians in any other place, except poorer and more downtrodden. Instead of the stylish body-mods and upware you might see in other districts, typically all wrapped up in artificially fit bodies and stylish, tight-fitting clothing, what you see here is an endless parade of grimy, unhealthy people with utilitarian cyberware intended to serve a single function - work - and nothing else, rushing back and forth with their sunken eyes downcast and their chins buried in their coats. This is, after all, the target customer base of the mega-arcologies: those too poor to afford housing anywhere else in the dense urban sprawl of the city. There are a few meagre benefits, but no one lives here by choice. Not even you.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a5da20"/>
+      <child nodeId="node-0x55e200a5dba0"/>
+      <child nodeId="node-0x55e200a5dea0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a5da20">
+    <command xml:space="preserve">x tower</command>
+    <result xml:space="preserve">The tower is rectangular in cross section and in profile, covered in rows of plumbing and ventilation pipes. It is made of crumbling concrete painted in a dismal, chipping sky-blue, as if in an attempt to make the building a replacement for the sky itself, occasionally crisscrossed by rusting steel girders framing the concrete slab sides. There are a few slits here and there in the concrete, short windows every storey of the several hundred storeys that make up the building.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a5dba0">
+    <command xml:space="preserve">x pedestrians</command>
+    <result xml:space="preserve">That noun did not make sense in this context.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a5dd20"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a5dd20">
+    <command xml:space="preserve">look at pedestrians</command>
+    <result xml:space="preserve">You can&apos;t see any such thing.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a5dea0">
+    <command xml:space="preserve">look at pedestrians</command>
+    <result xml:space="preserve">You can&apos;t see any such thing.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a77150"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a77150">
+    <command xml:space="preserve">nouns</command>
+    <result xml:space="preserve">At the moment, &quot;it&quot; is unset, &quot;him&quot; is unset, &quot;her&quot; is unset and &quot;them&quot; is unset.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a772d0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a772d0">
+    <command xml:space="preserve">objects</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a77450"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a77450">
+    <command xml:space="preserve">backdrops</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a775d0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a775d0">
+    <command xml:space="preserve">scenery</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a77750"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a77750">
+    <command xml:space="preserve">list</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a778d0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a778d0">
+    <command xml:space="preserve">list scenery</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognise.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a77a50">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You wait for a gap in the traffic, then dodge across the street as quickly as you can, shoes splashing in potholes as you pound across the asphalt.
+
+Shop Fronts
+You see a long line of shop fronts stretching away to the north and south here, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. This shopping district, a whole city block in size just like the megablock, has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose. To the west you can see a wide but shallow flight of stairs leading under an archway between two nearby buildings and into the center of the shopping district.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a77bd0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a77bd0">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You glance both ways, then run across the street.
+
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. A few needles and articles of ragged clothing lie about the sidewalk, and pieces of waste gust about on the wind like leaves. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>NO</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e1ff576a40"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e1ff576a40">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You glance both ways, then run across the street.
+
+Shop Fronts
+You see a long line of shop fronts stretching away to the north and south here, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. This shopping district, a whole city block in size just like the megablock, has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose. To the west you can see a wide but shallow flight of stairs leading under an archway between two nearby buildings and into the center of the shopping district.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e1ff576bc0"/>
+      <child nodeId="node-0x55e201650590"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e1ff576bc0">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. A few needles and articles of ragged clothing lie about the sidewalk, and pieces of waste gust about on the wind like leaves. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e1ff9b72b0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e1ff9b72b0">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You look both ways warily, then cross the street.
+
+Shop Fronts
+You see a long line of shop fronts stretching away to the north and south here, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. This shopping district, a whole city block in size just like the megablock, has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose. To the west you can see a wide but shallow flight of stairs leading under an archway between two nearby buildings and into the center of the shopping district.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a9e930"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a9e930">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a9edb0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a9edb0">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2015f3300"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2015f3300">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2015f3780"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2015f3780">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. A few needles and articles of ragged clothing lie about the sidewalk, and pieces of waste gust about on the wind like leaves. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e2015f3c00"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e2015f3c00">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">You look both ways warily, then cross the street.
+
+Shop Fronts
+You see a long line of shop fronts stretching away to the north and south here, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. This shopping district, a whole city block in size just like the megablock, has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose. To the west you can see a wide but shallow flight of stairs leading under an archway between two nearby buildings and into the center of the shopping district.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e201650110"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e201650110">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. A few needles and articles of ragged clothing lie about the sidewalk, and pieces of waste gust about on the wind like leaves. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e201650590">
+    <command xml:space="preserve">time</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognize.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e201650a10"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e201650a10">
+    <command xml:space="preserve">what time is it</command>
+    <result xml:space="preserve">That&apos;s not a verb I recognize.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a77d50">
+    <command xml:space="preserve">look at the megablock</command>
+    <result xml:space="preserve">The tower is rectangular in cross section and in profile, covered in rows of plumbing and ventilation pipes. It is made of crumbling concrete painted in a dismal, chipping sky-blue, as if in an attempt to make the building a replacement for the sky itself. Sheer concrete cliff faces are occasionally crisscrossed by rusting steel girders which have the visual effect more of window frames than structural supports. There are a few slits here and there in the concrete, short windows every storey of the several hundred storeys that make up the building.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e1ff576d40">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">You can&apos;t go that way.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x7f56c801b710"/>
+    </children>
+  </item>
+  <item nodeId="node-0x7f56c801b710">
+    <command xml:space="preserve">w</command>
+    <result xml:space="preserve">
+Shop Fronts
+You see a long line of shop fronts stretching away to the north and south here, an endless parade of neon advertisements thrown up like digital vomit across huge screens behind bullet proof glass shop windows. This shopping district, a whole city block in size just like the megablock, has quickly accreted here to take advantage of the density of customers brought about by the mega-arcology - and their bleak depression, which can only be salved by the dopamine hit of a new acquisition. The ads are gaudy, kitsch crocks, mostly, shit that barely has a purpose and barely works for that purpose. To the west you can see a wide but shallow flight of stairs leading under an archway between two nearby buildings and into the center of the shopping district.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x7f56c801b110"/>
+    </children>
+  </item>
+  <item nodeId="node-0x7f56c801b110">
+    <command xml:space="preserve">e</command>
+    <result xml:space="preserve">
+Megablock Sidewalk
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. A few needles and articles of ragged clothing lie about the sidewalk, and pieces of waste gust about on the wind like leaves. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+  <item nodeId="node-0x55e200a77ed0">
+    <command xml:space="preserve">\r</command>
+    <result xml:space="preserve">
+Circuitboard Streets and Electric Life
+An Interactive Fiction by Alexis Purslane
+Release 1 / Serial number 230310 / Inform 7 v10.1.2 / D
+
+Now you&apos;re standing outside the mega-arcology that holds your tiny apartment along with several thousand others, wondering what to do next. Suddenly you feel completely lost. The comforting monotony of work for most of the day and mindless entertainment for the rest is gone. You&apos;ve been cut free, and free in this world means dead, because this is a world where you need protection and income and nobody competes with the corps by themselves. The only lead you have now is Jamie &quot;Nano&quot; Rivest, a retired cracker who offered you a job awhile back.
+
+Welcome to the City. We hope you enjoy your stay.
+
+Outside Megablock M-3B
+Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its city block worth of bulk against the sky, blotting out the sun and leaving you in a deep, cold shadow. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a thin sidewalk, interrupted here and there by pipes plunging into the ground. Pedestrians clog the streets around you, rushing to or from work. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north and south east.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+    <children>
+      <child nodeId="node-0x55e200a9e1b0"/>
+    </children>
+  </item>
+  <item nodeId="node-0x55e200a9e1b0">
+    <command xml:space="preserve">x pedestrians</command>
+    <result xml:space="preserve">That noun did not make sense in this context.
+
+&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <played>NO</played>
+    <changed>YES</changed>
+    <temporary score="0">YES</temporary>
+    <annotation xml:space="preserve"></annotation>
+  </item>
+</Skein>
