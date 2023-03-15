@@ -8,19 +8,43 @@ Volume 1 - World Mechanics and Special Rules
 		
 Book 1 - City Sim Rules
 
-Part 1 - The Sky
+Part 1 - The Sky and Skyline
 
 The sky is a backdrop. It is everywhere. The description is "[if time of day > 6:00 AM and time of day < 7:00 AM]The neon colors of dawn, bright red, purple, and yellow, punch through the thick haze of the atmosphere above, painting the city in a pastel glow.[otherwise if time of day > 6:00 PM and time of day < 7:00 PM]The sun sinks, wan and tired, through the clouds of smog, casting a ruddy pastel glow out over the city.[otherwise if time of day < 6:00 PM]The sun filters down through a sky filled so fully with acrid pollutants that it is tinted a dingy green. Here and there, streamers of smoke or steam trail upward to add to the pervasive miasma.[otherwise]The sky is a dark, oppressive blanket of roiling clouds above you, the city's lights reflecting against its underbelly in a queasy kaleidoscope."
 
-A city-region is a kind of region. A city-region can be busy, deserted, or at night. City-regions are usually busy.
+A city-region is a kind of region. A city-region can be busy, deserted, or at night. City-regions are usually busy. A city-region has a table name called atmospherics. The atmospherics of a city-region are usually the Table of Default Atmospherics.
 
 Part 2 - Atmospherics
 
-Every turn while the player is regionally in a busy city-region:
+Table of Mulanosonic Atmospherics
+State					Message
+"busy"					"Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult."
+"busy"					"Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you're not used to it."
+--						"The far away sound of sirens pierces the air with a thin warble."
+--						"Somewhere a few streets away, you hear a shout. You can't quite make out the words."
+"deserted"				"A dirty wind, smelling of the city's sewers and exhaust pipes, gusts by."
+
+Table of Default Atmospherics
+State					Message
+"busy"					"Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult."
+"busy"					"Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you're not used to it."
+--						"The far away sound of sirens pierces the air with a thin warble."
+--						"Somewhere a few streets away, you hear a shout. You can't quite make out the words."
+--				"A woman wearing [one of]strange demonic horns[or]an e-ink tattoo[or]a long canvas trenchcoat pulled tight to hide her face[or]not much more than her underwear[or]a long katana on her back, sheathed in a scabbard with cooling vents[or]a blank visor[at random] [one of]walks[or]strides[or]stalks[or]pushes[or]brushes[at random] past."
+--				"A man wearing [one of]strange demonic horns[or]an e-ink tattoo[or]a long leather trenchcoat pulled tight to hide his face[or]not much more than his underwear[or]a gauss rifle on his back[or]a pair of dark mirrored glasses[at random] [one of]walks[or]strides[or]stalks[or]pushes[or]brushes[at random] past."
+
+Every turn while the player is regionally in a busy city-region (called R):
 	if a random chance of 1 in 2 succeeds:
-		if a random chance of 1 in 3 succeeds, say "Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water that didn't quite make it into the sewer system — or didn't quite stay there — behind them. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you're not used to it.";
-	otherwise:
-		if a random chance of 1 in 2 succeeds, say "Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult."
+		let O be 0;
+		let N be 0;
+		repeat with I running from 1 to the number of rows in the atmospherics table of R:
+			choose row I in the table of atmospherics of R;
+			if the region is busy and the state entry is "busy", or the region is deserted and the state entry is "deserted", or the region is at night and the state entry is "at night", or there is no state entry:
+				if O is 0:
+					now O is I;
+				increase N by 1;
+		let J be a random number from 1 to N;
+		say the message in row J of the atmospherics table of R.
 
 Part 3 - City Life
 
@@ -132,7 +156,6 @@ Book 1 - The Mulanosonic District
 Mulanosonic District is a city-region.
 
 
-
 Megablock Sidewalk is a room. It is in Mulanosonic District. The description is "Megablock M-3B looms to the east like a monument to the concept of urban density and decay, throwing its massive bulk against the sky[if region is not at night], blotting out the sun and leaving you in a deep, cold shadow[otherwise]. Dizzyingly gargantuan advertisements shift in endless motion on the side of the megablock, projected there from the top of the building using lasers[end if]. The air here is moist with the water evaporating from the gutters of the city and acrid with the smoke of passing cars. The megablock tower is encircled by a dirty sidewalk, interrupted here and there by pipes plunging into the ground. To the west is a busy street, and across that, a row of shops. The sidewalk curves around the building to the north east and south east.
 
 [if region is busy]Pedestrians clog the streets around you, rushing to or from work.[otherwise if region is deserted]A few bits of refuse lie about the sidewalk, and pieces of waste gust about on the wind like leaves.[otherwise]Night has fallen, and everything is awash in the bright neon glow of shop fronts, street lights, and billboard ads projected onto the Megablock and its surrounding skyscrapers. Reds, greens, purples, and blues dance on every reflective surface, including the faces and cyberware of the passing crowds. The City's nightlife is out in force, traveling in groups of shouting, laughing people to whatever dive bar, night club, or dollhouse they're planning to visit.[end if]"
@@ -151,6 +174,6 @@ Gibson Cyberware Front is north of Shop Fronts. It is in the Mulanosonic Distric
 
 Every turn while the player is in Gibson Cyberware Front, say "[one of]FEEL GIBSON'S POWER FLOW THROUGH YOUR ELECTRIC VEINS, the woman in the advertisement croons.[or]GIBSON CYBERWARE: FROM THE GRAY MARKETS OF NEO-KYOTO TO YOU, the ad blares.[or]BRINGING CYBERPUNK-CLASS UPWARE TO THE MASSES — DON'T MISS THE EDGE!, the ad declares.[at random]"
 
-The Gibson Cyberware Store is in from the Gibson Cyberware Front. "You pull the "
+The Gibson Cyberware Store is in and west from the Gibson Cyberware Front. "You pull the "
 
 Volume 3 - Characters

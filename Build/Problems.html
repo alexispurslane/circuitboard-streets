@@ -875,9 +875,9 @@
         <tr id="surround0">
             <td style="width:100%">
                 <!--HEADING BEGINS-->
-                <div class="headingpanellayout headingpanelsucceeded">
+                <div class="headingpanellayout headingpanelfailed">
                     <div class="headingtext">
-                        <span class="headingpaneltext">Report on Translation: Succeeded</span></div>
+                        <span class="headingpaneltext">Report on Translation: Failed</span></div>
                     <div class="headingrubric">
                         <span class="headingpanelrubric">Produced by Inform 10.1.2</span></div>
                 </div>
@@ -890,19 +890,55 @@
     <table border="0" cellspacing="4" cellpadding="0" width=100%>
         <tr>
             <td align="left" valign="top" width="110">
-                <img src=inform:/outcome_images/ni_succeeded@2x.png border=1 width=100 height=100>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src=inform:/outcome_images/ni_failed@2x.png border=1 width=100 height=100>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td align="left" valign="top">
                 <!--HEADNOTE-->
                 <p style="margin-top:0;">(Each time <b>Go</b> or <b>Replay</b> is clicked, Inform tries to translate the source text into a working story, and updates this report.)</p>
                 <!--PROBLEMS BEGIN-->
-                <p>  The 2320-word source text has successfully been translated into a world with 3 rooms and 7 things, and the index has been brought up to date.</p>
+                  <p class="hang"><b>Problem.</b>  In the sentence 'repeat with I running from 1 to the number of rows in the atmospherics table of R' &nbsp;<a href="source:story.ni#line40"><img border=0 src=inform:/doc_images/Reveal.png></a>, I was expecting to read a table name, but instead found some text that I couldn't understand - 'atmospherics table of R'.</p>
+
+                  <p class="in2">I was trying to match one of these phrases:</p>
+
+                  <p class="tightin3">1. <a href=inform:/doc245.html><img border=0 src=inform:/doc_images/help.png></a> number of rows in<span class="phraseword">/from</span> (<span class="indexdullred">atmospherics table of r</span> - <span class="phrasetokendesctext">table name</span>) <img border=0 src=inform:/doc_images/cross.png></p>
+
+                  <p class="tightin3">2. <a href=inform:/doc80.html><img border=0 src=inform:/doc_images/help.png></a> number of (<span class="indexdullred">rows in the atmospherics table of r</span> - <span class="phrasetokendesctext">description of values</span>) <img border=0 src=inform:/doc_images/cross.png></p>
+
+                  <p class="in2">But I didn't recognise '<span class="problemred">atmospherics table of r</span>' or '<span class="problemred">rows in the atmospherics table of r</span>'.</p>
+
+                  <hr>
+                <p class="hang"><b>Problem.</b>  In the sentence 'choose row I in the table of atmospherics of R' &nbsp;<a href="source:story.ni#line41"><img border=0 src=inform:/doc_images/Reveal.png></a>, I was expecting to read a number, but instead found some text that I couldn't understand - 'I'.</p>
+
+                  <p class="in2">I was trying to match this phrase:</p>
+
+                  <p class="tightin3"> <a href=inform:/doc248.html><img border=0 src=inform:/doc_images/help.png></a> choose a<span class="phraseword">/the/--</span> row (<span class="indexdullred">i</span> - <span class="phrasetokendesctext">number</span>) in<span class="phraseword">/from</span> (<span class="indexdullred">table of atmospherics of r</span> - <span class="phrasetokendesctext">table name</span>) <img border=0 src=inform:/doc_images/cross.png></p>
+
+                  <p class="in2">But I didn't recognise '<span class="problemred">i</span>' or '<span class="problemred">table of atmospherics of r</span>'.</p>
+
+                  <hr>
+                <p class="hang"><b>Problem.</b>  In the sentence 'if the region is busy and the state entry is &quot;busy&quot;, or the region is deserted and the state entry is &quot;deserted&quot;, or the region is at night and the state entry is &quot;at night&quot;, or there is no state entry' &nbsp;<a href="source:story.ni#line42"><img border=0 src=inform:/doc_images/Reveal.png></a>, I was expecting that 'region is busy and the state entry is &quot;busy&quot;, or the region is deserted and the state entry is &quot;deserted&quot;, or the region is at night and the state entry is &quot;at night&quot;, or there is no state entry' would be a condition. It didn't make sense as one long phrase, but because it was divided up by 'and'/'or', I tried breaking it down into smaller conditions, but that didn't work either. 'region is busy' was okay; 'the state entry is &quot;busy&quot;' was okay; 'the region is deserted' did not make sense; 'the state entry is &quot;deserted&quot;' was okay; 'the region is at night' did not make sense; 'the state entry is &quot;at night&quot;' was okay; 'there is no state entry' was okay; so I ran out of ideas.</p>
+
+                  <p class="in2">I was trying to match one of these phrases:</p>
+
+                  <p class="tightin3">1. <a href=inform:/doc162.html><img border=0 src=inform:/doc_images/help.png></a> if (<span class="indexdullred">region is busy and the state entry is "busy" , or the region is deserted and the state entry is "deserted" , or the region is at night and the state entry is "at night" , or there is no state entry</span> - <span class="phrasetokentext">a condition</span>): <img border=0 src=inform:/doc_images/cross.png></p>
+
+                  <p class="tightin3">2. <a href=inform:/doc143.html><img border=0 src=inform:/doc_images/help.png></a> (<span class="indexdullred">if the region is busy and the state entry is "busy" , or the region is deserted and the state entry is "deserted" , or the region is</span> - <span class="phrasetokendesctext">rule</span>) at (<span class="indexdullred">night and the state entry is "at night" , or there is no state entry</span> - <span class="phrasetokendesctext">time</span>) <img border=0 src=inform:/doc_images/cross.png></p>
+
+                  <p class="in2">But I didn't recognise '<span class="problemred">region is busy and the state entry is "busy" , or the region is deserted and the state entry is "deserted" , or the region is at night and the state entry is "at night" , or there is no state entry</span>', '<span class="problemred">if the region is busy and the state entry is "busy" , or the region is deserted and the state entry is "deserted" , or the region is</span>' or '<span class="problemred">night and the state entry is "at night" , or there is no state entry</span>'.</p>
+
+                  <hr>
+                <p class="hang"><b>Problem.</b>  In the sentence 'now O is I' &nbsp;<a href="source:story.ni#line44"><img border=0 src=inform:/doc_images/Reveal.png></a>, I was expecting to read a condition, but instead found some text that I couldn't understand - 'O is I'.</p>
+
+                  <hr>
+                <p class="hang"><b>Problem.</b>  In the sentence 'say the message in row J of the atmospherics table of R' &nbsp;<a href="source:story.ni#line47"><img border=0 src=inform:/doc_images/Reveal.png></a>, I was expecting to read a table name, but instead found some text that I couldn't understand - 'row J of the atmospherics table of R'.</p>
+
                 <!--PROBLEMS END-->
 
             </td>
         </tr>
     </table>
     <!--FOOTNOTE-->
+      <p class="in2">Problems occurring in translation prevented the game from being properly created. (Correct the source text to remove these problems and click on Go once again.)</p>
 
     <!--CONTENT ENDS-->
 </body>
