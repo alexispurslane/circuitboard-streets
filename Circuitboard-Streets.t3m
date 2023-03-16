@@ -1,0 +1,7 @@
+-D LANGUAGE=english
+-D MESSAGESTYLE=neu
+-Fy obj -Fo obj
+-o Circuitboard-Streets.t3
+-lib system
+-lib ../../Extensions/adv3Lite/adv3Lite
+-source start
