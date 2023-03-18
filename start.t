@@ -3,6 +3,8 @@
 #include "advlite.h"
 #include "extensions/relations.t"
 #include "extensions/roomparts.t"
+#include "extensions/objtime.t"
+#include "extensions/eventListItem.t"
 #include "player.t"
 #include "city.t"
 
@@ -17,6 +19,14 @@ versionInfo: GameID
 
 gameMain: GameMainDef
     initialPlayerChar = me
+    gameStartTime = static new Date(2067, 22, 15, 12, 23, 0, 0)
+;
+
+modify statusLine
+    showStatusRight()
+    {
+        "<<timeManager.formatDate('%R')>>";
+    }
 ;
 
 InitObject
