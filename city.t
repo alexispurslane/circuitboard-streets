@@ -29,22 +29,24 @@ city: Region, RandomEventList
         if (traveler == gPlayerChar &&
             related(gPlayerChar.location, 'across the street from', connector) &&
             self.timeOfDayState == busy_state)
-            "You glance up and down the street quickly, then make your dash through traffic.";
+            "<<one of>>You glance up and down the street, then make your dash through traffic.<<or>>You wait patiently for a gap in the cars streaming by, and when one finally arrives, you rush across the street.<<or>>Just before you take a step into the street, a car you didn't previously notice whizzes by, splashing you with toxic sewer water. Once it's gone, you continue your journey across the street<<as decreasingly likely outcomes>>";
     }
 
     regionDaemon()
     {
         inherited();
 
-        /*local time = timeManager.currentTime.getClockTime()[0];
+        local time = timeManager.currentTime.getClockTime()[1];
         if (6 < time && time < 8)
             self.timeOfDayState = busy_state;
         else if (8 <= time && time <= 18)
             self.timeOfDayState = deserted_state;
         else if (18 < time && time <= 20)
             self.timeOfDayState = busy_state;
-        else if (time > 20 || time <= 24)
-        self.timeOfDayState = night_state;*/
+        else if (time > 20 || time <= 23)
+            self.timeOfDayState = nightlife_state;
+        else
+            self.timeOfDayState = night_state;
     }
 ;
 
@@ -53,7 +55,22 @@ city: Region, RandomEventList
 + ELI ~(city.timeOfDayState == busy_state) "Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you\'re not used to it.";
 
 modify defaultSky
-    desc = "<<if city.skyMode == dawn_state>>The neon colors of dawn, bright red, purple, and yellow, punch through the thick haze of the atmosphere above, painting the city in a pastel glow.<<else if city.skyMode == dusk_state>>The sun sinks, wan and tired, through the clouds of smog, casting a ruddy pastel glow out over the city.<<else if city.skyMode == day_state>>The sun filters down through a sky filled so fully with acrid pollutants that it is tinted a dingy green. Here and there, streamers of smoke or steam trail upward to add to the pervasive miasma.<<else>>The sky is a dark, oppressive blanket of roiling clouds above you, the city's lights reflecting against its underbelly in a queasy kaleidoscope.<<end>>"
+    desc()
+    {
+        switch (city.timeOfDayState)
+        {
+            case busy_state:
+            case deserted_state:
+            "The sun filters through the dense black pall of clouds which churn above the city with a febrile gray-green glow which seems to infect the streets and towers around you.";
+            break;
+            case nightlife_state:
+            "The neon glow of the city's splendour, only fully revealed after night falls, projects a bright kaleidoscope of contrasting colors, from bright yellow to electric blue, across the unbroken cloud cover, reinforcing a sense of clausterphobia even as it dazzles you.";
+            break;
+            case night_state:
+            "The clouds blot out the sky above you light a midnight black funeral shroud draped suffocatingly from the tops of the city's towers.";
+            break;
+        }
+    }
 ;
 
 modify OutdoorRoom

@@ -4,7 +4,7 @@ Byline: by Alexis Purslane
 AuthorEmail: Alexis Purslane <alexispurslane@pm.me>
 Desc: An interactive cyberpunk novel.
 Version: 0.1
-ReleaseDate: 2023-03-18
+ReleaseDate: 2023-03-20
 LicenseType: Freeware
 CopyingRules: Nominal cost only; compilations allowed
 PresentationProfile: Default
