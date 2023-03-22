@@ -1,5 +1,12 @@
 acrossStreetFrom: Relation 'across the street from' 'across the street from' @oneToOne +true ;
 
+InitObject
+    execute()
+    {
+        relate(shoppingDistrict, 'across the street from', megablockExterior);
+    }
+;
+
 // city day cycle states
 enum busy_state, deserted_state, nightlife_state, night_state;
 
@@ -8,16 +15,14 @@ enum dawn_state, dusk_state, day_state, night_state;
 
 city: Region, RandomEventList
     eventList = [
+        {: "A <<one of>>person<<or>>man<<or>>woman<<purely at random>> wearing <<one of>>strange demonic horns<<or>>an ornate outfit of ridged leather and metal spines, tailored to their form<<or>>an e-ink tattoo<<or>>a long, dark-colored trenchcoat pulled tight to hide their face<<or>>not much more than their underwear<<or>>a long katana on their back, sheathed in a scabbard with cooling vents that glow a soft blue<<or>>a visor that glows a bright neon red<<or>>a gauss rifle across their back<<or>>a pair of dark mirrored glasses<<shuffled>> <<one of>>walks<<or>>strides<<or>>stalks<<or>>pushes<<or>>brushes<<at random>> past." },
+        'The wind howls desolately through the artificial canyons between the surrounding towers.',
         'The far away sound of sirens pierces the air with a thin warble.',
         'Somewhere a few streets away, you hear a shout. You can\'t quite make out the words.',
-        'A dirty wind, smelling of the city\'s sewers and exhaust pipes, gusts by.',
-        'The far away sound of sirens pierces the air with a thin warble.',
-        'Somewhere a few streets away, you hear a shout. You can\'t quite make out the words.',
-        'A woman wearing <<one of>>strange demonic horns<<or>>an e-ink tattoo<<or>>a long canvas trenchcoat pulled tight to hide her face<<or>>not much more than her underwear<<or>>a long katana on her back, sheathed in a scabbard with cooling vents<<or>>a blank visor<<shuffled>> <<one of>>walks<<or>>strides<<or>>stalks<<or>>pushes<<or>>brushes<<at random>> past.',
-        'A man wearing <<one of>>strange demonic horns<<or>>an e-ink tattoo<<or>>a long leather trenchcoat pulled tight to hide his face<<or>>not much more than his underwear<<or>>a gauss rifle on his back<<or>>a pair of dark mirrored glasses<<shuffled>> <<one of>>walks<<or>>strides<<or>>stalks<<or>>pushes<<or>>brushes<<at random>> past.'
+        'A gust of wind blows a sheet of acidic drizzle into your face, smelling of the city\'s sewers and exhaust pipes.'
     ]
 
-    eventPercent = 30
+    eventPercent = (self.timeOfDayState == busy_state || self.timeOfDayState == nightlife_state ? 40 : 30)
     eventReduceTo = 20
     eventReduceAfter = 10
 
@@ -85,4 +90,8 @@ modify OutdoorRoom
             return self.traversalTime;
         }
     }
+;
+
+citySidewalk: MultiLoc, Floor 'sidewalk; cracked dirty gray grey; pavement ground floor'
+    "The sidewalk might once have been white, but has long since been dyed gray-black by layers of ash, soot, dirt, and other kinds of grime, forming an unspeakable patina that glistens wetly in the eternal acidic drizzle. The sidewalk is cracked and uneven where huge pipes from nearby buildings plunge down from their sides and into the city's sewer system, heedless of what was there before."
 ;
