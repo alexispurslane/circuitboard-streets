@@ -52,3 +52,27 @@ VerbRule(FullDesc) 'toggle' ('fulldesc'|'fulldescs'|'full' ('room'|'location') (
 VerbRule(FullLook) 'full' 'look'|'fl'|'ll' : VerbProduction
     action = FullLook
 ;
+
+DefineTAction(KnockOn) ;
+
+modify Thing
+    knockOnMsg = "{I} knock on {the dobj}, but nothing happens."
+    dobjFor(KnockOn)
+    {
+        preCond = [touchObj]
+        verify()
+        {
+            // passes
+        }
+        action()
+        {
+            knockOnMsg;
+        }
+    }
+;
+
+VerbRule(KnockOn) 'knock' 'on' singleDobj : VerbProduction
+    action = KnockOn
+    verbPhrase = 'knock/knocking on (what)'
+    missingQ = 'what do you want to knock on'
+;

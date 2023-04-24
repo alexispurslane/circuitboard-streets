@@ -1,10 +1,28 @@
 me: Thing 'you'
-    "You glance down at yourself. You're a tall woman, muscular from a lifetime of habits formed when you were a kid working manual labor. You're wearing relatively simple clothes for the City, but still styled to keep up with the times: a pair of thick, heavy duty pants made of a material that looks like leather but breathes far better, an old faded yellow shirt, steel toed boots, and a micro-shell jacket with gold circuitry patterns thrown over top of everything against the cold. <<if playerMask.isWornBy(me)>>You are also wearing your active filtration mask.<<end>>"
+    "You glance down at yourself. You're a tall woman, muscular from a lifetime of habits formed when you were a kid working manual labor. A piece of solid industrial iron serves as your right arm, while <<if !me.isWearingLeftArm>>your left arm is missing, leaving the left arm of your jacket hanging limp and empty at your side. The absence tugs at you like a physical weight.<<else>>on your left, you are wearing <<me.arm.onPlayerDesc>><<end>> As for what you're wearing, it's relatively simple shit for the City: a pair of thick black leather pants, an old faded yellow shirt, steel toed boots, and a micro-shell jacket thrown over top of everything against the cold. <<if playerMask.isWornBy(me)>>You are also wearing your active filtration mask.<<end>>"
 
     isFixed = true
     person = 2
     contType = Carrier
     location = megablockExterior
+    isWearingLeftArm = nil
+;
+
++ playerArm: Wearable 'cybernetic right arm; industrial cyberware heavy-duty solid gray steel; (arm)'
+    "This arm is a heavy-duty industrial-grade hunk of upware. You bought it refurbished from an aftermarket seller for about a fifth of its price brand new, and from what you can tell, you underpaid by a lot. This is a reasonably old model, and would be comically bulky on most other people, but thanks to your own height and build it fits you just fine. The armor that covers everything but the joints is an extremely durable gray polycarbonate that isn't used for consumer cyberware anymore due to a lack of mass-market appeal, thanks to how prone it is to scratching. The joints themselves are made of stainless steel, which you have to oil manually every once in awhile. You're proud of this arm. It's probably the one high-quality thing you own, your most prized possession."
+
+    dobjFor(Doff)
+    {
+        check()
+        {
+            if (!gPlayerChar.isWearingLeftArm)
+            {
+                "How do you figure to manage taking off your only arm? With your teeth?";
+            }
+        }
+    }
+
+    wornBy = me
 ;
 
 + playerMask: Wearable 'mask; filter active electronic gas toxin; gasmask'
@@ -53,6 +71,6 @@ modify OutdoorRoom
 ;
 
 + playerJacket: Wearable 'jacket; micro-shell shell gold circuit; coat'
-    "This jacket is made of a thin material that feels rough to the touch. It is near impenetrable by either cold or heat &emdash; and also bullets according to the ad-copy, which you don't believe for a second and have no intention of trying out &emdash; and yet somehow reasonably cool. A thin, almost tasteful circuitry pattern is embroidered around the coller and down the shoulders in gold thread. It's a recent purchase on your part, like your boots, an attempt to fit into the City's neo-punk style better, and you have no regrets."
+    "This jacket is made of a thick, shiny material that's supposed to be near impenetrable by temperature or bullets &emdash; according to the ad-copy, anyway. You have no intention of actually testing that last part out. Embossed black filigree plays down the shoulders and breasts of the jacket, the pattern seeming to writhe every-so-slightly as you stare at it, matte against the glossy surfaces. It's a recent purchase on your part, like your boots, an attempt to fit into the City's neo-punk style better, and you have no regrets."
     wornBy = me
 ;
