@@ -4,4 +4,6 @@
 -o Circuitboard-Streets.t3
 -lib system
 -lib ../../Extensions/adv3Lite/adv3Lite
+-source ../../Extensions/qtalk/qtalk
+-source ../../Extensions/qtalk/qtalkverbs
 -source start

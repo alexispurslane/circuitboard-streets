@@ -1,6 +1,6 @@
 #charset "us-ascii"
 #include <tads.h>
-#include "advlite.h"
+#include <advlite.h>
 #include "extensions/relations.t"
 #include "extensions/roomparts.t"
 #include "extensions/objtime.t"
@@ -26,7 +26,7 @@ gameMain: GameMainDef
 	gameStartTime = static new Date(2067, 22, 15, 12, 23, 0, 0)
 	
 	showIntro()
-		{
+    {
 		"They took your arm. It was in the contract &emdash; fuck, you should've seen it coming. But somehow you hadn't thought it would ever come to this.\b";
 		
 		"To get the warehouse job, you'd needed both arms agumented to keep up with the loading mechs. But you'd only been in the city for a couple of years, only managed to get your right arm and spine upgraded. Shit's expensive. So they made you a deal: they pay for the new iron, and you work the job at reduced wages to pay them off. If you left early, well, you didn't pay 'em back for the arm, so they'd take it as compensation.\b";
@@ -48,13 +48,12 @@ gameMain: GameMainDef
 		"<b>CIRCUITBOARD STREETS</b>\nAn interactive cyberpunk novel by Alexis Purslane\b";
 		
 		"Now you're standing outside your apartment tower, trying to put the pieces of your life back together in your head. But they just aren't fitting. With something like this on your record, and a whole captive city to hire from, why would anyone hire you now? Your life is, for all intents and purposes, over.\b";
-		gSetKnown(tFiring);
 	}
 ;
 
 modify statusLine
 	showStatusRight()
-		{
+    {
 		"<<timeManager.formatDate('%R')>>";
 	}
 ;
@@ -69,13 +68,12 @@ chapter2: Scene
 	endsWhen = (gPlayerChar.isDirectlyIn(apartment))
 	
 	whenStarting()
-		{
+	{
 		" You lean your forehead against your door, too shocked to process what's happening but already filled with dread.\b";
 		"<b>Chirp</b>. An AR ping from the megablock's automated landlord pops into your field of vision. <i>Shit.</i> You know what this is now. Numbly, you mentally direct it to open. Sure enough.\b";
 		"'We regret to inform you,' it says in an empty female voice, 'that due to your recent theft and firing, your CI score has gone below acceptable levels. As per company policy, we have therefore canceled your lease. Your apartment will be reallocated, and all assets that are on company property are forfeit as of this moment.'\b";
 		"You want to scream. You want to shout and rail at the injustice of it, you want to slam your remaining fist into the door till it breaks &emdash; the door or your hand, it doesn't matter. By now you should be used to this fucking system. To the way the City works. Somehow you aren't. Somehow it still stings. Is that good? Does that mean you're not broken yet?\b";
 		"You stand still for a minute, eyes staring off into nothing, processing. Then something inside you snaps. There's nothing left to lose at this point. Your legal life is already over. And you're not going to let them take your last few possessions.";
-		gSetKnown(tEviction);
 	}
 ;
 
