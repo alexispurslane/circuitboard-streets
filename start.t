@@ -60,7 +60,7 @@ modify statusLine
 
 chapter1: Scene
 	startsWhen = true
-	endsWhen = (gPlayerChar.isDirectlyIn(apartment))
+	endsWhen = (gPlayerChar.isDirectlyIn(megablockFloor1))
 ;
 
 chapter2: Scene
@@ -75,6 +75,11 @@ chapter2: Scene
 		"You want to scream. You want to shout and rail at the injustice of it, you want to slam your remaining fist into the door till it breaks &emdash; the door or your hand, it doesn't matter. By now you should be used to this fucking system. To the way the City works. Somehow you aren't. Somehow it still stings. Is that good? Does that mean you're not broken yet?\b";
 		"You stand still for a minute, eyes staring off into nothing, processing. Then something inside you snaps. There's nothing left to lose at this point. Your legal life is already over. And you're not going to let them take your last few possessions.";
 	}
+
+    whenEnding()
+    {
+        "You look around with a mixture of relief and bitterness. This place has been your home for two years, and you just had to break in. Well, now it's time to grab anything useful and get the fuck out before anyone realizes what you've done. "
+    }
 ;
 
 megablockExterior: OutdoorRoom 'Outside Megablock M-3B'

@@ -25,7 +25,7 @@ me: Thing 'you'
     wornBy = me
 ;
 
-+ playerMask: Wearable 'mask; filter active electronic gas toxin; gasmask'
++ playerMask: Wearable 'mask; filter filtration active electronic gas toxin; gasmask'
     "<<if isWornBy(gPlayerChar)>>You can't see your mask while you're wearing it.<<else>>Your mask is made of a black lightweight plastic polymer: durable, high-quality to the touch, and cheap to produce, with aesthetically champfered edges and decorative lines snaking at right angles through its surface. Active filters glow a soft green on the right and left sides, their fans making a thin whirring sound, pulling air into the multilayered filtration system before it's passed to the inside of the mask for you to breathe. The inside edges of the mask, where the plastic would touch your face, are lined with a soft rubber that, when placed against your face, forms an airtight seal. The mask's elastic strap hangs down from the sides. <<first time>>You have little to no memory of a time when wearing an active filter outside wasn't necessary, since the air became toxic when you were very young. You, like everyone else, had to pick up the habit of them outdoors real quick after the first person died, their lungs eaten away into a useless mess of tissue in their chest.<<only>><<end>>"
 
     dobjFor(Doff)

@@ -160,10 +160,12 @@ megablockFloor1a: Room, StopEventList 'M-3B Floor 1 (East Corner)'
 
 
 + vent: Fixture 'vent; air; duct'
-    "<<first time>>The vent provides air conditioning intake for the houses around you, drawing from the air in the atrium, which in turn comes through the forcefield filter at the entryway. Thus, clean air is provided with only one filter necessary. The ultimate in utilitarian efficiency.<<only>> This vent has a metal grate screwed into the concrete in front of it. It's almost completely corroded with rust and covered in years worth of grit, so that the bolts at each corner of the frame are basically flush with the frame itself."
+    "<<first time>>The vent provides air conditioning intake for the houses around you, drawing from the air in the atrium, which in turn comes through the forcefield filter at the entryway. Thus, clean air is provided with only one filter necessary. The ultimate in utilitarian efficiency.<<only>> This vent has a metal grate screwed into the concrete in front of it. Although the steel underneath reamins as strong as ever, the grate's surface is almost completely corroded with rust. Even the bolts at each corner of the frame have been worn down to basically flush with the frame itself."
     initSpecialDesc = "You see an exposed vent here, high up in the corner just below the floor of the walkway above."
 
     dobjFor(Open) { remap = grate; }
+    dobjFor(Unscrew) { remap = grate; }
+    dobjFor(UnscrewWith) { remap = grate; }
 
     cannotEnterMsg = 'You pull as hard as you can, but with only your right arm you can\'t get enough leverage to pull the grating\'s bolts out of the wall and get inside without needing to unscrew the bolts first, even with your industrial cyberware.';
 ;
@@ -209,30 +211,45 @@ megablockFloor1b: Room, StopEventList 'M-3B Floor 1 (West Corner)'
     "Unlike the other side of the walkway, there is no trashcan here."
 ;
 
-+ vent2: Enterable 'vent; air; duct'
++ vent2: TravelConnector, Thing 'vent; air; duct'
     "<<if grate2.isDirectlyIn(self)>>This vent is barred off with a metal grill screwed into the surrounding concrete. The grill gives off a metallic gleam incongruous with its surroundings, as if it has been replaced recently. In each corner of the frame, a small stainless steel bolt is screwed solidly into place.<<else>>The vent, now bereft of its grill, is just an empty hole in the wall, lined on its inside with aluminum. It looks just about wide enough to climb into.<<end>>"
 
     initSpecialDesc = "You see an exposed vent here, high up in the corner just below the floor of the walkway above."
+
     destination = airDuct
 
-    dobjFor(Open)
-    {
-        remap = grate2;
-    }
+    dobjFor(Open) { remap = grate2; }
+    dobjFor(Unscrew) { remap = grate2; }
+    dobjFor(UnscrewWith) { remap = grate2; }
 
+    isEnterable = true
     dobjFor(Enter)
     {
+        verify()
+        {
+            // passes
+        }
         check()
         {
-            if (!bolts2.unscrewed)
-                "You pull as hard as you can, but with only your right arm you can't get enough leverage to pull the grating's bolts out of the wall and get inside, even with your industrial cyberware. ";
+            // passes
         }
         action()
         {
-            "Grasping one inside edge of the ventilation shaft with your remaining hand, you pull yourself up, relying on the heavy-duty motors of your right arm to be able to life your weight. They whine worryingly, and you hear some concerning clicks and pops, as if gears are grinding together inside it somewhere, but eventually it's able to drag your weight up and into the vent. ";
-            inherited();
+            doInstead(TravelVia, vent2);
         }
     }
+
+    canTravelerPass(actor)
+    {
+        return bolts2.unscrewed;
+    }
+
+    explainTravelBarrier(actor)
+    {
+        "The grate bars off your access to the vent. You pull on the grate as hard as you can, but with only your right arm you can't get enough leverage to pull the grating's bolts out of the wall and get inside, even with your industrial cyberware. ";
+    }
+
+    travelDesc = "<<one of>>Grasping one inside edge of the ventilation shaft with your remaining hand, you pull yourself up, relying on the heavy-duty motors of your right arm to be able to life your weight. They whine worryingly, and you hear some concerning clicks and pops, as if gears are grinding together inside it somewhere, but eventually it's able to drag your weight up and into the vent.<<or>>You pull yourself into the vent with your cybernetic arm.<<stopping>> "
 ;
 
 ++ grate2: Component 'grate; metal stainless steel; grating'
@@ -403,7 +420,8 @@ airDuct: AirDuct
 
     afterTravel(traveler, connector)
     {
-        "As you pull yourself further into the vent, a screw snags on your pants and then rips through, slicing into your knee. Fucking hell.";
+        if (!overalls.isWornBy(gPlayerChar))
+            "As you pull yourself further into the vent, a screw snags on your pants and then rips through, slicing into your knee. Fucking hell.";
     }
 
     north: TravelConnector
@@ -439,30 +457,50 @@ airDuctSouth: AirDuct
     west = airDuct
 ;
 
-+ apartmentVent: Enterable 'vent; apartment home; passage'
++ apartmentVent: TravelConnector, Thing 'vent; apartment home; passage'
+    "Peering down past the fan and grating, you can see the floor of your apartment, messy as ever."
     initSpecialDesc = "Once specific vent catches your eye: the one that corresponds to your apartment."
-    destination = apartment
-    canGoThroughMe = true
 
-    dobjFor(Open)
+    destination = apartment
+
+    dobjFor(Open) { remap = apartmentGrate; }
+    dobjFor(Unscrew) { remap = apartmentGrate; }
+    dobjFor(UnscrewWith) { remap = apartmentGrate; }
+
+    canTravelerPass(actor)
     {
-        remap = apartmentGrate;
+        return apartmentBolts.unscrewed;
     }
 
+    explainTravelBarrier(actor)
+    {
+        "You pull as hard as you can, but with only your right arm you can't get enough leverage to pull the grating's bolts out of the wall and get inside, even with your industrial cyberware. ";
+    }
+
+    isEnterable = true
     dobjFor(Enter)
     {
+        verify()
+        {
+            // passes
+        }
         check()
         {
-            if (!apartmentBolts.unscrewed)
-                "You pull as hard as you can, but with only your right arm you can't get enough leverage to pull the grating's bolts out of the wall and get inside, even with your industrial cyberware. ";
+            // passes
         }
         action()
         {
-            "You jump down through the vent and into your apartment with something between trepidation and relief, landing in a crouch on the floor with a clump. For a second after landing you totter, your balance thrown by the missing weight of your left arm, then you are able to get a proper footing and stand up.";
-            inherited();
-            apartmentDoorInside.isLocked = nil;
-            apartmentDoorOutside.isLocked = nil;
+            doInstead(TravelVia, apartmentVent);
         }
+    }
+
+    travelDesc = "You jump down through the vent and into your apartment, landing in a crouch on the floor with a clump. For a second after landing you totter, your balance thrown by the missing weight of your left arm, then you are able to get a proper footing and stand up. "
+
+    execTravel(actor, traveler, conn)
+    {
+        inherited();
+        apartmentDoorInside.isLocked = nil;
+        apartmentDoorOutside.isLocked = nil;
     }
 ;
 
@@ -701,7 +739,7 @@ apartment: Room, RandomEventList 'Apartment 104'
     "The oven is a tiny affair, an unholy melding of electric cooktop and microwave oven designed to offer as much utility as possible without actually allowing you to cook anything particularly impressive. Not that you would anyway."
 ;
 
-+ tv: Switch, Fixture 'advertisements; ads ad cylinder of; television advertisement'
++ tv: Switch, Fixture 'advertisements; ads ad cylinder of; television advertisement mobile'
     "A short nested cylinder of advertisements spins eternally above you, displaying the wares and wiles of an ever-changing array of corporate sponsors. Crooning their slogans, murmuring your desires. <<one of>>You see an advertisement for Cambell-Magomedova Corporation's line of all-in-one nutrient pills, which claim to provide the nourishment of three square meals a day at a fraction of the cost, spin by.<<or>>A news report about violence breaking out somewhere in the Chicano district of the City flashes past, the blank white faces of the newscasters posed in an imitation of concern as they discuss what genetic reasons there might be for such an occurrence.<<or>>Another advertisement for a virtual assistant and companion, this one of <<one of>>Chang Microtechnology<<or>>EpsilonGroup<<or>>H&Y Conglomerate<<at random>> make, rotates past with a seductive sigh.<<purely at random>>"
     specialDesc = "Occupying the center of the roof is a spinning mobile of small advertisements."
 
