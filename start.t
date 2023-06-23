@@ -5,11 +5,16 @@
 #include "extensions/roomparts.t"
 #include "extensions/objtime.t"
 #include "extensions/eventListItem.t"
+
+Quip template "desc"? "reply"?;
+
 #include "player.t"
 #include "city.t"
 #include "verbs.t"
 #include "megablock1.t"
 #include "apartment.t"
+#include "graymarket.t"
+#include "coffin.t"
 #include "john.t"
 #include "actors.t"
 #include "tests.t"
@@ -203,28 +208,6 @@ megablockExterior: OutdoorRoom 'Outside Megablock M-3B'
 	plural = true
 ;
 
-grayMarket: OutdoorRoom 'Mandible Block (entrance)'
-    "An empty stretch of packed gray dirt, always slightly muddy from the perpetual drizzle, is bifurcated by a rusty, leaning chain-link fence here. On the west side of the fence, the packed dirt verges up against the City's central street, which runs north and south, across which is Megablock M-3B. On the east side, through a hole cut in the fence with a plasma torch, the packed dirt opens up on a gigantic lot, easily the size of several normal city blocks, on which lies the shattered bones of Megablock M-3C and, nestled within them like maggots infesting some paleolithic monster's shattered skull, the tents of the gray market."
-
-    conciseDesc = "West is the the central city road, across which stands the megablock, towering imposingly like a blinded lighthouse. East, through a hole in a chain-link fence, is the central track that leads through the gray market."
-
-    west = megablockExterior
-
-    regions = [city]
-;
-
-+ fence: Decoration 'chain link fence; chain-link chain cut high rusted rusty leaning bent'
-    "It's a high chain link fence, perhaps eight feet tall, lined with barbed wire at the top. Rust crusts over it here and there. A hole large enough to step through has been cut into it with a plasma touch, and a beaten track leads through that hole and into the gray market."
-;
-
-+ grayMarketTents: Distant 'gray market; black; tents tent maggots'
-    "Tents of all sizes line the ruins to either side of the small track that snakes out from the hole in the fence, from small single-occupant tents with their sides opened to form a sort of stall defended from the drizzle, to huge house-sized affairs. Everything is lighted in a multitude of colors, a warm glow which does brave battle against the perpetual night's terrors. People bustle about inside and around the various tents, laughing, cheering, shouting, haggling, getting into fights, and generally milling about. For all its foreboding setting, this place feels startlingly <i>human</i>."
-;
-
-+ ruins: Distant 'megablock m-3c ruins; gigantic shattered hills bent iron decaying construction jutting failed; rubble equipment lot block bones bone remains rodds walls hopes dreams'
-    "Hills of rubble, bent iron rods, and decaying construction equipment, giving way here and there to jutting walls, are all that remains of Better Housing Corp's hopes and dreams. This failed follow-up to the first two megablocks was what ultimately led to their bankrupcy, and the auction that landed Megablock M-3B in the hands of a Smile Corp subsidiary."
-;
-
 street2: OutdoorRoom 'Central City Street (mid)'
     "The six-lane central street of the City, black tarmac shiny in the rain, runs north, past Megablock M-3B towards the business district of the City, and south, toward Warehouse Slum and the coffin hotel, here. The eyeless, staring skulls of gutted office buildings crowd the street like beggars to the east and west, a long-lost legacy of forgotten prosperity carved into brutalist monuments of drab concrete. Despite the width of the road, the narrowness of sidewalks and the crowding of the street by these buildings creates a clausterphobic sensation, as if at any moment these broken-down buildings will collapse in on you.\bA cramped alleyway slinks off to the east, between an office building and the chain link fence of Mandible Block."
 
@@ -271,69 +254,4 @@ street3: OutdoorRoom 'Central City Street (south)'
 
 + apartments: Distant 'apartments; decrepit; buildings'
     "The apartment buildings are packed tightly on either side of the street, rising tens of stories up into the sky, seeming to weigh on you. They are festooned with rotting clothes on clotheslines, forgotten or abandoned decorations, ad-hoc repairs in cardboard or corrugated metal, and crumbling balconies, some holding dying gardens. The buildings are crumbling slowly, and little attempt has been made to repair them. No one here has the time, or money."
-;
-
-coffinHotel: OutdoorRoom 'The Coffin Hotel'
-    "The tunnel opens out onto a strange open square surrounded by apartments. 'WELCOME TO THE COFFIN HOTEL,' proclaims a gigantic holographic sign spinning high above you to the west. Next to it, a cartoonish animation of a zombie emerging from a coffin floats in neon green and red. <<first time>><i>Maybe not the best marketing,</i> you think wryly.<<only>> Below this sign, a ribcage of metal tubes and support beams holding rows and rows of coffin boxes crouches like a gigantic fourty-legged spider against the clogged sky. This must be the Coffin Hotel itself, then. Around and behind the Coffin Hotel, hills of garbage pile up in every direction, pushing up in drifts like disgusting snow against the apartment buildings that surround this impromptu dump."
-    conciseDesc = "Drifts and hills of garbage surround the metallic spider of the coffin hotel to the west. To the east, a tunnel through an apartment building leads back out."
-    east = street3
-    west {
-        if (coffinOwner.allowCoffin)
-        {
-            "{The subj coffin-owner} guides you onto the industrial lift's platform and pulls herself into the driver's seat. A second later, she's lifted you up to your coffin. Its gently curved white lid, slick with the drizzle so that it truly does look like a larval egg of some kind, hisses on hydraulics as it lifts up and out away from you, allowing you to climb inside.";
-                gPlayerChar.travelVia(coffinRoom, nil);
-        }
-        else
-        {
-            "The {the subj coffin owner} behind the booth stares you down with cold, lizardlike regard. <i>Don't go there,</i> they seem to say.";
-            coffinOwner.setState(coffinOwnerAlert);
-        }
-    }
-;
-
-+ spider: Distant 'coffin hotel; metal; framework larvae larava maggot maggots spider ribcage ribs'
-    "The strange, spindly, clutching structure is composed mostly of metal tubing, probably stolen construction scaffolding from Megablock M-3C up the road, but who knows. It's not like anyone here cares. The spider clutches two rows of twenty stacks of four vaguely-translucent white plastic boxes each, all held about four feet apart on every side, like carefully cradled eggs waiting to hatch. Between the two rows is a double-spine of reinforced steel beams wide enough apart to permit a rusty industrial lift on tanklike treds to move up and down the isles and lift customers up to their desired coffin."
-;
-
-+ coffins: Distant 'coffins; white translucent plastic; rooms'
-    "It's hard to tell much about the coffins, besides that they are nine feet long, five feet deep, and five feet wide, and about half of them are occupied, judging by which ones have lights shining vaguely through their walls."
-;
-
-+ booth: Decoration 'booth; corrugated metal aluminum; table'
-    "The booth is nothing special &emdash; it doesn't even bear a name. Just pitted and rusted corrugated silver aluminum, rivited and haphazardly soldered into the rough shape of a rectangular table with an awning."
-    specialDesc = "Closer to you, at the end of the spider's spine, where the head should be, there is a small booth of corrugated metal."
-;
-
-coffinRoom: Room 'The Coffin'
-    "It's frighteningly cramped. You try to lie to yourself, convince your mind it isn't packed into a tiny box only a few feet bigger than itself, with little room to stretch and none to move, but it's impossible. The reality is staring you right in the face, undeniably, in the form of the coffin's translucent white lid and oppressive pale yellow interior lights, shining from LED strips around the lid. The interior of the coffin is padded on most sides in worn-down self-cleaning plastic-covered pillows, even up the walls, where two swells in the padding hide the casings for the lid's hydraulics. There is another, softer swell in the padding where your head should be, and, to your left, a small inset in the wall holds a yeast food synthesizer. A paper sign is taped above it."
-    conciseDesc = "Yup. It's the coffin. Translucent white walls and plastic pillows surround you, except for the black rounded rectangle of the food dispenser to your left."
-
-    out = coffinHotel
-    down asExit(out)
-    east asExit(out)
-;
-
-+ foodDispenser: Fixture 'yeast food dispenser; ; synthesizer'
-    "It's a rounded black rectangle about two feet wide and two feet tall, jutting out a few inches from the wall. A touch screen is embedded in the upper half, displaying the small selection of imitation of imitation foods it can dispense, and the lower half of the rectangle has a square slot with a hinged door over it, where you can pull the food out after it's done being grown."
-
-    dobjFor(Touch)
-    {
-        check()
-        {
-            // passes
-        }
-        verify()
-        {
-            // passes
-        }
-        action()
-        {
-            "You key in a meal, and, a few minutes later, you hear a small <i>ding</i>. Pulling open the dispensing bin, you see a food-approximating object vaguely the right shape, texture, and color &emdash; if not taste. You eat it, somewhat regretfully. ";
-        }
-    }
-;
-
-+ sign: Fixture 'paper sign; ; notice'
-    "It reads: 'Food included in rent.' Then, below it: 'Ask Seraphine for yeast pod refill every morning.'"
-    readDesc = "It reads: 'Food included in rent.' Then, below it: 'Ask Seraphine for yeast pod refill every morning.'"
 ;

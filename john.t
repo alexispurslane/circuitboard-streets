@@ -1,5 +1,3 @@
-Quip template "desc"? "reply"?;
-
 johnCloseDoorAndLeave()
 {
     john.setState(johnInside);
