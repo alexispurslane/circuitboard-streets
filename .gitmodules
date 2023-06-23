@@ -1,0 +1,3 @@
+[submodule "qtalk"]
+	path = qtalk
+	url = git@github.com:alexispurslane/adv3lite-qtalk.git
