@@ -135,7 +135,7 @@ apartment: Room, RandomEventList 'Apartment 104'
     specialDesc = "Taking up most of the west wall is a counter-oven combination which experience has proved nearly unusable in its compact functionality."
 ;
 
-++ picture: Thing 'picture; ; portrait'
+++ picture: Thing 'picture; picture Polaroid wooden; frame portrait'
     "This picture is another gift of your father's, from before he died. It depicts you, a wiry girl of thirteen with a toothy grin, and him, an old, well-built man with a fiery red beard and a youthful look in his eye, standing arm and arm behind your childhood home. It's the result of one of your father's peculer whimsies &emdash; namely, a fascination for old style chemical photography and rare materials like paper and wood. The material was entirely too expensive, and you remember, even as a thirteen-year-old girl, wanting to chastise him for wasting the money, but you hadn't had the heart. He'd been so excited when he came home with the Polaroid and the wood, rushing you out back to take the picture and then rushing into his makeshift darkroom. He then spent <i>days</i> whittling the wood into a sturdy picture frame, all entirely by hand, while he waited for the picture to develop. It had taken what seemed like ages for the photograph to properly develop, but you'd kept it close ever since. Sitting on the porch of your old house, watching him whittle the picture frame in the cool afternoons after his shift at the factory, while you waited with bated breath for the picture to develop, remains one of your fondest memories."
     specialDesc = "A tiny old-style printed picture in a wooden picture-frame stands in the corner of the counter."
 ;

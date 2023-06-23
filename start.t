@@ -89,7 +89,7 @@ chapter3: Scene
     brokeDoor = (apartmentDoorOutside.isBroken && chapter2.hasHappened)
 
     startsWhen = (brokeDoor || leftApartment)
-    endsWhen = (gPlayerChar.isDirectlyIn(coffinHotel))
+    endsWhen = (gPlayerChar.isDirectlyIn(street2))
 
     spawnCops()
     {
@@ -140,6 +140,11 @@ chapter3: Scene
         }
         alarms.isHidden = nil;
         new Fuse(self, &spawnCops, 9);
+    }
+
+    whenEnding()
+    {
+        "As you walk away from the megablock, hunching your shoulders and raising your collar as much to avoid notice as protect yourself from the rain, you wonder what to do next. How you'll survive from here on out. Maybe it's time to try to find a job on some <i>other</i> market than the legitimate one.";
     }
 ;
 
@@ -221,7 +226,7 @@ grayMarket: OutdoorRoom 'Mandible Block (entrance)'
 ;
 
 street2: OutdoorRoom 'Central City Street (mid)'
-    "The six-lane central street of the City, black tarmac shiny in the rain, runs north, past Megablock M-3B towards the business district of the City, and south, toward Warehouse Slum and the coffin hotel, here. The eyeless, staring skulls of gutted office buildings, long-lost legacy of some former prosperity for this side of the city, crowd the street thickly here like beggars, blocking out the horizon to the east and west. Despite the width of the road, the narrowness of sidewalks and the crowding of the street by these buildings creates a clausterphobic sensation, as if at any moment these broken-down buildings will collapse in on you.\bA cramped alleyway slinks off to the east, between an office building and the chain link fence of Mandible Block."
+    "The six-lane central street of the City, black tarmac shiny in the rain, runs north, past Megablock M-3B towards the business district of the City, and south, toward Warehouse Slum and the coffin hotel, here. The eyeless, staring skulls of gutted office buildings crowd the street like beggars to the east and west, a long-lost legacy of forgotten prosperity carved into brutalist monuments of drab concrete. Despite the width of the road, the narrowness of sidewalks and the crowding of the street by these buildings creates a clausterphobic sensation, as if at any moment these broken-down buildings will collapse in on you.\bA cramped alleyway slinks off to the east, between an office building and the chain link fence of Mandible Block."
 
     east = alleyway
     north = megablockExterior
@@ -245,5 +250,90 @@ alleyway: OutdoorRoom 'Alley'
 ;
 
 street3: OutdoorRoom 'Central City Street (south)'
-    ""
+    "The gutted office buildings on either side of the street to the north begin to give way to equally ancient and decrepit apartment buildings here, which show signs of dissolute habitation. The air is hazy with the smoke from cooking fires high up on the rooves of the apartments, and clothes lines attached to pullies stretch in a criss-cross thicket above you, scratching out the sky."
+
+    north = street2
+    west = tunnel
+;
+
++ tunnel: Passage 'concrete tunnel'
+    "This is a sort of passageway or arch that runs through the entire apartment above it and out the other side. It's too dark to see inside, but rivulets of water stream out of its mouth, pooling in a depression in the cracked sidewalk at its entrance. At the far end, you can just barely see the other opening, where it presumably lets out. Trash bags sit around the entrance, as if someone put them down for a second while on their way to take them to a dump, but never got around to picking them up again. A few are overflowing, littering their contents around."
+    destination = coffinHotel
+    travelDesc = "You slip into the tunnel, walking briefly through darkness and the sound of dripping water, before emerging into the relative light on the other side."
+    specialDesc = "To the west, you can see that the entranceway into one of the apartments actually leads directly through the entire apartment building and out to the other side, like some kind of dark concrete tunnel. Spraypainted next to the entrance is the word 'COFFIN' in bright red capitals."
+;
+
++ people: Decoration 'people; ; crowds crowd'
+    "There are all different kinds of people here, of every imaginable ethnicity, religion, philosophy, and background, every possible sexuality, gender identity, or gender expression, every stage of ability or disability or sickness. Few have extensive cybernetics, beyond cosmetic augmentations like horns, scales, e-ink tattoos, and other such affectations, and what cyberware there is are old models that still use hydraulics, heavy but simple and easy to repair. What unifies them all is their look of utter exhaustion and hopelessness &emdash; red-rimmed eyes stare out at you from sunken sockets with hooded expressions, brows and cheeks prematurely wrinkled with worry-lines, all faces pale and sickly, some gaunt from drugs, others overweight from the cheap food that is accessible. "
+    specialDesc = "<<if city.timeOfDayState == busy_state>>People lounge in small clusters of plastic deck chairs and benches under makeshift awnings in the entranceways or balconies of buildings, smoking, drinking, arguing, or cracking jokes with their neighbors, or blissing out on nanotech drugs. Lazy eyes track you with vague, exhausted indifference or stare off into the haze. It is ostensibly loud here with conversation, but there is a subdued undercurrent.<<else if city.timeOfDayState == deserted_state || city.timeOfDayState == night_state>>Empty, white plastic deck chairs and benches stand in apartment entranceways and balconies, empty beer cans, needles and syringes, fast food wrappers, and other detritus litter the ground around them, fluttering slightly in the wind and making a barely-audible pattering sound with the rain.<<else if city.timeOfDayState == nightlife_state>>Some people sit in clusters of plastic deck chairs and benches under makeshift awnings in the entranceways or balconies of buildings, smoking, drinking, arguing, or cracking jokes with their neighbors, or blissing out on nanotech drugs. Others dance in small cleared spaces outside, or on the gutted first floors of the apartments, or rush back and forth across the street, making it impossible to walk five paces without almost running into someone. An air of obstinate, desperate energy suffuses this place, as if each person here is trying, and failing, to party hard enough to forget that work begins the next day.<<end>>"
+    isHidden = (city.timeOfDayState == deserted_state || city.timeOfDayState == night_state)
+;
+
++ apartments: Distant 'apartments; decrepit; buildings'
+    "The apartment buildings are packed tightly on either side of the street, rising tens of stories up into the sky, seeming to weigh on you. They are festooned with rotting clothes on clotheslines, forgotten or abandoned decorations, ad-hoc repairs in cardboard or corrugated metal, and crumbling balconies, some holding dying gardens. The buildings are crumbling slowly, and little attempt has been made to repair them. No one here has the time, or money."
+;
+
+coffinHotel: OutdoorRoom 'The Coffin Hotel'
+    "The tunnel opens out onto a strange open square surrounded by apartments. 'WELCOME TO THE COFFIN HOTEL,' proclaims a gigantic holographic sign spinning high above you to the west. Next to it, a cartoonish animation of a zombie emerging from a coffin floats in neon green and red. <<first time>><i>Maybe not the best marketing,</i> you think wryly.<<only>> Below this sign, a ribcage of metal tubes and support beams holding rows and rows of coffin boxes crouches like a gigantic fourty-legged spider against the clogged sky. This must be the Coffin Hotel itself, then. Around and behind the Coffin Hotel, hills of garbage pile up in every direction, pushing up in drifts like disgusting snow against the apartment buildings that surround this impromptu dump."
+    conciseDesc = "Drifts and hills of garbage surround the metallic spider of the coffin hotel to the west. To the east, a tunnel through an apartment building leads back out."
+    east = street3
+    west {
+        if (coffinOwner.allowCoffin)
+        {
+            "{The subj coffin-owner} guides you onto the industrial lift's platform and pulls herself into the driver's seat. A second later, she's lifted you up to your coffin. Its gently curved white lid, slick with the drizzle so that it truly does look like a larval egg of some kind, hisses on hydraulics as it lifts up and out away from you, allowing you to climb inside.";
+                gPlayerChar.travelVia(coffinRoom, nil);
+        }
+        else
+        {
+            "The {the subj coffin owner} behind the booth stares you down with cold, lizardlike regard. <i>Don't go there,</i> they seem to say.";
+            coffinOwner.setState(coffinOwnerAlert);
+        }
+    }
+;
+
++ spider: Distant 'coffin hotel; metal; framework larvae larava maggot maggots spider ribcage ribs'
+    "The strange, spindly, clutching structure is composed mostly of metal tubing, probably stolen construction scaffolding from Megablock M-3C up the road, but who knows. It's not like anyone here cares. The spider clutches two rows of twenty stacks of four vaguely-translucent white plastic boxes each, all held about four feet apart on every side, like carefully cradled eggs waiting to hatch. Between the two rows is a double-spine of reinforced steel beams wide enough apart to permit a rusty industrial lift on tanklike treds to move up and down the isles and lift customers up to their desired coffin."
+;
+
++ coffins: Distant 'coffins; white translucent plastic; rooms'
+    "It's hard to tell much about the coffins, besides that they are nine feet long, five feet deep, and five feet wide, and about half of them are occupied, judging by which ones have lights shining vaguely through their walls."
+;
+
++ booth: Decoration 'booth; corrugated metal aluminum; table'
+    "The booth is nothing special &emdash; it doesn't even bear a name. Just pitted and rusted corrugated silver aluminum, rivited and haphazardly soldered into the rough shape of a rectangular table with an awning."
+    specialDesc = "Closer to you, at the end of the spider's spine, where the head should be, there is a small booth of corrugated metal."
+;
+
+coffinRoom: Room 'The Coffin'
+    "It's frighteningly cramped. You try to lie to yourself, convince your mind it isn't packed into a tiny box only a few feet bigger than itself, with little room to stretch and none to move, but it's impossible. The reality is staring you right in the face, undeniably, in the form of the coffin's translucent white lid and oppressive pale yellow interior lights, shining from LED strips around the lid. The interior of the coffin is padded on most sides in worn-down self-cleaning plastic-covered pillows, even up the walls, where two swells in the padding hide the casings for the lid's hydraulics. There is another, softer swell in the padding where your head should be, and, to your left, a small inset in the wall holds a yeast food synthesizer. A paper sign is taped above it."
+    conciseDesc = "Yup. It's the coffin. Translucent white walls and plastic pillows surround you, except for the black rounded rectangle of the food dispenser to your left."
+
+    out = coffinHotel
+    down asExit(out)
+    east asExit(out)
+;
+
++ foodDispenser: Fixture 'yeast food dispenser; ; synthesizer'
+    "It's a rounded black rectangle about two feet wide and two feet tall, jutting out a few inches from the wall. A touch screen is embedded in the upper half, displaying the small selection of imitation of imitation foods it can dispense, and the lower half of the rectangle has a square slot with a hinged door over it, where you can pull the food out after it's done being grown."
+
+    dobjFor(Touch)
+    {
+        check()
+        {
+            // passes
+        }
+        verify()
+        {
+            // passes
+        }
+        action()
+        {
+            "You key in a meal, and, a few minutes later, you hear a small <i>ding</i>. Pulling open the dispensing bin, you see a food-approximating object vaguely the right shape, texture, and color &emdash; if not taste. You eat it, somewhat regretfully. ";
+        }
+    }
+;
+
++ sign: Fixture 'paper sign; ; notice'
+    "It reads: 'Food included in rent.' Then, below it: 'Ask Seraphine for yeast pod refill every morning.'"
+    readDesc = "It reads: 'Food included in rent.' Then, below it: 'Ask Seraphine for yeast pod refill every morning.'"
 ;
