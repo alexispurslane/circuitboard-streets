@@ -1,5 +1,5 @@
 megablockEntrance: Room 'M-3B Entrance Hall'
-    "This is a small square room of slowly eroding concrete walls, which are painted in an old, chipping gray that you find vaguely distasteful. The exit is east, leading out through the filter-field into the drizzling gloom of the city. West, a few stairs lead up into the shadowy gray-green light of the megablock's atrium."
+    "This is a small square room of slowly eroding concrete walls, which are painted in an old, chipping gray that you find vaguely distasteful. The exit is east, leading out through the filter-field into the drizzling gloom of the city. West, a few stairs lead up into the <<if chapter3.isHappening>>wash of red light from<<else>>shadowy gray-green light of<<end>> the megablock's atrium."
 
     west = megablockStairs1
     in asExit(west)
@@ -7,6 +7,8 @@ megablockEntrance: Room 'M-3B Entrance Hall'
 
     east = megablockExterior
     out asExit(east)
+
+    regions = [megablock1Region]
 ;
 + megablockStairs1: StairwayUp 'stairs; crumbling concrete entrance; steps'
     "These stairs are made of the same decaying gray concrete as the rest of the megablock's bowels."
@@ -23,7 +25,7 @@ megablockEntrance: Room 'M-3B Entrance Hall'
 megablockBottomFloor: Room 'M-3B Atrium'
     "The bottom floor of the megablock is a wide open space of concrete interrupted here and there by concrete benches, tables, and what might once have been exercise equipment before the rust took it. It's surrounded on all sides by a densely-packed forest of pillars holding up the floors above. Above you, a shaft rises through the building to the greenhouse roof in the ceiling, through which greenish light sifts lazily down, revealing a dizzying number of apartments all facing inward on the central shaft. A few windows are lighted here and there among the endless ranks. To the south, stairs climb up to the first floor of apartments, where you live. To the west, a short flight of stairs goes down to the entry hall."
 
-    conciseDesc = "A wide, largely featureless expanse of concrete serves as the floor of the tower's atrium. It is interrupted here and there by concrete benches, tables, and rusted exercise equipment and surrounded by pillars. To the south, a flight of stairs climbs up to the first floor of apartments (where you live). To the west, a short flight of stairs goes back down into the entry hall."
+    conciseDesc = "A wide, largely featureless expanse of concrete serves as the floor of the tower's atrium. It is interrupted here and there by concrete benches, tables, and rusted exercise equipment and surrounded by pillars. To the south, a flight of stairs climbs up to the first floor of apartments (where you live). To the west, a short flight of stairs goes back down into the entry hall. <<if chapter3.isHappening>>Red lights flash ominously from their previously hidden hiding spots tucked up against the tops of the pillars, washing the park benches and exercise equipment in crimson neon highlights<<end>>"
 
     south = megablockFloor1
     up = megablockFloor1
@@ -31,6 +33,8 @@ megablockBottomFloor: Room 'M-3B Atrium'
     out = megablockStairs1b
     west = megablockStairs1b
     down = megablockStairs1b
+
+    regions = [megablock1Region]
 ;
 
 + megablockStairs1b: StairwayDown 'stairs; crumbling concrete entrance; steps'
@@ -61,23 +65,54 @@ megablockFloor1: Room 'M-3B Floor 1'
 
     east = megablockFloor1a
     west = megablockFloor1b
+
+    regions = [megablock1Region]
 ;
 
 + apartmentDoorOutside: Door 'apartment door; pink apartment 104; entry doorway'
-    "This door has been covered in so many layers of graffiti by its successive occupants that an archaeologist might be able to trace the ephemerable trends in low-life culture through its skin. Two graffitos stick out in particular: some wry soul has written 'abandon all hope' across the top in nearly illegible handwriting. The other is yours, an abbreviation of one of your father's sardonic sayings: 'home is where the roof is.'"
+    "<<if isBroken>>Your apartment door lies on the floor of your apartment, bent and splintered along both vertical edges, hinges hanging from one end like grotesquely deformed bones.<<end>> This door has been covered in so many layers of graffiti by its successive occupants that an archaeologist might be able to trace the ephemerable trends in low-life culture through its skin. Two graffitos stick out in particular: some wry soul has written 'abandon all hope' across the top in nearly illegible handwriting. The other is yours, an abbreviation of one of your father's sardonic sayings: 'home is where the roof is.'"
 
-    initSpecialDesc = "You see your own apartment's door directly south of you, in the center of the row of doors."
+    specialDesc = "<<if isBroken>>The empty doorway to your apartment gapes, splintered, to the south, inviting you in like a bad childhood influence. Your apartment door lies askew inside the apartment.<<else>>You see your own apartment's door directly south of you, in the center of the row of doors.<<end>>"
 
     lockedMsg = "You place your thumb on the fingerprint reader on the door handle, but it buzzes aggressively, and the screen above the reader flashes red. It's locked."
+
+    isBroken = nil
     isLocked = true
     otherSide = apartmentDoorInside
     attemptedOpen = nil
+    attackCount = 0
 
     dobjFor(Attack)
     {
+        verify()
+        {
+            // passes
+        }
         check()
         {
-            "You can hit the door all you like, but it's not going to budge. Easier to make sturdy doors than proper security systems, after all.";
+            // passes
+        }
+        action()
+        {
+            "You punch the door. It barely scratches, but a hollow boom reverberates out into the empty atrium like undead thunder. <<if attackCount == 0>>You look around warily, but nobody seems to have noticed. Almost everyone is probably sleeping now, aided by pills or dream encoders or even earplugs, exhausted from work.<<end>>";
+            attackCount++;
+        }
+    }
+
+    dobjFor(Kick)
+    {
+        verify()
+        {
+            // passes
+        }
+        check()
+        {
+            // passes
+        }
+        action()
+        {
+            "You kick the center of the door. It jumps back in its frame slightly, enough to make you feel briefly elated, but doesn't budge past that. The kick makes a drumlike booming sound that echoes around the atrium oppressively. <<if attackCount == 0>>You look around warily, but nobody seems to have noticed. Almost everyone is probably sleeping now, aided by pills or dream encoders or even earplugs, exhausted from work.<<end>>";
+            attackCount++;
         }
     }
 
@@ -90,6 +125,55 @@ megablockFloor1: Room 'M-3B Floor 1'
             {
                 attemptedOpen = true;
             }
+        }
+    }
+;
+
+++ fingerprintReader: Fixture 'fingerprint reader; apartment door scanner; lock'
+    "A simple door handle arches down out of the door at roughly hand-height, the top covered by a glossy black glass screen. A thumbprint icon glows gently on the screen, indicating where to put your thumb to authenticate yourself and access your apartment."
+    kickCount = 0
+
+    dobjFor(Kick)
+    {
+        verify()
+        {
+            // passes
+        }
+
+        count()
+        {
+            // passes
+        }
+
+        action()
+        {
+            switch (kickCount)
+            {
+                case 0:
+                "You kick with all your might, stamping your boot flat into the door right beside the fingerprint reader, right where the bolt should be. The door lets loose a sepulchral boom which echoes around the atrium like undead thunder. Underneath it, you just barely hear splintering, and the sound of rattling metal. <<if apartmentDoorOutside.attackCount == 0>>You look around warily, but nobody seems to have noticed. Almost everyone is probably sleeping now, aided by pills or dream encoders or even earplugs, exhausted from work. But who knows how long that will last against the thunder of your assault against the door.<<end>>";
+                break;
+                case 1:
+                "You kick again, slamming the flat of your boot into the door's weak spot. Now the splintering is far more audible, as well as the shriek of bending metal. <i>It's working!</i> Somewhere far away, you hear murmurs in the apartments around you. You're starting to draw attention, and that's not good. Property enforcement is bound to come down on you like a military-grade firewall...";
+                break;
+                case 2:
+                "Your leg muscles already burning from kicking, panting slightly, you kick again. Now the door is noticibly bent and set back in its frame. <i>Come on,</i> you think. <i>This is the stupidest thing I've ever done, but I can do it.</i>\b";
+                "Orange warning holograms begin flickering in around the entrance. <pre>WARNING WARNING WARNING</pre>\b";
+                break;
+                case 3:
+                "Your final kick sends painful reverberations up the bones in your leg, but it doesn't matter. With a final unholy <i><b>CRACK</b></i>, the door flies backward, skidding across the floor of your apartment until it comes to rest against the far wall. Almost instantly, red augmented reality holograms pop up all over the atrium behind you and plastered around your apartment door like enraged moths.";
+                "<pre>WARNING: LEGAL VIOLATION: BREAKING AND ENTERING</pre>";
+                "<pre>WARNING: LEGAL VIOLATION: FELONY TRESSPASS</pre>";
+                "<pre>WARNING: LEGAL VIOLATION: AUTHORITIES HAVE BEEN ALERTED</pre>";
+                "Swiping the alerts away from the entrance, you step into your apartment. You've only got a few seconds to grab your shit and run now. ";
+                gPlayerChar.travelVia(apartment, nil);
+                apartmentDoorInside.isLocked = nil;
+                apartmentDoorOutside.isLocked = nil;
+                apartmentDoorOutside.isBroken = true;
+                apartmentDoorOutside.isOpenable = nil;
+                apartmentDoorOutside.isOpen = true;
+            }
+            kickCount++;
+            apartmentDoorOutside.attackCount++;
         }
     }
 ;
@@ -107,6 +191,8 @@ megablockFloor1a: Room, StopEventList 'M-3B Floor 1 (East Corner)'
         'Two children run past behind you.',
         {: "The gentle rush of air through the vent momentarily makes a long <<one of>>sighing<<or>>whooping<<shuffled>> sound."}
     ]
+
+    regions = [megablock1Region]
 ;
 
 + trashcan: Fixture, Container 'trashcan; rubbish; bin, can, trash'
@@ -205,6 +291,8 @@ megablockFloor1b: Room, StopEventList 'M-3B Floor 1 (West Corner)'
         'A man pushes past you hurriedly, seeming to bump you more than he had to. Was that a hand on your ass?',
         {: "The gentle rush of air through the vent momentarily makes a long <<one of>>sighing<<or>>whooping<<shuffled>> sound."}
     ]
+
+    regions = [megablock1Region]
 ;
 
 + trashcan2: Unthing 'trashcan; rubbish; bin, can, trash'
@@ -300,6 +388,8 @@ megablockFloor1b: Room, StopEventList 'M-3B Floor 1 (West Corner)'
 megablockFloor1NorthEast: Room 'M-3B Floor 1 (East Side)'
     "Another interminable row of doors and windows, all scratched, pitted, and defaced, stretches away northward on the east side of the walkway. None of the windows are lighted or show any signs of life behind them."
     south = megablockFloor1a
+
+    regions = [megablock1Region]
 ;
 
 + Fixture 'doors; scratched pitted defaced apartment; door'
@@ -317,11 +407,14 @@ megablockFloor1NorthEast: Room 'M-3B Floor 1 (East Side)'
 ;
 
 megablockFloor1NorthWest: Room 'M-3B Floor 1 (West Side)'
-    "Another interminable row of doors and windows, all scratched, pitted, and defaced, stretches away northward on the east side of the walkway. Most of the windows are dark and apartments empty, but three of the windows on this side are lighted, and you can hear a few faint noises from those apartments, indicating that they are occupied."
+    "Another interminable row of doors and windows, all scratched, pitted, and defaced, stretches away northward on the east side of the walkway.\b Most of the windows are dark and apartments empty, but three of the windows on this side are lighted, and you can hear a few faint noises from those apartments, indicating that they are occupied."
     south = megablockFloor1b
+
+    regions = [megablock1Region]
 ;
 
 + neighbor1Door: Door 'first door; neighbor\'s door front apartment; door'
+    "The door nearest you is covered in graffiti, the geologically layered incoherent screams of a thousand successive inhabitants' pain. The window next to it has had its blinds drawn closed against its dreary view of the atrium, but yellow light still filters through and casts bars of light on the dusty walkway in front of you."
     isLocked = true
     dobjFor(KnockOn)
     {
@@ -339,6 +432,7 @@ megablockFloor1NorthWest: Room 'M-3B Floor 1 (West Side)'
 ;
 
 + neighbor2Door: Door 'second door; neighbor\'s door front apartment; door'
+    "This door seems to have been industriously scrubbed clean of graffiti sometime relatively recently, although not extremely so &emdash; various tags and gang territory marks and other such colorful fungi native to the City have begun to grow back again. Nevertheless, you can tell that someone who lived here used to care a lot about trying to keep their surroundings together as best they could. "
     isLocked = true
     travelMsg = "<<if isOpen>>You could try to push past the man, and probably succeed, but that's not a good idea.<<end>>"
     dobjFor(KnockOn)
@@ -363,6 +457,7 @@ megablockFloor1NorthWest: Room 'M-3B Floor 1 (West Side)'
 ;
 
 + neighbor3Door: Door 'third door; neighbor\'s door front apartment; door'
+    "The door farthest to you down the hallway might once have been black underneath all of its layered graffiti, but it's hard to tell. The window next to it has not had its blinds drawn closed, unlike the first one, but only a faint blue light shines out, flickering almost subliminally, like a cathode ray tube's glow."
     isLocked = true
     dobjFor(KnockOn)
     {
@@ -410,6 +505,8 @@ class AirDuct: Room, RandomEventList
     ]
 
     eventPercent = 30
+
+    regions = [megablock1Region]
 ;
 
 airDuct: AirDuct
@@ -496,9 +593,9 @@ airDuctSouth: AirDuct
 
     travelDesc = "You jump down through the vent and into your apartment, landing in a crouch on the floor with a clump. For a second after landing you totter, your balance thrown by the missing weight of your left arm, then you are able to get a proper footing and stand up. "
 
-    execTravel(actor, traveler, conn)
+    execTravel(actor, traveller, conn)
     {
-        inherited();
+        inherited(actor, traveller, conn);
         apartmentDoorInside.isLocked = nil;
         apartmentDoorOutside.isLocked = nil;
     }
@@ -598,169 +695,4 @@ airDuctNorth: AirDuct
             doInstead(Examine, self);
         }
     }
-;
-
-apartment: Room, RandomEventList 'Apartment 104'
-    "Your apartment is a small one room studio with unpainted concrete walls and a plastic floor designed to look like tile. In an attempt to make the place more livable, you've covered the walls with posters over the past few years, creating a profusion of bright, clashing colors and shapes which is somehow both mildly nauseating and far more pleasing than the blank walls. Other than that, it is densely populated with the necessities for life, a cozy approximation of habitable living conditions which you've, against all odds, begun to grow fond of."
-
-    eventList = [
-        {: "The advertisement spot murmurs <<one of>>an ad jingle<<or>>some corporate slogan<<or>>a long list of disclaimers and side effects<<at random>> in the background." },
-        'You hear someone murmur in one of the apartments next door.',
-        {: "You hear the sound of two people arguing a few apartments away. The voices rise louder and louder, until they are practically shouting and you can almost make out the words. Then there is a cry, and the arguing stops. You swear you can almost hear a <<one of>>man<<or>>woman<<or>>child<<or>>person<<at random>> sobbing." },
-        'You hear the muted whirring and gurgling of the pipes outside your southern wall.',
-        {: "You hear a loud <<one of>>thump<<or>>scraping sound<<or>>clatter<<or>>tapping sound<<at random>> from above you."}
-    ]
-
-    eventPercent = 20
-
-    travelCount = 0
-
-    out = apartmentDoorInside
-    north = apartmentDoorInside
-;
-
-+ futon: Surface, Fixture 'futon; convertible; couch bed'
-    "This futon came with the apartment, left behind by the previous owner. You did your best to clean it before using it, but who knows how clean it actually is. It certainly doesn't <i>look</i> clean, anyway, but you've long since given up caring about looks. A thin, well-worn pillow in a blue pillowcase, and a thick green cotton blanket, both of which you've kept with you since your first apartment at sixteen, sit in their respective places on the <<if couchMode>>couch<<else>>bed<<end>>."
-    specialDesc = "You see your futon pushed against the east wall, covered in a rumpled pile of blankets from when you got up this morning."
-
-    couchMode = nil
-
-    dobjFor(Pull)
-    {
-        check()
-        {
-            if (!self.couchMode)
-                "The futon is already opened up into the bed mode.";
-        }
-        action()
-        {
-            "With some effort, you manage to force the futon's rusty hinges to open up, folding the bed out satisfyingly into bed mode. you arrange the pillow and blanket on it.";
-            self.couchMode = nil;
-        }
-    }
-
-    dobjFor(Push)
-    {
-        check()
-        {
-            if (self.couchMode)
-                "The futon is already folded into the couch mode.";
-        }
-        action()
-        {
-            "With a heave, you lift the edge of the futon bed and coax it into folding back into a couch.";
-            self.couchMode = true;
-        }
-    }
-;
-
-+ nightstand: Heavy 'nightstand; cluttered bed; table drawer'
-    "A small nightstand of rough black metal, a few feet square, with a drawer underneath. It serves double duty as a table as well, especially when you've collapsed onto the couch to watch TV until sleep takes you after a long day at work. Food wrappers, empty cans of soda and filtered water from the dispenser, and pieces of paperwork, are scattered across its surface. Two items of note, however, are your Takagi DEC-11 and your e-ink notepad, which lie carefully set apart from the trash."
-    specialDesc = "You see your nightstand next to the futon."
-
-    remapOn: SubComponent
-    {
-
-    }
-
-    remapIn: SubComponent
-    {
-        bulkCapacity = 10
-        isOpenable = true
-    }
-;
-
-++ encryptionModule: PlugAttachable, SimpleAttachable 'encryption module'
-    "A small, oblong piece of soft-touch black plastic about the size of your thumb. On its back is a row of seven tiny metal pins. This is an encryption module, designed to plug into a DEC and provide it with an application-specific integrated circuit for advanced anti-quantum cryptography which would be far too difficult for the generalized computational circuitry in a normal DEC to handle alone. These are fairly common among hardware and security enthusiasts, since traditional cryptography was made obsolete by advances in quantum computing. You're not typically into that kind of stuff, but an old girlfriend managed to talked you into getting one anyway. You never got around to using it much."
-    subLocation = &remapIn
-    okayAttachMsg = "The encryption module attaches to {the iobj} with a quiet magnetic click."
-;
-
-++ darknetModule: PlugAttachable, SimpleAttachable 'darknet module; dark net onion; antenna'
-    "This is a small black dome with a stubby antenna sticking out of the rounded end on a joint. On the flat end of the dome, a tight square of four tiny metal pins pokes out. This is a darknet module, used to route your net traffic via a randomized path through a decentralized shadow infrastructure of routers and destination nodes hosted by individual volunteers, rebels, and enthusiasts instead of corporations. That way, your activity on the net is completely untraceable. You bought this module out of curiosity, but never had the occasion to use it for anything series."
-    subLocation = &remapIn
-    okayAttachMsg = "The darknet module attaches to {the iobj} with a quiet magnetic click."
-;
-
-++ clutter: Decoration 'clutter; empty filtered dirty scattered; wrappers cans trash water'
-    "A random scattering of various bits of trash and food wrapping. You really should clean up sometime, but you aren't in the right headspace right now."
-;
-
-++ personalTerminal: Switch 'a DEC-11; Takagi dec deck 11 personal; computer deck terminal cyberdeck'
-    "This is a chunky oblong rectangle of black magnesium about a third of an inch thick, over a foot long, and about six inches deep. Designed to be tethered to your AR system for use for a compute/storage boost and connectivity hub, since size and connectivity in body-embedded systems is typically limited. Its surface is largely dedicated to a lavish but compact mechanical keyboard for those who find air-keyboards unpleasant to use, and a plethora of ports and access bays. Along the left side are two module expansion ports, one with four metal contacts arranged in a square, and one with seven metal contacts arranged in a line."
-;
-
-+++ asicPlug: SimpleAttachable, Component 'the (ASIC) port; application (specific) integrated circuit seven metal contacts (line) (with); expansion port'
-    "This is a small expansion port on the upper left side of the DEC, designed to connect to the application specific integrated circuit, compute module, or storage drive of your choice."
-    allowableAttachments = [encryptionModule]
-;
-
-+++ wirelessPlug: SimpleAttachable, Component 'wireless port; four metal contacts (square) (with); expansion port'
-    "This is a small expansion port on the lower left side of the DEC, designed to connect to various radio and other wireless connectivity modules."
-    allowableAttachments = [darknetModule]
-;
-
-++ notepad: Thing 'notepad; eink e-ink; notebook kindle'
-    "This is a gift from your dad, state of the art when it was new about ten years ago. It has an e-ink display with a response time under 7ms when an update is needed, giving you both usable performance and extremely extended battery life. It's also far healtheir on the eye than the augmented reality system in your eyes, since it doesn't rely on beaming low power lasers into your retina. You don't use it much anymore, though, so it's turned more into a treasured keepsake than useful tool."
-;
-
-+ posters: Decoration 'posters; ; flags decorations decoration stickers signs'
-    "You scan the posters. Every bright neon color is represented here, and every shape, whether that of people, animals, cars, tech, or Platonic solids, gives form to those colors. The south wall is mostly movie posters on either side of the bathroom door, while the east is mostly posters for long-gone cars and tech that still hold a soft spot in your heart &emdash; probably from seeing their commercials repeatedly as a kid. Meanwhile, the west wall holds, a profusion of crinkled flags."
-;
-
-+ moviePosters: Decoration 'movie posters'
-    "A few large movie posters take up most of the wall above waist height, while a profusion of smaller ones surrounds them. As you look, the poster that happens to jump out at you <<one of>>is the one from your favorite old classic, <i>DUNE 2</i>, all desert oranges and browns with windswept, cloaked figures striding across the illustration<<or>>is from a recent movie you enjoyed immensely, the far-future space opera <i>House of Suns</i>. The poster is all brooding blacks and grays, with disconcertingly gigantic, detailed ships taking up the background and the serious faces of the two protagonists, one male and one female, staring at each other in the forefront<<or>>is a strange old find, a poster from a movie that was lost to time long before even your father was born, called <i>Dark City</i>. The poster shows a strange metal face looming over an eerie Gothic city which reminds you strangely of your own.<<cycling>>."
-    roomPart = defaultSouthWall
-    roomPartDesc = "The south wall is mostly movie posters."
-;
-
-+ carTechPosters: Decoration 'car and tech posters[n]; automobile sports car tech technology retro old; (ads)'
-    "This wall is more sparsely populated than the wall of movie posters. A poster <<one of>>depicting the DEC-1 (<i>a classic</i>, you think to yourself), more than twice as thick as your own deck and containing several times the number of access bays,<<or>>of the old Honda-GM NSX-2060, a sleek wedge of red sportscar composed of elongated hexagons and triangles,<<or>>from a famous old vacuum-bot commercial that was so accidentally sexual it spawned a whole subculture<<cycling>> catches your eye."
-    roomPart = defaultEastWall
-    roomPartDesc = "This wall is covered with a few posters for classic old tech and cars."
-;
-
-+ flagPosters: Decoration 'flags; flag; posters'
-    "Three flags hang down this wall. The first is from some country you've never heard of, a black and orange sigil on a black background. The second is the flag of the City itself, composed of Roberto Fortesque's coat of arms merged with stylized and altered versions of the corporations that hold seats on the Board of Administrators for the City. The third is a five-striped flag in pale pastel shades."
-    roomPart = defaultWestWall
-    roomPartDesc = "A couple of flags hang on the west wall."
-;
-
-+ window: Decoration 'window'
-    "You've tried to clean this window in the past, but nothing really seems to make it any less dingy. Its dark, sooty tinge seems to have been baked in at the factory. Cheap manufacturing, maybe. Looking out, you get a fucking great view of nothing much at all but the gray concrete walkway outside, the concrete balcony, and the apartments across from you. Even a view of the desolate bottom floor would've been better, but the angles just didn't work out right."
-;
-
-+ counter: Decoration 'counter; ; cupboard cupboards countertop sink'
-    "Most of this thing is counter &emdash; a counter which would have already been almost unusably cramped had it been unbroken; split as it is by the sink, it must have been designed with the explicit goal of making preparing your own meals impossible. What remains that isn't counter is a simple stainless steel and black glass electric stove, pushed up into the northwest corner."
-    specialDesc = "Taking up most of the west wall is a counter-oven combination which experience has proved nearly unusable in its compact functionality."
-;
-
-++ stove: Decoration 'stove; electric small; oven'
-    "The oven is a tiny affair, an unholy melding of electric cooktop and microwave oven designed to offer as much utility as possible without actually allowing you to cook anything particularly impressive. Not that you would anyway."
-;
-
-+ tv: Switch, Fixture 'advertisements; ads ad cylinder of; television advertisement mobile'
-    "A short nested cylinder of advertisements spins eternally above you, displaying the wares and wiles of an ever-changing array of corporate sponsors. Crooning their slogans, murmuring your desires. <<one of>>You see an advertisement for Cambell-Magomedova Corporation's line of all-in-one nutrient pills, which claim to provide the nourishment of three square meals a day at a fraction of the cost, spin by.<<or>>A news report about violence breaking out somewhere in the Chicano district of the City flashes past, the blank white faces of the newscasters posed in an imitation of concern as they discuss what genetic reasons there might be for such an occurrence.<<or>>Another advertisement for a virtual assistant and companion, this one of <<one of>>Chang Microtechnology<<or>>EpsilonGroup<<or>>H&Y Conglomerate<<at random>> make, rotates past with a seductive sigh.<<purely at random>>"
-    specialDesc = "Occupying the center of the roof is a spinning mobile of small advertisements."
-
-    dobjFor(SwitchOff)
-    {
-        check()
-        {
-            "There's physically no way to turn it off.";
-        }
-    }
-
-    dobjFor(Attack)
-    {
-        check()
-        {
-            "You really can't afford that fine right now.";
-        }
-    }
-;
-
-+ apartmentDoorInside: Door 'apartment door; ; exit doorway'
-    otherSide = apartmentDoorOutside
-    isLocked = true
 ;

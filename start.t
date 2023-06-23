@@ -9,7 +9,9 @@
 #include "city.t"
 #include "verbs.t"
 #include "megablock1.t"
+#include "apartment.t"
 #include "john.t"
+#include "actors.t"
 #include "tests.t"
 
 versionInfo: GameID
@@ -23,7 +25,7 @@ versionInfo: GameID
 
 gameMain: GameMainDef
 	initialPlayerChar = me
-	gameStartTime = static new Date(2067, 22, 15, 12, 23, 0, 0)
+	gameStartTime = static new Date(2100, 22, 15, 12, 23, 0, 0)
 	
 	showIntro()
     {
@@ -73,17 +75,87 @@ chapter2: Scene
 		"<b>Chirp</b>. An AR ping from the megablock's automated landlord pops into your field of vision. <i>Shit.</i> You know what this is now. Numbly, you mentally direct it to open. Sure enough.\b";
 		"'We regret to inform you,' it says in an empty female voice, 'that due to your recent theft and firing, your CI score has gone below acceptable levels. As per company policy, we have therefore canceled your lease. Your apartment will be reallocated, and all assets that are on company property are forfeit as of this moment.'\b";
 		"You want to scream. You want to shout and rail at the injustice of it, you want to slam your remaining fist into the door till it breaks &emdash; the door or your hand, it doesn't matter. By now you should be used to this fucking system. To the way the City works. Somehow you aren't. Somehow it still stings. Is that good? Does that mean you're not broken yet?\b";
-		"You stand still for a minute, eyes staring off into nothing, processing. Then something inside you snaps. There's nothing left to lose at this point. Your legal life is already over. And you're not going to let them take your last few possessions.";
+		"You stand still for a minute, eyes staring off into nothing, processing. Then something inside you snaps. There's nothing left to lose at this point. Your legal life is already over. And you're not going to let them take your last few possessions. ";
 	}
 
     whenEnding()
     {
-        "You look around with a mixture of relief and bitterness. This place has been your home for two years, and you just had to break in. Well, now it's time to grab anything useful and get the fuck out before anyone realizes what you've done. "
+        "You look around with a mixture of relief and bitterness. This place has been your home for two years, and you just had to break in. Well, now it's time to grab anything useful and get the fuck out before anyone realizes what you've done. ";
     }
 ;
 
+chapter3: Scene
+    leftApartment = (!gPlayerChar.isDirectlyIn(apartment) && chapter2.hasHappened)
+    brokeDoor = (apartmentDoorOutside.isBroken && chapter2.hasHappened)
+
+    startsWhen = (brokeDoor || leftApartment)
+    endsWhen = (gPlayerChar.isDirectlyIn(coffinHotel))
+
+    spawnCops()
+    {
+        if (gPlayerChar.isIn(megablock1Region))
+        {
+            cop1.moveInto(megablockEntrance);
+            cop2.moveInto(megablockEntrance);
+            copCar.moveInto(megablockExterior);
+
+            "Suddenly, you hear the rising wail of sirens from somewhere outside the megablock. A moment later, you hear a staccato <i>whump</i> from around the building as all the other exits are closed off. They'll be waiting for you at the only exit now, calm and assured of their prey. You've been cornered. ";
+        }
+        else if (gPlayerChar.isDirectlyIn(megablockExterior))
+        {
+            cop1.moveInto(megablockExterior);
+            cop2.moveInto(megablockExterior);
+            copCar.moveInto(megablockExterior);
+
+            "The rising wail of sirens, and then the spinning red and blue lights, are your first warnings that you're royally fucked. A moment later, a cop car pulls up beside the megablock entrance and two property enforcement officers step out. You're pinned. ";
+        }
+        else
+        {
+            cop1.moveInto(megablockExterior);
+            cop2.moveInto(megablockExterior);
+            copCar.moveInto(megablockExterior);
+
+            "Far in the distance, you hear the wail of sirens as the police arrive to investigate what you did at the megablock. ";
+
+        }
+
+        new Fuse(self, &despawnCops, 20);
+    }
+
+    despawnCops()
+    {
+        cop1.location = nil;
+        cop2.location = nil;
+    }
+
+    whenStarting()
+    {
+        if (brokeDoor)
+        {
+            "\bOutside your apartment, red alarm lights hidden in various places around the atrium, reserved for filtration failures and property crimes against the megablock's holding company, begin flashing neon red, and a constant, high pitched alarm starts to scream in your ears. <i>Clock's ticking,</i> you think to yourself. <i>Need to get the fuck out soon.</i>";
+        }
+        else
+        {
+            "The act of leaving the apartment tricks some internal alarm in the apartment's antideluvian logic system &emdash; someone just exited an apartment they never entered, and according to its finite state machine, that's an impossibility, a hole in the universe, and that means <i>crime</i>. Red warning holograms spring into existance clustered around your door and at various stations throughout the atrium like enraged moths, screaming in monospace capitals about breaking and entering and tresspass. <i>Clock's ticking,</i> you think to yourself. <i>Time to get the fuck out.</i>";
+        }
+        alarms.isHidden = nil;
+        new Fuse(self, &spawnCops, 9);
+    }
+;
+
+alarms: MultiLoc, Decoration 'alarms; red orange monospace capital property legal crime holographic augmented reality; warnings warning alarm holograms'
+    "Partially transparent holographic billboards in traceries of red and orange hovering in the air, with monospace capitals spelling out legal warnings in scrolling text: <pre>WARNING: <<one of>>LEGAL VIOLATION: BREAKING AND ENTERING<<or>>LEGAL VIOLATION: FELONY TRESSPASS<<or>>LEGAL VIOLATION: DESTRUCTION OF CORPORATE PROPERTY<<or>>LEGAL VIOLATION: HOUSING CONTRACT TERMINATION VIOLATION<<or>>AUTHORITIES HAVE BEEN ALERTED<<or>>AUTHORITIES ARE ON THEIR WAY<<shuffled>></pre>"
+    specialDesc = "Red and orange warning holograms hover all around you."
+    cannotTakeMsg = "Your hands pass through the ghostly hologram."
+    cannotAttackMsg = "You flail with helpless fury at the hologram, but fail to do any damage."
+    notImportantMsg = "You can't touch the holograms."
+    isHidden = true
+    plural = true
+    locationList = [megablockFloor1, megablockBottomFloor, megablockEntrance]
+;
+
 megablockExterior: OutdoorRoom 'Outside Megablock M-3B'
-	"The street here is dominated by the impossibly large black edifice of Megablock M-3B to the west, glistening in the eternal acid rain of the city. To the north, the apartment buildings and offices that surround the megablock like a crowd of ragged worshipers begin to give way to the more ambitious neo-Gothic architecture of the city's richer districts, while to the south, the buildings give way to a precariously leaning maze of slums that crashes up against the huge blocks of the warehouse district beyond like dirty surf. To the east, the warmth and light of the gray market shows like patches of mold on the collapsed ruins of another megablock, which is surrounded by a dilapitated chain-link fence."
+	"The street here is dominated by the impossibly large black edifice of Megablock M-3B to the west, glistening in the eternal acid drizzle of the city. To the north, the apartment buildings and offices that surround the megablock like a crowd of ragged worshipers begin to give way to the more ambitious neo-Gothic architecture of the city's richer districts, while to the south, the buildings give way to a precariously leaning maze of slums that crashes up against the huge blocks of the warehouse district beyond like dirty surf. To the east, the warmth and light of the gray market shows like patches of mold on the collapsed ruins of another megablock, which is surrounded by a dilapitated chain-link fence.\b <<if cop1.isDirectlyIn(self) && cop2.isDirectlyIn(self)>>There is a glowing holographic cordon of moving black and yellow stripes around the entrance of the megablock, blocking off all passage while the property enforcement officers finish up their investigation &emdash; not that it'll be hard to figure out who broke into your apartment.<<end>>"
 	
 	east = grayMarket
 	west = megablockArch

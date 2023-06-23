@@ -95,3 +95,6 @@ modify OutdoorRoom
 citySidewalk: MultiLoc, Floor 'sidewalk; cracked dirty gray grey; pavement ground floor'
     "The sidewalk might once have been white, but has long since been dyed gray-black by layers of ash, soot, dirt, and other kinds of grime, forming an unspeakable patina that glistens wetly in the eternal acidic drizzle. The sidewalk is cracked and uneven where huge pipes from nearby buildings plunge down from their sides and into the city's sewer system, heedless of what was there before."
 ;
+
+megablock1Region: Region
+;

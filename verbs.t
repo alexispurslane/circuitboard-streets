@@ -76,3 +76,27 @@ VerbRule(KnockOn) 'knock' 'on' singleDobj : VerbProduction
     verbPhrase = 'knock/knocking on (what)'
     missingQ = 'what do you want to knock on'
 ;
+
+DefineTAction(Kick) ;
+
+modify Thing
+    kickMsg = "It may be satisfying to take your anger out on the things around you, but try directing that violence more carefully. Maybe you can cause some real damage. "
+    dobjFor(Kick)
+    {
+        preCond = [touchObj]
+        verify()
+        {
+            // passes
+        }
+        action()
+        {
+            kickMsg;
+        }
+    }
+;
+
+VerbRule(Kick) 'kick' ('on'|'at'|'next' 'to'|) singleDobj : VerbProduction
+    action = Kick
+    verbPhrase = 'kick/kicking (what)'
+    missingQ = 'what do you want to kick'
+;
