@@ -69,7 +69,7 @@ megablockFloor1: Room 'M-3B Floor 1'
     regions = [megablock1Region]
 ;
 
-+ apartmentDoorOutside: Door 'apartment door; pink apartment 104; entry doorway'
++ apartmentDoorOutside: Door ->apartmentDoorInside 'apartment door; pink apartment 104; entry doorway'
     "<<if isBroken>>Your apartment door lies on the floor of your apartment, bent and splintered along both vertical edges, hinges hanging from one end like grotesquely deformed bones.<<end>> This door has been covered in so many layers of graffiti by its successive occupants that an archaeologist might be able to trace the ephemerable trends in low-life culture through its skin. Two graffitos stick out in particular: some wry soul has written 'abandon all hope' across the top in nearly illegible handwriting. The other is yours, an abbreviation of one of your father's sardonic sayings: 'home is where the roof is.'"
 
     specialDesc = "<<if isBroken>>The empty doorway to your apartment gapes, splintered, to the south, inviting you in like a bad childhood influence. Your apartment door lies askew inside the apartment.<<else>>You see your own apartment's door directly south of you, in the center of the row of doors.<<end>>"
@@ -78,7 +78,6 @@ megablockFloor1: Room 'M-3B Floor 1'
 
     isBroken = nil
     isLocked = true
-    otherSide = apartmentDoorInside
     attemptedOpen = nil
     attackCount = 0
 
@@ -413,8 +412,9 @@ megablockFloor1NorthWest: Room 'M-3B Floor 1 (West Side)'
     regions = [megablock1Region]
 ;
 
-+ neighbor1Door: Door 'first door; neighbor\'s door front apartment; door'
++ neighbor1Door: Fixture 'first door; neighbor\'s door front apartment; door'
     "The door nearest you is covered in graffiti, the geologically layered incoherent screams of a thousand successive inhabitants' pain. The window next to it has had its blinds drawn closed against its dreary view of the atrium, but yellow light still filters through and casts bars of light on the dusty walkway in front of you."
+    isOpenable = true
     isLocked = true
     dobjFor(KnockOn)
     {
@@ -431,8 +431,9 @@ megablockFloor1NorthWest: Room 'M-3B Floor 1 (West Side)'
     lookThroughMsg = "The blinds on this window are closed, only letting a few lines of yellow light slip out."
 ;
 
-+ neighbor2Door: Door 'second door; neighbor\'s door front apartment; door'
++ neighbor2Door: Fixture 'second door; neighbor\'s door front apartment; door'
     "This door seems to have been industriously scrubbed clean of graffiti sometime relatively recently, although not extremely so &emdash; various tags and gang territory marks and other such colorful fungi native to the City have begun to grow back again. Nevertheless, you can tell that someone who lived here used to care a lot about trying to keep their surroundings together as best they could. "
+    isOpenable = true
     isLocked = true
     travelMsg = "<<if isOpen>>You could try to push past the man, and probably succeed, but that's not a good idea.<<end>>"
     dobjFor(KnockOn)
@@ -456,8 +457,9 @@ megablockFloor1NorthWest: Room 'M-3B Floor 1 (West Side)'
     lookThroughMsg = "The blinds on this window are closed, only letting a few bars of yellow light slip out."
 ;
 
-+ neighbor3Door: Door 'third door; neighbor\'s door front apartment; door'
++ neighbor3Door: Fixture 'third door; neighbor\'s door front apartment; door'
     "The door farthest to you down the hallway might once have been black underneath all of its layered graffiti, but it's hard to tell. The window next to it has not had its blinds drawn closed, unlike the first one, but only a faint blue light shines out, flickering almost subliminally, like a cathode ray tube's glow."
+    isOpenable = true
     isLocked = true
     dobjFor(KnockOn)
     {
@@ -596,8 +598,7 @@ airDuctSouth: AirDuct
     execTravel(actor, traveller, conn)
     {
         inherited(actor, traveller, conn);
-        apartmentDoorInside.isLocked = nil;
-        apartmentDoorOutside.isLocked = nil;
+        apartmentDoorOutside.makeLocked(nil);
     }
 ;
 

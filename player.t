@@ -1,11 +1,16 @@
 me: Thing 'you'
-    "You glance down at yourself. You're a tall woman, muscular from a lifetime of habits formed when you were a kid working manual labor. A piece of solid industrial iron serves as your right arm, while <<if !me.isWearingLeftArm>>your left arm is missing, leaving the left arm of your jacket hanging limp and empty at your side. The absence tugs at you like a physical weight.<<else>>on your left, you are wearing <<me.arm.onPlayerDesc>><<end>> As for what you're wearing, it's relatively simple shit for the City: a pair of thick black leather pants, an old faded yellow shirt, steel toed boots, and a micro-shell jacket thrown over top of everything against the cold. <<if playerMask.isWornBy(me)>>You are also wearing your active filtration mask.<<end>>"
+    "You glance down at yourself. You're a tall woman, muscular from a lifetime of habits formed when you were a kid working manual labor. A piece of solid industrial iron serves as your right arm, while on your left, <<me.leftArm.onPlayerDesc>>. As for what you're wearing, it's relatively simple shit for the City: a pair of thick black leather pants, an old faded yellow shirt, steel toed boots, and a micro-shell jacket thrown over top of everything against the cold. <<if playerMask.isWornBy(me)>>You are also wearing your active filtration mask.<<end>>"
 
     isFixed = true
     person = 2
     contType = Carrier
     location = megablockExterior
-    isWearingLeftArm = nil
+    leftArm: Unthing
+    {
+        desc = "Your left arm is missing, and just looking at the empty stump where it should be tugs at your psyche as if something is trying to drag you down into insanity. You quell the rising anxiety in your chest and look away quickly. ";
+        onPlayerDesc = "your entire left arm is missing"
+    }
+    rightArm = playerArm
 ;
 
 + playerArm: Wearable 'cybernetic right arm; industrial cyberware heavy-duty solid gray steel; (arm)'
@@ -15,7 +20,7 @@ me: Thing 'you'
     {
         check()
         {
-            if (!gPlayerChar.isWearingLeftArm)
+            if (gPlayerChar.leftArm == nil)
             {
                 "How do you figure to manage taking off your only arm? With your teeth?";
             }

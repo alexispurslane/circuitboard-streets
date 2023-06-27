@@ -65,7 +65,7 @@ coffinRoom: Room 'The Coffin'
 
 // name = Séraphine Lacan
 coffinOwner: Actor 'coffin hotel owner; gray gaunt sickly metal metallic military; person implants scars studs woman; her' @coffinHotel
-    "The coffin hotel owner is thin. Not just thin, but gaunt: cheeks sunken, hands bony talons, glistening dark eyes hooded, skin stretched over sharp, delicate, birdlike bones. Skin, you notice, that has a distinctly unsettling grayness to it, as if she were not quite... alive. Her dimunitive stature is exaggerated to the point of almost childlike smallness by her hunched shoulders and deeply curved spine. There is something striking about her face, too: it's thin and frail, with a deep dreamy melancholy etched into it, as if she can remember times when things were better, and prefers to spend her days in those memories, instead of in the dirty present. Two small oblong metal studs stick out of her forehead, the skin around them thickened with the scar tissue that's the telltale sign of early cybernetics. You can't remember having seen anything like these implants before in person, but you know from histories that they &emdash; or similar ones, anyway &emdash; were used by the military, for piloting drones and tanks. "
+    "The coffin hotel owner is thin. Not just thin, but gaunt: cheeks sunken, hands bony talons, glistening dark eyes hooded, skin stretched over sharp, delicate, birdlike bones. Skin, you notice, that has a distinctly unsettling grayness to it, as if she were not quite... alive. Her dimunitive stature is exaggerated to the point of almost childlike smallness by her hunched shoulders and deeply curved spine. There is something striking about her face, too: it's thin and frail, with a deep dreamy melancholy etched into it, as if she can remember times when things were better, and prefers to spend her days in those memories, instead of in the dirty present. Two small oblong metal studs stick out of her forehead, the skin around them thickened with the scar tissue that's the telltale sign of early cybernetics. You can't remember having seen anything like these implants before in person, but you know from histories that they &emdash; or similar ones, anyway &emdash; were used by the military, for piloting drones and tanks.<.known tStuds> "
 
     globalParamName = 'coffin-owner'
     isHer = true
@@ -206,6 +206,8 @@ coffinOwner: Actor 'coffin hotel owner; gray gaunt sickly metal metallic militar
     }
 ;
 
+tStuds: Topic 'studs' @nil;
+
 gbCoffinOwnerConversation: QMain
     options = [gbCoffinName, gbRoom, gbStuds]
 ;
@@ -223,6 +225,7 @@ gbStuds: Quip
     "\"What are those studs?\" "
     "You ask the question with a little trepidation, but, luckily, {the subj coffin-owner} doesn't take offense.\b\"Used to hardwire into combat APCs,\" she says casually, as if it was the most normal thing in the world. \"That's what these were for, back in the day. Hardlining directly in with optical fiber. I was good, too,\" she says wistfully. "
 
+    isOn = gPlayerChar.knowsAbout(tStuds)
     qOff = [gbStuds]
     options = [gbLike, gbWhy]
 ;

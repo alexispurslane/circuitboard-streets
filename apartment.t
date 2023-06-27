@@ -165,9 +165,8 @@ apartment: Room, RandomEventList 'Apartment 104'
     }
 ;
 
-+ apartmentDoorInside: Door 'apartment door; ; exit doorway'
++ apartmentDoorInside: Door ->apartmentDoorOutside 'apartment door; ; exit doorway'
     "<<if apartmentDoorOutside.isBroken>>Your apartment door lies on the floor of your apartment, bent and splintered along both vertical edges, hinges hanging from one end like grotesquely deformed bones.<<end>> This door has been covered in so many layers of graffiti by its successive occupants that an archaeologist might be able to trace the ephemerable trends in low-life culture through its skin. Two graffitos stick out in particular: some wry soul has written 'abandon all hope' across the top in nearly illegible handwriting. The other is yours, an abbreviation of one of your father's sardonic sayings: 'home is where the roof is.'"
     specialDesc = "<<if apartmentDoorOutside.isBroken>>You see your apartment door, lying bent and splintered, on the floor of your apartment, agains the opposite wall from its frame.<<end>>"
-    otherSide = apartmentDoorOutside
     isLocked = true
 ;

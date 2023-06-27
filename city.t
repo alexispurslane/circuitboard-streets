@@ -3,7 +3,9 @@ acrossStreetFrom: Relation 'across the street from' 'across the street from' @on
 InitObject
     execute()
     {
-        relate(shoppingDistrict, 'across the street from', megablockExterior);
+        relate(grayMarket, 'across the street from', megablockExterior);
+        relate(alleyway, 'across the street from', street2);
+        relate(tunnel, 'across the street from', street3);
     }
 ;
 

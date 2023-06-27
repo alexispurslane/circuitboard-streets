@@ -48,13 +48,13 @@ gameMain: GameMainDef
 		
 		"Fucking. Lucky.\b";
 		
-		inputManager.pauseForMore();
+		inputManager.getKey();
 		cls();
 		
 		"\b\bWelcome to\n\n";
 		"<b>CIRCUITBOARD STREETS</b>\nAn interactive cyberpunk novel by Alexis Purslane\b";
 		
-		"Now you're standing outside your apartment tower, trying to put the pieces of your life back together in your head. But they just aren't fitting. With something like this on your record, and a whole captive city to hire from, why would anyone hire you now? Your life is, for all intents and purposes, over.\b";
+		"Now you're standing outside your apartment tower, trying to put the pieces of your life back together in your head. But they just aren't fitting. With something like this on your record, and a whole captive city to hire from, why would anyone hire you now? Nevertheless, the urge to go into your apartment and get on your deck to try to find another job, the hope that you might luck out and find one willing to take you, pulls you. \b";
 	}
 ;
 
@@ -90,10 +90,10 @@ chapter2: Scene
 ;
 
 chapter3: Scene
-    leftApartment = (!gPlayerChar.isDirectlyIn(apartment) && chapter2.hasHappened)
-    brokeDoor = (apartmentDoorOutside.isBroken && chapter2.hasHappened)
+    leftApartment = (!gPlayerChar.isDirectlyIn(apartment))
+    brokeDoor = (apartmentDoorOutside.isBroken)
 
-    startsWhen = (brokeDoor || leftApartment)
+    startsWhen = ((brokeDoor || leftApartment) && chapter2.hasHappened)
     endsWhen = (gPlayerChar.isDirectlyIn(street2))
 
     spawnCops()
@@ -129,8 +129,9 @@ chapter3: Scene
 
     despawnCops()
     {
-        cop1.location = nil;
-        cop2.location = nil;
+        cop1.moveInto(nil);
+        cop2.moveInto(nil);
+        copCar.moveInto(nil);
     }
 
     whenStarting()
@@ -145,11 +146,6 @@ chapter3: Scene
         }
         alarms.isHidden = nil;
         new Fuse(self, &spawnCops, 9);
-    }
-
-    whenEnding()
-    {
-        "As you walk away from the megablock, hunching your shoulders and raising your collar as much to avoid notice as protect yourself from the rain, you wonder what to do next. How you'll survive from here on out. Maybe it's time to try to find a job on some <i>other</i> market than the legitimate one.";
     }
 ;
 
@@ -167,6 +163,29 @@ alarms: MultiLoc, Decoration 'alarms; red orange monospace capital property lega
 megablockExterior: OutdoorRoom 'Outside Megablock M-3B'
 	"The street here is dominated by the impossibly large black edifice of Megablock M-3B to the west, glistening in the eternal acid drizzle of the city. To the north, the apartment buildings and offices that surround the megablock like a crowd of ragged worshipers begin to give way to the more ambitious neo-Gothic architecture of the city's richer districts, while to the south, the buildings give way to a precariously leaning maze of slums that crashes up against the huge blocks of the warehouse district beyond like dirty surf. To the east, the warmth and light of the gray market shows like patches of mold on the collapsed ruins of another megablock, which is surrounded by a dilapitated chain-link fence.\b <<if cop1.isDirectlyIn(self) && cop2.isDirectlyIn(self)>>There is a glowing holographic cordon of moving black and yellow stripes around the entrance of the megablock, blocking off all passage while the property enforcement officers finish up their investigation &emdash; not that it'll be hard to figure out who broke into your apartment.<<end>>"
 
+    beforeTravel(traveler, connector)
+    {
+        if (traveler == gPlayerChar && connector != self.north && !cop1.isDirectlyIn(self) && chapter2.hasHappened)
+            "As you walk away from the place that's been your home for the past two years, a strange feeling of unreality settles over you. You feel adrift, at sea &emdash; there is nowhere in the world you can return back to now, no fixed place to anchor you, to reassure you that it's always there, waiting for you at the end of every day. A vast, empty chasm seems to have opened up in your heart. Some crucial socket in your psyche your home used to fill is suddenly empty, broken wires hanging, diagnostic lights blinking in the lonely darkness. The fact that you never made any friends here, never had the time, hits home now. There's no one to turn to for help, or a friendly roof over your head. You don't have anything but what you're cradling in your arms. You'll eventually need to find another job, probably under the table to avoid the stigma of a low credit score, but you can't seem to focus on that right now. You just want to find somewhere to lie your head, to store your possessions. A temporary anchor. ";
+    }
+
+    north: TravelConnector
+    {
+        canTravelerPass(actor)
+        {
+            return chapter3.hasHappened;
+        }
+
+        explainTravelBarrier(actor)
+        {
+            if (chapter3.isHappening)
+                "You start to go north toward the corporate district of the city, but, hearing sirens coming from that direction, you quickly turn back. No need to do the pigs' job for them. Better run the other way. ";
+            else if (chapter1.isHappening || chapter2.isHappening)
+                "The thought of venturing into the rich business district is too exhausting right now. You don't want to deal with the stares at your blue-collar attire and shabby cyberware, or seeing those corporate sons of bitches walking around with their briefcases and three-piece suits. It's sickening, and you've got bigger fish to fry right now. ";
+        }
+
+        destination = street1
+    }
     south = street2
 
     east = grayMarket
