@@ -1,15 +1,9 @@
 -D LANGUAGE=english
 -D MESSAGESTYLE=neu
--D TADS_INCLUDE_NET
 -Fy obj -Fo obj
 -o Circuitboard-Streets.t3
 -lib system
--lib ../../Extensions/adv3Lite/adv3LiteWeb
--lib webui
--source tadsnet
+-lib ../../Extensions/adv3Lite/adv3Lite
 -source qtalk/qtalk
 -source qtalk/qtalkverbs
 -source start
-
--res
-webuires

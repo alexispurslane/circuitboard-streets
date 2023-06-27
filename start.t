@@ -48,7 +48,7 @@ gameMain: GameMainDef
 		
 		"Fucking. Lucky.\b";
 		
-		inputManager.getKey();
+		inputManager.pauseForMore();
 		cls();
 		
 		"\b\bWelcome to\n\n";
