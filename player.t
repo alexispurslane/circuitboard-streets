@@ -1,5 +1,5 @@
 me: Thing 'you'
-    "You glance down at yourself. You're a tall woman, muscular from a lifetime of habits formed when you were a kid working manual labor. A piece of solid industrial iron serves as your right arm, while on your left, <<me.leftArm.onPlayerDesc>>. As for what you're wearing, it's relatively simple shit for the City: a pair of thick black leather pants, an old faded yellow shirt, steel toed boots, and a micro-shell jacket thrown over top of everything against the cold. <<if playerMask.isWornBy(me)>>You are also wearing your active filtration mask.<<end>>"
+    "You glance down at yourself. You're a tall woman, muscular from a lifetime of habits formed when you were a kid working manual labor. You've always been insecure about your body, having gone through the wrong puberty as a kid, growing more masculine when that was the last thing in the world you wanted, but thanks to your medicine, the last few years have been kinder. You've been slowly growing more feminine, and the more feminine your body gets, the more comfortable you've become. You're almost content with it now.\b A piece of solid industrial iron serves as your right arm, while on your left, <<me.leftArm.onPlayerDesc>>. As for what you're wearing, it's relatively simple shit for the City: a pair of thick black leather pants, an old faded yellow shirt, steel toed boots, and a micro-shell jacket thrown over top of everything against the cold. <<if playerMask.isWornBy(me)>>You are also wearing your active filtration mask.<<end>>"
 
     isFixed = true
     person = 2
@@ -31,7 +31,7 @@ me: Thing 'you'
 ;
 
 + playerMask: Wearable 'mask; filter filtration active electronic gas toxin; gasmask'
-    "<<if isWornBy(gPlayerChar)>>You can't see your mask while you're wearing it.<<else>>Your mask is made of a black lightweight plastic polymer: durable, high-quality to the touch, and cheap to produce, with aesthetically champfered edges and decorative lines snaking at right angles through its surface. Active filters glow a soft green on the right and left sides, their fans making a thin whirring sound, pulling air into the multilayered filtration system before it's passed to the inside of the mask for you to breathe. The inside edges of the mask, where the plastic would touch your face, are lined with a soft rubber that, when placed against your face, forms an airtight seal. The mask's elastic strap hangs down from the sides. <<first time>>You have little to no memory of a time when wearing an active filter outside wasn't necessary, since the air became toxic when you were very young. You, like everyone else, had to pick up the habit of them outdoors real quick after the first person died, their lungs eaten away into a useless mess of tissue in their chest.<<only>><<end>>"
+    "<<if isWornBy(gPlayerChar)>>You can't see your mask while you're wearing it.<<else>>Your mask is made of a black lightweight plastic polymer: durable, high-quality to the touch, and cheap to produce, with aesthetically champfered edges and decorative lines snaking at right angles through its surface. Active filters glow a soft green on the right and left sides, their fans making a thin whirring sound, pulling air into the multilayered filtration system before it's passed to the inside of the mask for you to breathe. The inside edges of the mask, where the plastic would touch your face, are lined with a soft rubber that, when placed against your face, forms an airtight seal. The mask's elastic strap hangs down from the sides. <<first time>>You have little to no memory of a time when wearing an active filter outside wasn't necessary, since the air became toxic when you were very young. You, like everyone else, had to pick up the habit of them outdoors real quick after the first person died, their lungs eaten away into a useless mess of tissue in their chest. The mask also serves as a neat excuse to hide your face.<<only>><<end>>"
 
     dobjFor(Doff)
     {
@@ -39,6 +39,10 @@ me: Thing 'you'
         {
             if (gPlayerChar.location.ofKind(OutdoorRoom))
                 "The air's fucking toxic. Taking your mask off outdoors would screw your lungs up, bad.";
+        }
+        report()
+        {
+            "You reluctantly take off your mask, displaying your face to anyone around who might see.";
         }
     }
     wornBy = me

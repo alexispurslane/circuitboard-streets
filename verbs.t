@@ -100,3 +100,24 @@ VerbRule(Kick) 'kick' ('on'|'at'|'next' 'to'|) singleDobj : VerbProduction
     verbPhrase = 'kick/kicking (what)'
     missingQ = 'what do you want to kick'
 ;
+
+VerbRule(Pay) 'pay' singleDobj : VerbProduction
+    action = Pay
+    verbPhrase = 'pay/ paying (what)'
+    missingQ = 'who or what do you want to pay'
+;
+
+DefineTAction(Pay)
+    execAction(cmd)
+    {
+        "With a subvocalized command, your augreal hud spins its glowing pink wireframe interface around you with a satisfying animation. A moment later, you've brought up your payments interface. ";
+
+        if (gPlayerChar.hasMoney)
+            inherited(cmd);
+        else
+        {
+            "You check your balance and realize that, since you were fired only a few days before your paycheck, you're broke as fuck. A wave of helpless frustration rolls over you again. ";
+        }
+
+    }
+;

@@ -3,21 +3,21 @@ acrossStreetFrom: Relation 'across the street from' 'across the street from' @on
 InitObject
     execute()
     {
-        relate(grayMarket, 'across the street from', megablockExterior);
+        relate(grayMarketEntrance, 'across the street from', megablockExterior);
         relate(alleyway, 'across the street from', street2);
         relate(tunnel, 'across the street from', street3);
     }
 ;
 
 // city day cycle states
+// busy_state --> early morning or late afternoon, commute time
+// deserted_state --> middle of the day, when everyone's at work
+// nightlife_state --> early night
+// night_state --> past 1am or so
 enum busy_state, deserted_state, nightlife_state, night_state;
-
-// sky day cycle states
-enum dawn_state, dusk_state, day_state, night_state;
 
 city: Region, RandomEventList
     eventList = [
-        {: "A <<one of>>person<<or>>man<<or>>woman<<purely at random>> wearing <<one of>>strange demonic horns<<or>>an ornate outfit of ridged leather and metal spines, tailored to their form<<or>>an e-ink tattoo<<or>>a long, dark-colored trenchcoat pulled tight to hide their face<<or>>not much more than their underwear<<or>>a long katana on their back, sheathed in a scabbard with cooling vents that glow a soft blue<<or>>a visor that glows a bright neon red<<or>>a gauss rifle across their back<<or>>a pair of dark mirrored glasses<<shuffled>> <<one of>>walks<<or>>strides<<or>>stalks<<or>>pushes<<or>>brushes<<at random>> past." },
         'The wind howls desolately through the artificial canyons between the surrounding towers.',
         'The far away sound of sirens pierces the air with a thin warble.',
         'Somewhere a few streets away, you hear a shout. You can\'t quite make out the words.',
@@ -28,8 +28,7 @@ city: Region, RandomEventList
     eventReduceTo = 20
     eventReduceAfter = 10
 
-    timeOfDayState = busy_state
-    skyMode = dawn_state
+    timeOfDayState = deserted_state
 
     regionBeforeTravel(traveler, connector)
     {
@@ -38,28 +37,15 @@ city: Region, RandomEventList
             self.timeOfDayState == busy_state)
             "<<one of>>You glance up and down the street, then make your dash through traffic.<<or>>You wait patiently for a gap in the cars streaming by, and when one finally arrives, you rush across the street.<<or>>Just before you take a step into the street, a car you didn't previously notice whizzes by, splashing you with toxic sewer water. Once it's gone, you continue your journey across the street<<as decreasingly likely outcomes>>";
     }
-
-    regionDaemon()
-    {
-        inherited();
-
-        local time = timeManager.currentTime.getClockTime()[1];
-        if (6 < time && time < 8)
-            self.timeOfDayState = busy_state;
-        else if (8 <= time && time <= 18)
-            self.timeOfDayState = deserted_state;
-        else if (18 < time && time <= 20)
-            self.timeOfDayState = busy_state;
-        else if (time > 20 || time <= 23)
-            self.timeOfDayState = nightlife_state;
-        else
-            self.timeOfDayState = night_state;
-    }
 ;
 
 // Conditioned events
 + ELI ~(city.timeOfDayState == busy_state) "Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult.";
 + ELI ~(city.timeOfDayState == busy_state) "Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you\'re not used to it.";
+
++ ELI ~(city.timeOfDayState != deserted_state) "A <<generateCrowdPerson()>> <<one of>>walks<<or>>strides<<or>>stalks<<or>>pushes<<or>>brushes<<or>>sways<<at random>> past. ";
+
++ ELI ~(city.timeOfDayState == nightlife_state) "A group of partiers streams around you for a moment, filling your ears with an out of context snipped of their laughter and conversation for a moment before passing around you.";
 
 modify defaultSky
     desc()
@@ -80,23 +66,41 @@ modify defaultSky
     }
 ;
 
-modify OutdoorRoom
-    traversalTimeFrom(origin)
+citySidewalk: MultiLoc, Decoration 'sidewalk; cracked dirty gray grey; pavement ground floor'
+    "The sidewalk might once have been white, but has long since been dyed gray-black by layers of ash, soot, dirt, and other kinds of grime, forming an unspeakable patina that glistens wetly in the eternal acidic drizzle. The sidewalk is cracked and uneven where huge pipes from nearby buildings plunge down from their sides and into the city's sewer system, heedless of what was there before."
+    locationList = [city]
+;
+
+cars: MultiLoc, Decoration 'cars; horseless; car carriage vehicle automobile vehicles automobiles'
+    "<<if city.timeOfDayState == deserted_state>>The streets are empty except for a few cars driving swiftly past here and there<<else>>Angular electric cars crowd the streets like salmon on their way to mate.<<end>>"
+    locationList = [city]
+;
+
+generateCrowdPerson()
+{
+    // 12 * 24 = 288 combinations!
+    return "<<one of>>a person of indeterminate gender<<or>>an androgynous person<<or>>someone completely 'borged out on cyberware<<or>>a pretty man<<or>>a femboy<<or>>a handsome man<<or>>a large, muscular man<<or>>a tall woman<<or>>a beautiful woman<<or>>a lithe, muscular woman<<or>>a man<<or>>a woman<<or>>someone<<purely at random>> <<one of>>with ostentatious demonic horns<<or>>wearing an ornate corsetted outfit of ridged leather and metal spines, tailored to their form<<or>>with bioluminescent hair glowing neon <<one of>>red<<or>>green<<or>>blue<<or>>white<<or>>pink<<purely at random>><<or>>displaying a scrawl of e-ink tattoos, shifting shape and design as they walk<<or>>wearing a long, dark-colored trenchcoat pulled tight to hide their face<<or>>wearing not much more than their underwear<<or>>with a long katana strapped to their back, sheathed in a scabbard with cooling vents that glow a soft blue<<or>>with a visor that glows blood red<<or>>armed with a gauss rifle strapped across their back<<or>>a pair of dark mirrored glasses<<or>>with long, elegant silver-and-gold cybernetic arms ending in fine, elegant, <i>clawed</i> fingers<<or>>kitted out with military-spec bullet-proof skin reinforcements, discernable by the black lines tracing circuitry in the skin<<or>>wearing an alluring tight leather dress with a breast window displaying soft, smooth skin<<or>>wearing a combat jacket, tight shorts, and high heeled boots<<or>>trying to hide horrible burns up the side of their body under a jacket<<or>>with heavy combat augmentations erupting out of their body in various places<<or>>with three arms<<or>>whose two arms seem to shift, click, rearrange themselves, like complex clockwork, and split into four arms<<or>>with a penal control box in the side of their head<<or>>with arms too long for their body<<or>>wearing a smart, knife-creased black three-piece suit, dark glasses covering their eyes<<or>>wearing a sharp, professionally-drycleaned cream business suit with a pencil skirt<<or>>guiding a mil-spec hexapod<<shuffled>>";
+}
+
+generateCrowdCouple()
+{
+    return "<<one of>>two men<<or>>two women<<or>>a woman and a man<<or>>two women and a man<<or>>two men and a woman<<or>>three women<<or>>three men<<or>>two androgynous people<<or>>two people of indeterminite gender<<purely at random>>";
+
+}
+
+cityPeople: MultiLoc, Decoration 'people; ; crowds crowd'
+    "<<if city.timeOfDayState == busy_state>>Citydwellers walk hurriedly across streets and along sidewalks, shoulders hunched, black leather or micro-shell collars and hoods pulled up against the acid rainwater spray of the passing cars, faces above their masks closed like login screens with lost passwords. So many people, streams of them passing back and forth, a herd of cattle rushed somewhere by invisible corrals, packed together yet profoundly alone. Each person unique in their ethnicity, their gender expression, their religion, their history, their appearance, each further elaborating on some theme through their cyberware, which ranges from the cheap but flashy to the utilitarian and beyond. Each person equally identical somehow, united in their body language and their struggle to survive.<<else if city.timeOfDayState == night_state>>The streets are nearly empty at this time of day, only a few walking here and there, following sidewalks, crossing streets, entering alleyways or buildings. Here and there, ragged dirty figures formerly hidden by the crowds are visible, hunched against walls, laid out on the street, squatting at corners, their few possessions huddled around them. A few have scrounged up VR goggles and are lost to the bleakness of this world. Empty beer cans, needles and syringes, fast food wrappers, and other detritus litter the ground around them, fluttering slightly in the wind and making a barely-audible pattering sound with the rain.<<else if city.timeOfDayState == nightlife_state>>The streets are just as packed now as they were during rush hour, but somehow the energy is different. <i>Live hard now, do everything you want now, have it all now,</i> the streets seem to say, <i>because tomorrow another twelve hours of your life will be sucked from you.</i> There is laughter, partying, groups of friends, jokes, slapping backs, kissing, fondling, drinking, shouting, there are people wearing their best after-hours outfits, leather and lace and mesh and fishnet stockings and corsets and coats and neon tubing and everything, but there is a desparation to it. It makes you anxious.<<else if city.timeOfDayState == deserted_state>>A few citydwellers hurry across streets and along sidewalks here and there, shoulders hunched, black leather or micro-shell collars and hoods pulled up against the acid rainwater spray of the passing cars, faces above their masks closed like login screens with lost passwords. Each person unique in their ethnicity, their gender expression, their religion, their history, their appearance, each further elaborating on some theme through their cyberware, which ranges from the cheap but flashy to the utilitarian and beyond. Each person equally identical somehow, united in their body language and their struggle to survive.<<end>> "
+    specialDesc = "<<if city.timeOfDayState == busy_state>>The sidewalks are crowded with people hurrying to and from their shifts.<<else if city.timeOfDayState == deserted_state || city.timeOfDayState == night_state>>A few people walk scattered here and there on the sidewalks.<<else if city.timeOfDayState == nightlife_state>>People stroll or swagger by in groups, talking and laughing raucously, drinking beer, taking hits, playing music.<<end>> "
+
+    dobjFor(Examine)
     {
-        if (origin.ofKind(OutdoorRoom))
+        action()
         {
-            return 300;
-        }
-        else
-        {
-            return self.traversalTime;
+            "You notice <<generateCrowdPerson() >>. \b";
+
+            inherited();
         }
     }
-;
 
-citySidewalk: MultiLoc, Floor 'sidewalk; cracked dirty gray grey; pavement ground floor'
-    "The sidewalk might once have been white, but has long since been dyed gray-black by layers of ash, soot, dirt, and other kinds of grime, forming an unspeakable patina that glistens wetly in the eternal acidic drizzle. The sidewalk is cracked and uneven where huge pipes from nearby buildings plunge down from their sides and into the city's sewer system, heedless of what was there before."
-;
-
-megablock1Region: Region
+    locationList = [city]
 ;

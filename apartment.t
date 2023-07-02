@@ -13,8 +13,25 @@ apartment: Room, RandomEventList 'Apartment 104'
 
     travelCount = 0
 
-    out = apartmentDoorInside
-    north = apartmentDoorInside
+    north: TravelConnector
+    {
+        destination = apartmentDoorInside;
+
+        canTravelerPass(actor)
+        {
+            // Player has all the right items
+            if (actor == gPlayerChar)
+                return personalTerminal.isIn(actor) && encryptionModule.isIn(actor) && darknetModule.isIn(actor) && notepad.isIn(actor) && picture.isIn(actor) && estrogen.isIn(actor);
+            else
+                return true;
+        }
+
+        explainTravelBarrier(actor)
+        {
+            "You start to step out of the door but quickly turn back. It feels like you're forgetting something important...";
+        }
+    }
+    out asExit(north)
 
     regions = [megablock1Region]
 ;
@@ -70,6 +87,23 @@ apartment: Room, RandomEventList 'Apartment 104'
     }
 ;
 
+++ estrogen: Thing 'medicine injector gun; estrogen medication drug valerate'
+    "A small self-sterilizing reusable intramuscular injection gun, made of white plastic and stainless steel, with a small pointed cone forming the muzzle, where the needle flickers out from, and a small vial fitted into the open bay in the top. The one thing you need more than pretty much everything else, barring maybe food. Just the thought of losing it makes something inside you curl up with horror. This medicine is why, or at least half of why, you're even in the City, and not back in the Rust Belt town you grew up in. The other reason being it's an economically gutted third-world hellhole of crumbling nonfunctional infrastructure, poverty, and tin-pot theocratic dictators. "
+
+    dobjFor(Examine)
+    {
+        action()
+        {
+            inherited();
+
+            "Reflexively, you grap the medicine and put it in your pocket for safekeeping. ";
+            doNested(Take, estrogen);
+        }
+    }
+
+    subLocation = &remapOn
+;
+
 ++ encryptionModule: PlugAttachable, SimpleAttachable 'encryption module'
     "A small, oblong piece of soft-touch black plastic about the size of your thumb. On its back is a row of seven tiny metal pins. This is an encryption module, designed to plug into a DEC and provide it with an application-specific integrated circuit for advanced anti-quantum cryptography which would be far too difficult for the generalized computational circuitry in a normal DEC to handle alone. These are fairly common among hardware and security enthusiasts, since traditional cryptography was made obsolete by advances in quantum computing. You're not typically into that kind of stuff, but an old girlfriend managed to talked you into getting one anyway. You never got around to using it much."
     subLocation = &remapIn
@@ -87,7 +121,7 @@ apartment: Room, RandomEventList 'Apartment 104'
 ;
 
 ++ personalTerminal: Switch 'a DEC-11; Takagi dec deck 11 personal; computer deck terminal cyberdeck'
-    "This is a chunky oblong rectangle of black magnesium about a third of an inch thick, over a foot long, and about six inches deep. Designed to be tethered to your AR system for use for a compute/storage boost and connectivity hub, since size and connectivity in body-embedded systems is typically limited. Its surface is largely dedicated to a lavish but compact mechanical keyboard for those who find air-keyboards unpleasant to use, and a plethora of ports and access bays. Along the left side are two module expansion ports, one with four metal contacts arranged in a square, and one with seven metal contacts arranged in a line."
+    "This is a chunky oblong rectangle of black magnesium about a third of an inch thick, over a foot long, and about six inches deep. Designed to be tethered to your augreal system for use for a compute/storage boost and connectivity hub, since size and connectivity in body-embedded systems is typically limited. Its surface is largely dedicated to a lavish but compact mechanical keyboard for those who find air-keyboards unpleasant to use, and a plethora of ports and access bays. Along the left side are two module expansion ports, one with four metal contacts arranged in a square, and one with seven metal contacts arranged in a line."
 ;
 
 +++ asicPlug: SimpleAttachable, Component 'the (ASIC) port; application (specific) integrated circuit seven metal contacts (line) (with); expansion port'

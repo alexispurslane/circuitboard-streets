@@ -1,5 +1,8 @@
+megablock1Region: Region
+;
+
 megablockEntrance: Room 'M-3B Entrance Hall'
-    "This is a small square room of slowly eroding concrete walls, which are painted in an old, chipping gray that you find vaguely distasteful. The exit is east, leading out through the filter-field into the drizzling gloom of the city. West, a few stairs lead up into the <<if chapter3.isHappening>>wash of red light from<<else>>shadowy gray-green light of<<end>> the megablock's atrium."
+    "This is a small square room of slowly eroding concrete walls, which are painted in an old, chipping gray that you find vaguely distasteful. The exit is east, leading out through the filter-field into the drizzling gloom of the city. West, a few stairs lead up into the <<if scene2.isHappening>>wash of red light from<<else>>shadowy gray-green light of<<end>> the megablock's atrium."
 
     west = megablockStairs1
     in asExit(west)
@@ -25,7 +28,7 @@ megablockEntrance: Room 'M-3B Entrance Hall'
 megablockBottomFloor: Room 'M-3B Atrium'
     "The bottom floor of the megablock is a wide open space of concrete interrupted here and there by concrete benches, tables, and what might once have been exercise equipment before the rust took it. It's surrounded on all sides by a densely-packed forest of pillars holding up the floors above. Above you, a shaft rises through the building to the greenhouse roof in the ceiling, through which greenish light sifts lazily down, revealing a dizzying number of apartments all facing inward on the central shaft. A few windows are lighted here and there among the endless ranks. To the south, stairs climb up to the first floor of apartments, where you live. To the west, a short flight of stairs goes down to the entry hall."
 
-    conciseDesc = "A wide, largely featureless expanse of concrete serves as the floor of the tower's atrium. It is interrupted here and there by concrete benches, tables, and rusted exercise equipment and surrounded by pillars. To the south, a flight of stairs climbs up to the first floor of apartments (where you live). To the west, a short flight of stairs goes back down into the entry hall. <<if chapter3.isHappening>>Red lights flash ominously from their previously hidden hiding spots tucked up against the tops of the pillars, washing the park benches and exercise equipment in crimson neon highlights<<end>>"
+    conciseDesc = "A wide, largely featureless expanse of concrete serves as the floor of the tower's atrium. It is interrupted here and there by concrete benches, tables, and rusted exercise equipment and surrounded by pillars. To the south, a flight of stairs climbs up to the first floor of apartments (where you live). To the west, a short flight of stairs goes back down into the entry hall. <<if scene2.isHappening>>Red lights flash ominously from their previously hidden hiding spots tucked up against the tops of the pillars, washing the park benches and exercise equipment in crimson neon highlights<<end>>"
 
     south = megablockFloor1
     up = megablockFloor1
@@ -120,7 +123,7 @@ megablockFloor1: Room 'M-3B Floor 1'
         check()
         {
             inherited();
-            if (gActionIs(Open) && self.isLocked && !chapter2.isHappening)
+            if (gActionIs(Open) && self.isLocked && !attemptedOpen)
             {
                 attemptedOpen = true;
             }
