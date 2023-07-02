@@ -121,3 +121,24 @@ DefineTAction(Pay)
 
     }
 ;
+
+modify About
+    execAction(cmd)
+    {
+        aboutMenu.display();
+    }
+;
+
+VerbRule(Call) 'call' (singleDobj|) : VerbProduction
+    action = Call
+    verbPhrase = 'call/ calling (what)'
+    missingQ = 'who or what do you want to call'
+;
+
+DefineTAction(Call)
+    execAction(cmd)
+    {
+        "With a subvocalized command, the pink wireframe of your augreality hud weaves itself in a half circle around you, calling <<cmd.dobj>>.\b";
+        inherited(cmd);
+    }
+;

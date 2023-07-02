@@ -50,12 +50,22 @@ alleyway: OutdoorRoom 'Alley'
 ;
 
 street3: OutdoorRoom 'Central City Street (south)'
-    "The gutted office buildings on either side of the street to the north begin to give way to equally ancient and decrepit apartment buildings here, which show signs of dissolute habitation. The air is hazy with the smoke from cooking fires high up on the rooves of the apartments, and clothes lines attached to pullies stretch in a criss-cross thicket above you, scratching out the sky."
+    "The gutted office buildings on either side of the street to the north begin to give way to equally ancient and decrepit apartment buildings here, which show signs of dissolute habitation. The air is hazy with the smoke from cooking fires high up on the rooves of the apartments, and clothes lines attached to pullies stretch in a criss-cross thicket above you, scratching out the sky. This street continues toward the slums and the warehouse to the south, but a smaller street makes a intersects with this one at right angles, turning off toward the Chicano district."
 
     north = street2
     west = tunnel
+    east: TravelConnector
+    {
+        travelDesc = "You walk for what seems like half an hour along cracked pavement sidewalks and down dirty asphalt streets, between run-down offices and apartments, some still occupied, some not. Eventually, you arrive at a bend in the road. ";
+        destination = bend;
+    }
 
     regions = [southside]
+;
+
++ busSign: Decoration 'monorail sign; augreal holographic ar augmented reality'
+    "This is part of a series of public goods augreal holographs the city's planning board purchased from ARTek soon after the central spatial database of holograms came online, before digital real estate became to expensive and the planning board stopped caring. You can tell by its signature green color scheme and gothic script, as well as the fact that instead of being wireframe its filled in transparently. "
+    specialDesc = "A small augreal holographic sign floats above the intersection, an arrow pointing east, with a little monorail logo next to it. "
 ;
 
 + tunnel: Passage 'concrete tunnel'
@@ -67,4 +77,8 @@ street3: OutdoorRoom 'Central City Street (south)'
 
 + apartments: Distant 'apartments; decrepit; buildings'
     "The apartment buildings are packed tightly on either side of the street, rising tens of stories up into the sky, seeming to weigh on you. They are festooned with rotting clothes on clotheslines, forgotten or abandoned decorations, ad-hoc repairs in cardboard or corrugated metal, and crumbling balconies, some holding dying gardens. The buildings are crumbling slowly, and little attempt has been made to repair them. No one here has the time, or money."
+;
+
+bend: OutdoorRoom 'The Bend'
+    ""
 ;

@@ -18,17 +18,23 @@ enum busy_state, deserted_state, nightlife_state, night_state;
 
 city: Region, RandomEventList
     eventList = [
-        'The wind howls desolately through the artificial canyons between the surrounding towers.',
-        'The far away sound of sirens pierces the air with a thin warble.',
-        'Somewhere a few streets away, you hear a shout. You can\'t quite make out the words.',
-        'A gust of wind blows a sheet of acidic drizzle into your face, smelling of the city\'s sewers and exhaust pipes.'
-    ]
+                 'The wind howls desolately through the artificial canyons between the surrounding towers. ',
+                 'The far away sound of sirens pierces the air with a thin warble. ',
+                 'Somewhere a few streets away, you hear a shout. You can\'t quite make out the words. ',
+                 'A gust of wind blows a sheet of acidic drizzle into your face, smelling of the city\'s sewers and tires. ',
+                 'The acid rain grows harder for a moment as a dark cloud passes over head, and then is gone. ',
+                 'Far away, one of the skybound monorails rushes past in a whoosh of displaced air and an electric warble. ',
+                 'Close by, some curses to themself softly. ',
+                 'Someone passes by, gesticulating and talking to the air in front of them, probably talking to someone via augreality. Or just crazy. ',
+                 'A beggar meets your eye for a second. ',
+                 'Someone ducks into a nearby alley to shoot up. '
+                 ]
 
     eventPercent = (self.timeOfDayState == busy_state || self.timeOfDayState == nightlife_state ? 40 : 30)
     eventReduceTo = 20
     eventReduceAfter = 10
 
-    timeOfDayState = deserted_state
+    timeOfDayState = busy_state
 
     regionBeforeTravel(traveler, connector)
     {
@@ -41,7 +47,7 @@ city: Region, RandomEventList
 
 // Conditioned events
 + ELI ~(city.timeOfDayState == busy_state) "Someone pushes past you, grunting an incomprehensible word which might be an apology or just as easily an insult.";
-+ ELI ~(city.timeOfDayState == busy_state) "Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water. The sound of car horns and engines soaks every cubic millimeter of the air, deafening if you\'re not used to it.";
++ ELI ~(city.timeOfDayState == busy_state) "Cars drive past with the low ripping sound of tires on asphalt, throwing up streams of dirty water. The sound of car horns and and electric motors soaks every cubic millimeter of the air with an endless background noise.";
 
 + ELI ~(city.timeOfDayState != deserted_state) "A <<generateCrowdPerson()>> <<one of>>walks<<or>>strides<<or>>stalks<<or>>pushes<<or>>brushes<<or>>sways<<at random>> past. ";
 

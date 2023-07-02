@@ -1,12 +1,12 @@
 apartment: Room, RandomEventList 'Apartment 104'
-    "Your apartment is a small one room studio with unpainted concrete walls and a plastic floor designed to look like tile. In an attempt to make the place more livable, you've covered the walls with posters over the past few years, creating a profusion of bright, clashing colors and shapes which is somehow both mildly nauseating and far more pleasing than the blank walls. Other than that, it is densely populated with the necessities for life, a cozy approximation of habitable living conditions which you've, against all odds, begun to grow fond of."
+    "Your apartment is a small one room studio with unpainted concrete walls and a plastic floor designed to look like tile. In an attempt to make the place more livable, you've covered the walls with posters over the past few years, creating a profusion of bright, clashing colors and shapes which is somehow both mildly nauseating and far more pleasing than the blank walls. Other than that, it is densely populated with the necessities for life, a cozy approximation of habitable living conditions which you've, against all odds, begun to grow fond of. To the south, a door leads to your cramped bathroom. "
 
     eventList = [
-        {: "The advertisement spot murmurs <<one of>>an ad jingle<<or>>some corporate slogan<<or>>a long list of disclaimers and side effects<<at random>> in the background." },
-        'You hear someone murmur in one of the apartments next door.',
-        {: "You hear the sound of two people arguing a few apartments away. The voices rise louder and louder, until they are practically shouting and you can almost make out the words. Then there is a cry, and the arguing stops. You swear you can almost hear a <<one of>>man<<or>>woman<<or>>child<<or>>person<<at random>> sobbing." },
-        'You hear the muted whirring and gurgling of the pipes outside your southern wall.',
-        {: "You hear a loud <<one of>>thump<<or>>scraping sound<<or>>clatter<<or>>tapping sound<<at random>> from above you."}
+        {: "The advertisement spot murmurs <<one of>>an ad jingle<<or>>some corporate slogan<<or>>a long list of disclaimers and side effects<<at random>> in the background. " },
+        'You hear someone murmur in one of the apartments next door. ',
+        {: "You hear the sound of two people arguing a few apartments away. The voices rise louder and louder, until they are practically shouting and you can almost make out the words. Then there is a cry, and the arguing stops. You swear you can almost hear a <<one of>>man<<or>>woman<<or>>child<<or>>person<<at random>> sobbing. " },
+        'You hear the muted whirring and gurgling of the pipes outside your southern wall. ',
+        {: "You hear a loud <<one of>>thump<<or>>scraping sound<<or>>clatter<<or>>tapping sound<<at random>> from above you. " }
     ]
 
     eventPercent = 20
@@ -32,6 +32,13 @@ apartment: Room, RandomEventList 'Apartment 104'
         }
     }
     out asExit(north)
+
+    south: TravelConnector
+    {
+        travelDesc = "You slide the door to the bathroom into the wall to the left and step into your bathroom. ";
+        destination = bathroom;
+    }
+    in asExit(south)
 
     regions = [megablock1Region]
 ;
@@ -120,7 +127,7 @@ apartment: Room, RandomEventList 'Apartment 104'
     "A random scattering of various bits of trash and food wrapping. You really should clean up sometime, but you aren't in the right headspace right now."
 ;
 
-++ personalTerminal: Switch 'a DEC-11; Takagi dec deck 11 personal; computer deck terminal cyberdeck'
+++ personalTerminal: Switch 'a DEC-11; Takagi dec deck 11 personal; computer deck terminal cyberdeck cyberdec'
     "This is a chunky oblong rectangle of black magnesium about a third of an inch thick, over a foot long, and about six inches deep. Designed to be tethered to your augreal system for use for a compute/storage boost and connectivity hub, since size and connectivity in body-embedded systems is typically limited. Its surface is largely dedicated to a lavish but compact mechanical keyboard for those who find air-keyboards unpleasant to use, and a plethora of ports and access bays. Along the left side are two module expansion ports, one with four metal contacts arranged in a square, and one with seven metal contacts arranged in a line."
 ;
 
@@ -203,4 +210,30 @@ apartment: Room, RandomEventList 'Apartment 104'
     "<<if apartmentDoorOutside.isBroken>>Your apartment door lies on the floor of your apartment, bent and splintered along both vertical edges, hinges hanging from one end like grotesquely deformed bones.<<end>> This door has been covered in so many layers of graffiti by its successive occupants that an archaeologist might be able to trace the ephemerable trends in low-life culture through its skin. Two graffitos stick out in particular: some wry soul has written 'abandon all hope' across the top in nearly illegible handwriting. The other is yours, an abbreviation of one of your father's sardonic sayings: 'home is where the roof is.'"
     specialDesc = "<<if apartmentDoorOutside.isBroken>>You see your apartment door, lying bent and splintered, on the floor of your apartment, agains the opposite wall from its frame.<<end>>"
     isLocked = true
+;
+
+bathroom: Room 'Apartment 104 Bathroom'
+    "As evinced by the fact that the bathroom door slides into the wall instead of swinging either in or out, there is absolutely no room to spare here. The bathroom is about five feet wide and twelve feet long, with the west wall taken up entirely by a tiny counter, sink, and mirror combo, and the east wall featuring a showerhead high up just under the ceiling and a toilet underneath it. The entire room is designed to be used as a shower, so it is covered floor-to-ceiling in waterproof plastic designed to look like white ceramic tiles. The plastic bows out from the walls a little. "
+;
+
++ toilet: Chair, Fixture 'small toilet; tiny'
+    "A simple white porcelin toilet, of a low-water-use design similar to that found in commercial passenger airplanes. "
+    roomPart = defaultEastWall
+;
+
++ showerhead: Decoration 'showerhead'
+    "A simple brass showerhead, designed like the head of a garden hose so that the water is turned on and adjusted by rotating its rim, to save the money needed to actually put proper shower controls below it. "
+    roomPart = defaultEastWall
+;
+
++ bathroomCounter: Surface, Fixture 'tiny counter; bathroom'
+    "A simple white counter with a sink in the center. "
+;
+
+++ sink: Decoration 'sink; ; faucit'
+    "A small circular sink with a faucit arcing over it."
+;
+
+++ mirror: Fixture 'mirror'
+    "A simple mirror. <<first time>>You try not to spend too long staring into it, as that can quickly lead to a spiral of depression and disassociation as you begin to notice all the masculine features that your medicine hasn't changed yet or can never fix, begin thinking about the damage puberty caused you, that you could have avoided irreversible damage had you been born somewhere where the medical care you needed wasn't illegal. As you begin wondering how others see you, whether they really see the woman you are, or just another monster.<<only>> Briefly glancing into the mirror now, you see your face. Angular, but still recognizably a woman's. The skin is still soft and feminine, the lips still red and full, the cheeks still round. It looks like you. More than it did a year ago. "
 ;

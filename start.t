@@ -25,7 +25,7 @@ versionInfo: GameID
 	name = 'Circuitboard Streets'
 	byline = 'by Alexis Purslane'
 	authorEmail = 'Alexis Purslane <alexispurslane@pm.me>'
-	desc = 'An interactive cyberpunk novel.'
+	desc = 'An interactive cyberpunk novel inspired by immersive sims.'
 	version = '0.1'
 ;
 
@@ -35,19 +35,38 @@ modify statusLine
 		switch (city.timeOfDayState)
         {
             case busy_state:
-            "morning/evening";
+            "rush hour (morning or evening)";
             break;
             case deserted_state:
             "midday";
             break;
             case nightlife_state:
-            "night";
+            "early nightfall";
             break;
             case night_state:
             "past midnight";
             break;
         }
 	}
+;
+
+aboutMenu: MenuItem 'About';
++ MenuItem 'About Circuitboard Streets';
+
+++ MenuLongTopicItem 'About the Game'
+    menuContents = 'Circuitboard Streets is my first work of interactive fiction. It is a cyberpunk story, directly inspired by movies like Blade Runner and Ghost in the Shell, books like Hardwired and Neuromancer, and R. Talsorian Games\' Cyberpunk universe, as well as my own anarchist, punk, queer, and technological ethos and experience (athough it is not even remotely autobiographical).\bIts existence represents a confluence of a few disparate but interrelated factors.\bFirst, the fact that my two favorite hobbies are programming and writing science fiction. Second, that I am deeply interested in semantic (as opposed to numerical/quantitative) logic and simulations in computers, and this has led me to an abiding interest in parser-based interactive fction. Third, that, due to a functional neurologic disorder which makes reading and especially watching TV painful and difficult, I have been playing a lot of parser IF with my girlfriend (she reads aloud to me) as a leasure activity, and I noticed a rather conspicuous gap in the IF genre: cyberpunk and queer long-form games. Fourth, that my FND allows me to work on things for a limited amount of time each day.\bIt also represents two different experiments in parser interactive fiction gameplay and storytelling: first, how much of the feel of immersive sim gameplay, like the gameplay found in Deus Ex, can I imitate in parser IF? It seems very amenible to that sort of problem-solving, world-model-interaction motivated gameplay on the surface, perhaps even better adapted to it than 3D games! And second, how can I subtly and naturally coax my readers into inhabiting the subjectivity of a player character who is likely very different than them, instead of merely experiencing a factually-described world via their own subjectivity, as in most large parser IF works?\b Is all of this entirely too ambitious for someone\'s first foray into parser interactive fiction? Should I have started with a small competition entry instead, perhaps a showcase of just a few of these ideas? Probably. But I\'ve never been able to contain my ambition like that. I\'m an all or nothing person, I either want to lasso the moon or I\'m not interested. And I have no qualms about facing off against an impossible task either &emdash; for me, the fight, no matter how doomed it may be, is half the point. Some things are just worth trying. This is, coincidentally, one of the fundamental themes of the game. So I ask your patience and understanding with this overambitious work, and hope you enjoy it. <3'
+;
+
+++ MenuLongTopicItem 'Augmented Reality and Holograms: Background'
+    menuContents = 'In this cyberpunk world, everyone has implants in their eyes that project digital displays into their retinas, allowing them to use augmented reality at all times without the need to wear glasses. This allows a number of functionalities.\b Firstly, there is the ARTek corporation\'s central location-based registry of hologram emplacements. This is a central spatial database of agumented reality displays (holograms) provided by their servers that all augmented-reality-capable eyes connect to to determine if, at their present location and direction, an augmented reality hologram should be visible to the wearer, and if so, how it should be projected into the world for them. This database has a resolution of about ten feet. Companies and individuals can purchase a plot of virtual "land" in this database from ARTek to have an augmented reality hologram placed into the world visible to everyone. This system of course implies that everyone\'s location and heading is constantly streamed to the central ARTek databases, and that is true. In fact, LIDAR scans of the three-dimensional shapes of everything you see are also streamed to ARTek so they can build a live composite three-dimensional scale model of the city so they can determine where emplacements can go.\b The second function of these augmented reality implants is to provide each person with a personal augmented reality hud (heads-up-display) visible only to them, which functions as their combined smartphone and personal computer. This is used for all the normal personal communication and computing tasks, and has basically supplanted all other types of computing, although these eye implants typically have very limited processing power and so more strenuous computing tasks are supplemented with cyberDecs, which connect wirelessly to your augreality eye implants and convert your implants into a remote terminal through which you access the cyberDec.\b The third function of augreality eye implants is to allow virtual teleconferencing. This is done by projecting a simulated model of each participant in the teleconferencing call into the field of vision of each other participant, wherever they may be, using the spatial model of the world provided by ARTek. Alternatively, when calling one-on-one, you can choose to be "transported" into the other person\'s location, whereupon the implants will replace your entire field of view with a reconstruction of their location from your perspective, also courtesy of ARTek.'
+;
+
+++ MenuLongTopicItem 'Special Commands'
+    menuContents = 'This game has a few special commands. To use your augreality hud, for instance in order to pay someone, look up their identity, contact them, or connect to your cyberDec, simply type a command as if you are interacting with something in the world around you, and the hud will appear: PAY [someone], IDENTIFY [someone], CONNECT TO [cyberdec] or CALL [someone].'
+;
+
++ MenuLongTopicItem 'Acknowledgements'
+    menuContents = 'Thanks to Joey Cramsey and John Ziegler for helping me out a ton with TADS. Thanks to my girlfriend for being an entirely-too-patient playtester and my biggest fan.'
 ;
 
 gameMain: GameMainDef
@@ -199,6 +218,11 @@ chapter3: Scene
 
     whenStarting()
     {
+        city.timeOfDayState = nightlife_state;
+        foreach (local room in city.roomList)
+        {
+            room.descCount = 0;
+        }
         "<h3>Chapter 3</h3>";
         "<i>So lay waste to all we've made\n For your corporate palisade\n You won't automate our roles\n If we digitize our souls\n A new force will intervene\n Half human, half machine\n And no enterprise on Earth will make us kneel\n To your empire of steel...</i>\b";
 
@@ -207,6 +231,7 @@ chapter3: Scene
 
     whenEnding()
     {
+        city.timeOfDayState = night_state;
         "You step into Nanowire's apartment with a strange feeling of fear and excitement running through your stomach in loops like electricity in a copper coil. Although you briefly played at anti-corporate punk when you first started living in the City, that quickly fell to the wayside when you couldn't find anyone like you. You had wanted to organize, find a union or something, things your dad had told you about the old days, like the union surge in the early '20s, but you had quickly found that it was every woman for themselves, the efficient logic of the corporate system expertly cutting people apart without even needing to pay special attention to doing so. Now, though... now you're stepping into that world again, and this time for real. No play-acting now. You've gone black. Off the edge.\b";
     }
 ;

@@ -2,7 +2,7 @@ IFID: C62F7146-4A64-450E-B686-5102EE32FE26
 Name: Circuitboard Streets
 Byline: by Alexis Purslane
 AuthorEmail: Alexis Purslane <alexispurslane@pm.me>
-Desc: An interactive cyberpunk novel.
+Desc: An interactive cyberpunk novel and immersive sim.
 Version: 0.1
 ReleaseDate: 2023-07-02
 LicenseType: Freeware

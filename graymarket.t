@@ -212,6 +212,11 @@ closedCyberwareShop: Room 'The Closed Cyberware Shop'
 
 groceryShop: Room 'The Grocery Merchant Shop'
     "The tent's spacious interior is wrapped in baggy canvas sagging between rows of leaning tent-poles and bathed in pale green light from ancient flood lights hooked up at its corners. Here and there, industrial fans in wire cages fight a desparate war against the heat and humidity. Wires tied by zip-ties snake up vertical poles and hang in bunches from horizontal ones above you. It is all frighteningly low-tech, even for this area of the city, and it also makes you mildly clausterphobic, a feeling which is only made more severe by the tightly-packed rows of plastic folding tables laid out underneath it, holding baskets, boxes, crates, sacks, and piles of every kind of fresh or canned food imaginable. Here and there, flies alight on the wares, then are shood off by tired-looking sellers with waved handkercheifs. For some reason, the thin black sheen of the tent's wiring reminds you of those flies."
+    conciseDesc = "A pale green light fills this tent, shining on snaking wires, sagging canvas, industrial fans, and rows of tightly-packed plastic folding tables holding all sorts of fresh and canned foods. Flies buzz everywhere. The exit is back to the north."
+
+    north = grayMarketPath1
+    out asExit(north)
+    south = groceryShopAlley
 ;
 
 + people: Decoration 'people; ; person crowd crowds'
@@ -245,12 +250,9 @@ groceryShopAlley: OutdoorRoom 'Small Alley (behind grocery)'
 
 grayMarketPath2: OutdoorRoom, ShuffledEventList
     eventList = [
-                 'The low thumping techno beats of the brothel shiver and quake in your ears and stomach. ',
-                 'Moans and cries of ecstacy or pain echo from the brothel\'s upper stories. ',
-                 'Blots of blue, red, and purple light play games across your path. '
                  ]
     name = 'Gray Market Path (northeast)'
-    desc = "This part of the central thoroughfare that runs through the gray market bends southwest toward the market's entrance and the grocery tent in one direction, and due east in the other, running through the tents, stalls, vendors, and ruins to either side. Just north of the path here, there is a substantial three-storey section of the megablock that originally stood here that hasn't quite crumbled yet. It's been closed off with sheets of plastic and canvas and propped up with all manner of impromptu construction materials, including the rusted-out hulks of the construction equipment itself, and turned into a sort of brothel &emdash; or at least, that's what the augreal advertisements that hover in front of its third storey imply, with sighing, gyrating wireframe outlines and bold slogans. Light from the brothel, mostly blues and reds, tints this whole area of the path, making it feel strangely dominated by the structure."
+    desc = "This part of the central thoroughfare that runs through the gray market bends southwest toward the market's entrance and the grocery tent in one direction, and due east in the other, running through the tents, stalls, vendors, and ruins to either side. Just north of the path here, there is a substantial three-storey section of the megablock that originally stood here that hasn't quite crumbled yet. It's been closed off with sheets of plastic and canvas and propped up with all manner of impromptu construction materials, including the rusted-out hulks of the construction equipment itself, and turned into a sort of brothel &emdash; or at least, that's what the augreal advertisements that hover in front of its third storey imply, with sighing, gyrating wireframe outlines and bold slogans. <<if city.timeOfDayState == nightlife_state>>Light from the brothel, mostly blues and reds, tints this whole area of the path, making it feel strangely dominated by the structure<<else>>The brothel is currently mostly empty and dead-looking, lights off, no one inside, waiting patiently like a predator plant for the city's night life to begin so it can turn on its lights and attract customers like moths to a flame<<end>>."
 
     conciseDesc = "This part of the central thoroughfare that runs through the gray market bends southwest toward the market's entrance and the grocery tent in one direction, and due east in the other, running through the tents, stalls, vendors, and ruins to either side. Just north of the path here is the brothel."
 
@@ -261,12 +263,18 @@ grayMarketPath2: OutdoorRoom, ShuffledEventList
     regions = [graymarket]
 ;
 
++ ELI ~(city.timeOfDayState == nightlife_state) "The low thumping techno beats of the brothel shiver and quake in your ears and stomach. ";
+
++ ELI ~(city.timeOfDayState == nightlife_state) "Moans and cries of ecstacy or pain echo from the brothel\'s upper stories. ";
+
++ ELI ~(city.timeOfDayState == nightlife_state) "Blots of blue, red, and purple light play games across your path. ";
+
 + ramenCart: Decoration, Surface 'ramen noodle cart'
     "A small corrugated metal noodle cart, complete with a small awning lined with glowing round lamps, a slim section of table with bar stools on one side for customers, and a small portable kitchen to prepare the food on the other side, where the cart's owner stands hard at work. An artistic rendition of a bowl of ramen noodles has been carefully painted onto the front. The rest of the corrugated metal has been painted to look like bamboo."
 ;
 
 + brothelFront: Passage 'brothel; chicken wire rubble; tunnel'
-    "You hear moans, screams, shouts, and cries of agony and joy from inside the brothel, as well as the rhythmically thumping beat of some techno song. The opaque plastic and canvas walls alternately take reddish, purplish, and bluish hues from the lights inside, and you can see bodies writhing in ecstasy silhouetted against that light."
+    "<<if city.timeOfDayState == nightlife_state>>You hear moans, screams, shouts, and cries of agony and joy from inside the brothel, as well as the rhythmically thumping beat of some techno song. The opaque plastic and canvas walls alternately take reddish, purplish, and bluish hues from the lights inside, and you can see bodies writhing in ecstasy silhouetted against that light.<<else>>The opaque plastic and canvas front walls of the brothel reveal little, dim and dark, waiting for the city's night life to begin.<<end>>"
     specialDesc = "A tunnel constructed out of chickenwire fencing and concrete rubble leads into the brothel to the north."
     destination = brothel
     travelDesc = "As you pass into the tunnel, both the sounds of the brothel and the larger market outside are temporarily muted. But as you travel down its length, the sound gets louder, until you finally part the heavy plastic curtains and step into the brothel itself and are accosted by overwhelming sound. "
@@ -281,6 +289,7 @@ brothel: Room 'The Brothel'
     up = "You're not feeling particularly in the mood right now. <<if gPlayerChar.leftArm.ofKind(Unthing)>>Especially not with one arm.<<end>>"
     northeast asExit(up)
     south = grayMarketPath2
+    out asExit(south)
 
     east: TravelConnector
     {
@@ -323,7 +332,7 @@ mistressOffice: Room 'The Mistress\'s Office'
     specialDesc = "An imposing desk sits languidly in the center of the room like a jungle cat. "
 ;
 
-++ mistressDeck: Decoration 'deck'
+++ mistressDeck: Decoration 'mistress\'s cyberdec; cast iron filigree; cyberdec dec deck'
     "A slim, angular black cyberDEC, fitted into a baroque cast-iron stand designed to look like a weave of branches and leaves and filled with intricate clockwork gears and springs running a fan along the cooling vents of the deck. A few modules have been fitted to the expansion ports of the deck, making a small row of rectangular electronic objects along the top. "
     specialDesc = "A black cyberDec sits in the center of the desk. "
 ;
@@ -351,6 +360,8 @@ mistressOffice: Room 'The Mistress\'s Office'
 
 grayMarketPath3: OutdoorRoom 'Gray Market Path (east)'
     "The gray market's main thoroughfare ends here in a small circular cul de sac surrounded by larger tents<<if city.timeOfDayState != night_state>>, and the crowd swirls around it and back the other way in a great meandering whirlpool of bodies<<end>>. To the north, a long, low gray tent hunches under an augreal depiction of a glowing blue genie with the words 'THE MIND PALACE' written across his chest. To the east, a large building made of prefab building materials has been erected on a cracked section of foundation. A neon augreal ad spins above it, a wireframe mug overlfowing with beer. To the south stands another tent, with a small vertical augreal sign in front of it spelling out 'CLOTHES.' Another sign hovers above the tent, a wrench animated eternally in the process of tightening a bolt. To the northeast, an alley runs between two tents, bending south and out of sight. You can go back along the gray market's path to the west."
+
+    conciseDesc = "This is the end of the gray market's main thoroughfare, a small circular cul de sac surrounded by tents. To the north, the Mind Palace hunkers, smoke leaking from it. To the east, the NeoGothic Bar stands. To the south, the clothes and cosmetic cyberware shop stands. to the northeast, an alley runs around behind the bar and to the south."
 
     northeast: TravelConnector
     {
@@ -428,6 +439,8 @@ beerspace: Room 'The NeoGothic Bar'
 
 clothesTent: Room 'The Clothes & Cosmetics Shop'
     "This is an extremely large tent, larger than any of the other ones you've seen, but poorly lit; racks and racks of used clothing stretch away into the gloom to the south like the ranks of a vagabond army. The place smells musty as only a used clothing shop can, the combination with the gloom conjuring simultaneously a sense of unease and homey familiarity for you. This place is startlingly high-tech for such a simple operation as well. A glowing neon wireframe consensus-hologram, anchored to a nearby cyberDec, advertises the fact that you can check clothes out yourself &emdash; they're each electrochemically tagged, so the moment you leave with any, your account will be charged. The clothes racks also echo this theme: the central pole that the clothes hang off of has strips of UV emittors across its entire length, constantly baking the clothes free of any lice, ticks, or bacteria, filling the tent with a dim purple glow."
+
+    conciseDesc = "This gigantic tent, the size of a small warehouse, is filled with a dim purple glow from the UV lights that shine from the endless racks of clothing that run off into the dimness to the south. The exit is back north."
 
     south = clothesTent2
     north = grayMarketPath3
