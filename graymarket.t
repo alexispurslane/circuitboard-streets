@@ -26,7 +26,7 @@ graymarket: Region, RandomEventList
 
 grayMarketPeople: MultiLoc, Decoration 'people; ; crowds crowd'
     "<<if city.timeOfDayState == night_state>>Now that it's past midnight, and the tent shops and street vendors have packed up and closed down to sleep for the night, this place is mostly empty, except for a few people loitering here and there, wandering between the few places that are open all night long. These are the people that look seedy and listless, sad drunks, battered partners, people looking for an escape of some kind. Here and there, homeless people wander, scrounging from the discarded remains of the day. <<else>>Streams of people fill every twist and turn of the wide dirt path through the market, bustling back and forward along the path or two and fro between the tents and vendors, all talking, bargaining, arguing, laughing. Here and there, people move in small groups &emdash; workers and merchants wheeling in the latest shipment of food or guns or anything else, corporate embassies sent out to secure supplies or services, friends out to explore, gangs &emdash; while others cut through the crowd in a bubble of solitude all their own. Each of the genres of people you can find in other regions of the city are blended together here, brought by the life of the bazaar. <<end>> "
-    specialDesc = "<<if city.timeOfDayState == night_state>>A few people wander here and there.<<else>>Crowds bustle past you, filling the street with their heat and noise.<<end>> "
+    specialDesc = "<<if city.timeOfDayState == night_state>>A few people wander here and there.<<else if city.timeOfDayState == nightlife_state>>The behavior of crowd that fills the night market at this hour is much more festive than the weary bustling of the day. People stream in all directions laughing, singing, drinking, hitting up.<<else>>Everywhere around you is crowded with people. People haggling and bartering and arguing, people browsing from street vendor to street vendor, people swirling in and out of tents.<<end>> "
 
     dobjFor(Examine)
     {
@@ -56,7 +56,7 @@ ruins: MultiLoc, Distant 'megablock m-3c ruins; gigantic shattered hills bent ir
 ;
 
 grayMarketAdvertisements: MultiLoc, Distant 'gray market augreal advertisements; ; ads'
-    "Ads, ads, and more ads. Everywhere you can see. Augreal advertisements in all their neon-glowing glory spinning and moving and animating in every direction, in every location &emdash; over their respective tents or carts, or over those of competitors, or arcing like grand art exhibits for some kind of crazed art festeval over the path. Giant figures tower up into the sky and take dancing steps that make you feel as if you'll be crushed any second by their godlike feet. It's overwhelming. "
+    "Ads, ads, and more ads. Everywhere you can see. Augreal advertisements in all their neon-glowing glory spinning and moving and animating in every direction, in every location &emdash; over their respective tents or carts, or over those of competitors, or arcing above you like grand art exhibits for some kind of crazed art festeval. Giant figures tower up into the sky and take dancing steps that make you feel as if you'll be crushed any second by their godlike feet. "
     specialDesc = "A forest of neon-glowing augreal advertisements hovers over everything. "
     locationList = [graymarket, grayMarketEntrance]
 ;
@@ -248,37 +248,61 @@ groceryShopAlley: OutdoorRoom 'Small Alley (behind grocery)'
     }
 ;
 
-grayMarketPath2: OutdoorRoom, ShuffledEventList
-    eventList = [
-                 ]
-    name = 'Gray Market Path (northeast)'
-    desc = "This part of the central thoroughfare that runs through the gray market bends southwest toward the market's entrance and the grocery tent in one direction, and due east in the other, running through the tents, stalls, vendors, and ruins to either side. Just north of the path here, there is a substantial three-storey section of the megablock that originally stood here that hasn't quite crumbled yet. It's been closed off with sheets of plastic and canvas and propped up with all manner of impromptu construction materials, including the rusted-out hulks of the construction equipment itself, and turned into a sort of brothel &emdash; or at least, that's what the augreal advertisements that hover in front of its third storey imply, with sighing, gyrating wireframe outlines and bold slogans. <<if city.timeOfDayState == nightlife_state>>Light from the brothel, mostly blues and reds, tints this whole area of the path, making it feel strangely dominated by the structure<<else>>The brothel is currently mostly empty and dead-looking, lights off, no one inside, waiting patiently like a predator plant for the city's night life to begin so it can turn on its lights and attract customers like moths to a flame<<end>>."
+grayMarketPath2: OutdoorRoom 'Gray Market Path (northeast)'
+    "This part of the central thoroughfare bends southwest toward the market's entrance and the grocery tent in one direction and due east in the other, running through the tents, stalls, vendors, and ruins to either side. Just north of the path here a gigantic three-storey section of the ruins which hasn't quite collapsed yet has been repurposed to serve as The Dionysus, a brothel: glowing wireframe augreal bodies stretch and twist in erotic pantomime in front of its top story, tantalizing passersby with what they might find inside. The whole front of the building has been closed off with sheets of plastic and canvas to make it a fully-functional building, <<if city.timeOfDayState == nightlife_state>>and the strobing, fading light from inside, mostly blues and reds, spills through the opaque walls to paint this whole area of the path in shifting colors<<else>>empty off-white and dirty gray lending a dead look to the place with the lights off and no one inside. It seems to wait patiently for nightfall, when it turn its lights on and lure customers in, like a predator plant of this new urban jungle<<end>>."
 
     conciseDesc = "This part of the central thoroughfare that runs through the gray market bends southwest toward the market's entrance and the grocery tent in one direction, and due east in the other, running through the tents, stalls, vendors, and ruins to either side. Just north of the path here is the brothel."
 
     north = brothel
     in asExit(north)
     east = grayMarketPath3
+    southwest = grayMarketPath1
+    west asExit(southwest)
 
     regions = [graymarket]
 ;
-
-+ ELI ~(city.timeOfDayState == nightlife_state) "The low thumping techno beats of the brothel shiver and quake in your ears and stomach. ";
-
-+ ELI ~(city.timeOfDayState == nightlife_state) "Moans and cries of ecstacy or pain echo from the brothel\'s upper stories. ";
-
-+ ELI ~(city.timeOfDayState == nightlife_state) "Blots of blue, red, and purple light play games across your path. ";
 
 + ramenCart: Decoration, Surface 'ramen noodle cart'
     "A small corrugated metal noodle cart, complete with a small awning lined with glowing round lamps, a slim section of table with bar stools on one side for customers, and a small portable kitchen to prepare the food on the other side, where the cart's owner stands hard at work. An artistic rendition of a bowl of ramen noodles has been carefully painted onto the front. The rest of the corrugated metal has been painted to look like bamboo."
 ;
 
-+ brothelFront: Passage 'brothel; chicken wire rubble; tunnel'
-    "<<if city.timeOfDayState == nightlife_state>>You hear moans, screams, shouts, and cries of agony and joy from inside the brothel, as well as the rhythmically thumping beat of some techno song. The opaque plastic and canvas walls alternately take reddish, purplish, and bluish hues from the lights inside, and you can see bodies writhing in ecstasy silhouetted against that light.<<else>>The opaque plastic and canvas front walls of the brothel reveal little, dim and dark, waiting for the city's night life to begin.<<end>>"
++ brothelFront: Passage, ShuffledEventList 'brothel; chicken wire rubble construction; tunnel vehicle'
+    "A massive section of megablock M-3C which hasn't quite collapsed yet, repurposed to form an impromptu building in its own right by the ever-resourceful incohate collective intelligence of the night market. The building has been propped up and repaired in numerous places with metal pipes and I-beams, probably salvaged from elsewhere in the ruins. Around the base, a few rusted-out construction vehicles have been tilted onto their sides and serve as structural shoring for the first floor and foundation. <<if city.timeOfDayState == nightlife_state>>You hear moans, screams, shouts, and cries of agony and joy from inside the brothel, as well as the rhythmically thumping beat of some techno song. The opaque plastic and canvas walls alternately take reddish, purplish, and bluish hues from the lights inside, and you can see bodies writhing in ecstasy silhouetted against that light.<<else>>The opaque plastic and canvas front walls of the brothel reveal little, dim and dark, waiting for the city's night life to begin.<<end>>"
+
+    eventList = [
+                 'The brothel\'s advertisements spin and dance, flexing wireframe augreal bodies with erotic grace. ',
+                 '"The ultimate erotic experience," a femme voice croons from the brothel speakers. "You don\'t have to be lonely anymore..."',
+                 '"Party below," a femme voice croons from the brothel speakers. "And get intimate above &emdash; like a never-ending house party!"',
+                 '"Welcome to The Dionysus," a rich masculine voice croons from the brothel speakers. "Where our drinks, music, and ecstatic strip tease dances will free you from self-conscious care and worry. Forget your job for a little while..."'
+                 ]
+    eventPercent = 40
+
     specialDesc = "A tunnel constructed out of chickenwire fencing and concrete rubble leads into the brothel to the north."
     destination = brothel
     travelDesc = "As you pass into the tunnel, both the sounds of the brothel and the larger market outside are temporarily muted. But as you travel down its length, the sound gets louder, until you finally part the heavy plastic curtains and step into the brothel itself and are accosted by overwhelming sound. "
+
+    afterAction()
+    {
+        doScript();
+        inherited();
+    }
 ;
+
+++ ELI ~(city.timeOfDayState == nightlife_state) "The low thumping techno beats of the brothel shiver and quake in your ears and stomach. ";
+
+++ ELI ~(city.timeOfDayState == nightlife_state) "Moans and cries of ecstacy or pain echo from the brothel\'s upper stories. ";
+
+++ ELI ~(city.timeOfDayState == nightlife_state) "Blots of blue, red, and purple light play games across your path. ";
+
+++ ELI ~(city.timeOfDayState == nightlife_state) "The brothel changes over to a new song, another thumping, driving, bass-heavy techno beat charged with erotic energy. ";
+
+++ ELI ~(city.timeOfDayState == nightlife_state) "There is a collective cheer from the crowd inside the strip club part of the brothel, as some last article of clothing is shed or some new dance move is pulled off. ";
+
+++ ELI ~(city.timeOfDayState != nightlife_state) "Someone from the crowd wanders almost dazedly up to the brothel building, notices that it's closed, and wanders away again. ";
+
+++ ELI ~(city.timeOfDayState != nightlife_state) "Someone, a worker there perhaps, slips into the closed brothel. ";
+
+++ ELI ~(city.timeOfDayState != nightlife_state) "A dark-suited bouncer strides out of the closed brothel, clearly out on an errand. ";
 
 tOfficeDoor: Topic 'office door' @nil;
 
@@ -338,7 +362,7 @@ mistressOffice: Room 'The Mistress\'s Office'
 ;
 
 ++ plant: Decoration 'small potted plant'
-    "A green fern, or something like it, sprouts up in an exuberant fan of shoots from a clay pot. You can't tell if it's real or not. "
+    "A small green forest of fennel, or something like it, sprouts up in an exuberant fan of shoots from a clay pot, and a little ivy runs down the pot's lid to surround it. You can't tell if it's real or not. "
     specialDesc = "A small green potted plant sits in one corner of the desk. "
     remapUnder: SubComponent {  }
 ;

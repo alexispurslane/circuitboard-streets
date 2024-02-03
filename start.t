@@ -7,6 +7,7 @@
 #include "extensions/eventListItem.t"
 
 Quip template "desc"? "reply"?;
+string template <<time of day * as words>> displayTimeOfDay;
 
 #include "player.t"
 #include "city.t"
@@ -32,21 +33,7 @@ versionInfo: GameID
 modify statusLine
 	showStatusRight()
     {
-		switch (city.timeOfDayState)
-        {
-            case busy_state:
-            "rush hour (morning or evening)";
-            break;
-            case deserted_state:
-            "midday";
-            break;
-            case nightlife_state:
-            "early nightfall";
-            break;
-            case night_state:
-            "past midnight";
-            break;
-        }
+        "<<time of day city.timeOfDayState as words>>";
 	}
 ;
 
@@ -219,7 +206,7 @@ chapter3: Scene
     whenStarting()
     {
         city.timeOfDayState = nightlife_state;
-        foreach (local room in city.roomList)
+        foreach (local room in graymarket.roomList)
         {
             room.descCount = 0;
         }
@@ -254,6 +241,7 @@ megablockExterior: OutdoorRoom 'Outside Megablock M-3B'
     {
         if (traveler == gPlayerChar && connector != self.north && !cop1.isDirectlyIn(self) && chapter2.hasHappened)
             gPlayerChar.escaped = true;
+        inherited(traveler, connector);
     }
 
     north: TravelConnector
@@ -265,10 +253,12 @@ megablockExterior: OutdoorRoom 'Outside Megablock M-3B'
 
         explainTravelBarrier(actor)
         {
-            if (chapter3.isHappening)
+            if (scene2.isHappening)
                 "You start to go north toward the corporate district of the city, but, hearing sirens coming from that direction, you quickly turn back. No need to do the pigs' job for them. Better run the other way. ";
-            else if (chapter1.isHappening || chapter2.isHappening)
+            else if (chapter1.isHappening || scene1.isHappening)
                 "The thought of venturing into the rich business district is too exhausting right now. You don't want to deal with the stares at your blue-collar attire and shabby cyberware, or seeing those corporate sons of bitches walking around with their briefcases and three-piece suits. It's sickening, and you've got bigger fish to fry right now. ";
+            else
+                "This part of the street stretches away for an interminably long time before it gets to anything interesting. It's much too far to walk. ";
         }
 
         destination = street1

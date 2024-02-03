@@ -9,6 +9,22 @@ InitObject
     }
 ;
 
+displayTimeOfDay(time)
+{
+    switch (time)
+    {
+      case busy_state:
+        return 'rush hour (morning or evening)';
+      case deserted_state:
+        return 'midday';
+      case nightlife_state:
+        return 'early nightfall';
+      case night_state:
+        return 'past midnight';
+    }
+    return 'unknown';
+}
+
 // city day cycle states
 // busy_state --> early morning or late afternoon, commute time
 // deserted_state --> middle of the day, when everyone's at work
@@ -52,6 +68,37 @@ city: Region, RandomEventList
 + ELI ~(city.timeOfDayState != deserted_state) "A <<generateCrowdPerson()>> <<one of>>walks<<or>>strides<<or>>stalks<<or>>pushes<<or>>brushes<<or>>sways<<at random>> past. ";
 
 + ELI ~(city.timeOfDayState == nightlife_state) "A group of partiers streams around you for a moment, filling your ears with an out of context snipped of their laughter and conversation for a moment before passing around you.";
+
+modify Room
+    beforeTravel(traveler, connector)
+    {
+        if (traveler == gPlayerChar && connector.ofKind(OutdoorRoom) && libGlobal.lastTimeOfDay != city.timeOfDayState)
+        {
+            local statement = 'the sky is dark with thunder';
+            switch (city.timeOfDayState)
+            {
+                case nightlife_state:
+                statement = 'night has begun to fall, bringing out the City\'s night life in force';
+                break;
+                case busy_state:
+                statement = 'the city\'s <<if lastTimeOfDay == deserted_state>>evening<<else>>morning<<end>> rush hour has begun';
+                break;
+                case night_state:
+                statement = 'midnight has arrived, the sky a blank black void overhead<<first time>>. You can\'t remember the last time you\'ve seen the stars, or the moon, or the sun for that matter<<only>>';
+                break;
+                case deserted_state:
+                statement = 'the workday has begun in earnest, and the city is quieter than at other times of day';
+                break;
+            }
+            dmsg('As you leave {1}, you discover that {2}. ', self.theName, statement);
+        } else if (traveler == gPlayerChar && !connector.ofKind(OutdoorRoom) && self.ofKind(OutdoorRoom))
+        {
+            libGlobal.lastTimeOfDay = city.timeOfDayState;
+        }
+
+        inherited(traveler, connector);
+    }
+;
 
 modify defaultSky
     desc()

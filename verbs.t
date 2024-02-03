@@ -16,6 +16,7 @@ modify Room
 ;
 
 modify libGlobal
+    lastTimeOfDay = nil
     fullDescMode = nil
 ;
 

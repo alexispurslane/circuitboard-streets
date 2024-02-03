@@ -367,8 +367,9 @@ bouncer: Actor 'bouncer; ; man; him' @brothel
     }
 ;
 
-mistress: Actor 'mistress Lea Belveau; ; woman; her' @mistressOffice
+mistress: Actor 'Mistress; ; woman; her' @mistressOffice
     "The mistress herself. Tall, taller than you even, and old, perhaps seventy, but in a way that makes her seem like an infinitely wise and alluring demoness. Her makeup is bold, stylized in shades of shiny navy blue around eyes, and arterial red around pouting lips, not tasteless. She wears what seems to be a Victorian corsetted dress of some kind made of diaphanous black silk, lace, and embroidry, run through with spines and ridges which remind you of bats. "
+    globalParamName = 'mistress'
 
     dobjFor(TalkTo)
     {
@@ -394,8 +395,8 @@ mistress: Actor 'mistress Lea Belveau; ; woman; her' @mistressOffice
                  ]
     eventPercent = 60
 
-    stateDesc = 'The Mistress ignores you, completely occupied by her tasks. '
-    specialDesc = "The Mistress sits at her desk, working. "
+    stateDesc = '{The mistress} ignores you, completely occupied by her tasks. '
+    specialDesc = "{The mistress} sits at her desk, working. "
 ;
 
 + mistressTalking: ActorState, StopEventList
@@ -405,8 +406,8 @@ mistress: Actor 'mistress Lea Belveau; ; woman; her' @mistressOffice
                  '"If you have nothing more to say, child," the Mistress says primly, turning back to her work, "please exit my office."'
                  ]
 
-    stateDesc = 'The Mistress watches you looking at her with a tiny smile, as if she is seizing you up for eating. '
-    specialDesc = "The Mistress sits at her desk, waiting for you to say something. "
+    stateDesc = '{The mistress} watches you looking at her with a tiny smile, as if she is seizing you up for eating. '
+    specialDesc = "{The mistress} sits at her desk, waiting for you to say something. "
 
     waitTime = 0
 
@@ -443,28 +444,47 @@ gbMistressConv: QMain
 gbAreYouOwner: Quip
     "\"Are you the owner of this place?\""
     "\"Why yes I am. The upstairs used to be owned by someone else, but I bought them out,\" she says, inspecting her glossy burgundy fingernails."
+    isOn = nil
     qOff = [gbAreYouOwner]
     options = [gbHowDidYouGetHere, gbHowDidYouBuyThemOut]
 ;
 
 gbHowDidYouGetHere: Quip
     "\"How did you create all this?\""
-    "\"By fighting like hell for a very long time, kitten,\" she says, looking at you. \"I started out walking the streets, you know. I'm proud to say that, because it shows just how <i>far</i> I've come. Don't you think?\" You nod."
+    "\"By fighting like hell for a very long time, kitten,\" she says, looking at you. \"I started out walking the streets, you know. I'm proud to say that, because it shows just how <i>far</i> I've come. Don't you think?\""
+    isOn = nil
     qOff = [gbHowDidYouGetHere]
-    transfer = gbAreYouOwner
+    options = [gbMistressCompliment, gbMistressSad]
+;
+
+gbMistressSad: Quip
+    "Say nothing."
+    ""
+
+    qOff = [gbMistressSad]
+    transfer = gbMistressConv
+;
+
+gbMistressCompliment: Quip
+    "\"Yeah, it's a really impressive place.\""
+    "\"Why thank you! I didn't really expect you to answer, to be honest,\" {the mistress} says, smiling genuinely."
+    qOff = [gbMistressCompliment]
+    transfer = gbMistressConv
 ;
 
 gbHowDidYouBuyThemOut: Quip
     "\"How did you convince them to sell to you? Did you really just pay them that much?\""
     "\"Well,\" the Mistress says, her catlike eyes gleaming, \"I shan't devulge all my secrets.\""
+    isOn = nil
     qOff = [gbHowDidYouBuyThemOut]
     transfer = gbAreYouOwner
 ;
 
 gbWhoAreYou: Quip
     "\"Who are you?\""
-    "\"My my, now that's quite a complicated question. 'To indulge the fable of 'unity,' 'soul,' 'person,' &emdash; this we have forbidden: with such hypotheses one only covers up the problem,' to quote a very great man. But I can tell you my name nevertheless: Lea Belveau, Mistress of this place.\" She gestures around her."
+    "\"My my, now that's quite a complicated question. 'To indulge the fable of 'unity,' 'soul,' 'person,' &emdash; this we have forbidden: with such hypotheses one only covers up the problem,' to quote a very great man. But I can tell you my name nevertheless: Lea Belveau, Mistress of this place.\" She gestures around her.<<mistress.addVocab('Mistress Lea Belveau')>>"
     qOff = [gbWhoAreYou]
+    qOn = [gbHowDidYouBuyThemOut, gbHowDidYouGetHere, gbAreYouOwner]
     transfer = gbMistressConv
 ;
 
@@ -499,7 +519,7 @@ ramenVendor: Actor 'ramen vendor; noodle; merchant; him' @grayMarketPath2
 + ramenVendorWorking: ActorState, ShuffledEventList
     isInitState = true
     eventList = [
-                 '"Classic ramen noddles, come get \'em," the ramen noodle vender shouts, beckoning people over. ',
+                 '"Classic ramen noodles, come get \'em," the ramen noodle vender shouts, beckoning people over. ',
                  '"Fresh, hand-made, cheap as dirt, will fill your stomach better than any yeast! Ramen noodles!" the ramen noodle vender laughs. ',
                  '"Fuck synthmeat am I right? This guy knows what he wants!" the ramen noodle vendor crows as a customer walks up to the bar.',
                  'The ramen noodle vendor pulls a piece of paper from the awning and hands it along with a bowl to a customer. '
@@ -608,7 +628,19 @@ jason: Actor 'Jason' @jasonsChair
 ;
 
 gbJasonConv: QMain
-    options = [gbAreYouJason, gbWhatIsThisPlace, gbHowDidYouGetAllThisStuff, gbJasonAskJob]
+    options = [gbAreYouJason, gbWhatIsThisPlace, gbHowDidYouGetAllThisStuff, gbJasonAskJob, gbJasonsLifesWork]
+;
+
+gbJasonsLifesWork: Quip
+    "\"'At least as far as everyone else thinks' &emdash what's your real life's work Jason?\""
+    "Jason grins at you, and you can feel palpable excitement roll off him in waves. \"I'm so glad you asked! It's so rare I get a chance to talk about it with people.\" He pauses for a second for dramatic effect. \"Well, to be honest, I rarely get a chance to talk about anything with people, basically no one comes back here and when they do they're all business. It's actually starting to become a problem, I'm really running out of money to buy food and stuff...\" "
+
+    options = [gbJasonsLifesWork2]
+;
+
+gbJasonsLifesWork2: Quip
+    "\"Well, what is it?\""
+    "\"Oh right, sorry, yeah.\""
 ;
 
 gbAreYouJason: Quip
@@ -623,6 +655,7 @@ gbWhatIsThisPlace: Quip
     "\"What <i>is</i> this place?\""
     "You say it while looking around, gesturing in helpless amazement at the endless shelves of technology stretching away into the dimness in every direction.\b\"It's my hardware shop of course!\" Jason says proudly. \"I can repair anything, build any kind of custom hardware you want, trade you any part you need. It's my life's work &emdash; at least as far as everyone else thinks. I also do the cosmetic cyberware implantations. Just buy something out there, then bring it in here and I'll put it in ya.\""
     qOff = [gbWhatIsThisPlace]
+    qOn = [gbJasonsLifesWork]
     transfer = gbJasonConv
 ;
 
@@ -635,7 +668,7 @@ gbHowDidYouGetAllThisStuff: Quip
 
 gbJasonAskJob: Quip
     "\"Do you know where a manual laborer like me could find work?\""
-    "Jason looks thoughtful for a moment. \"Well, the fact that you've only got one arm tells me you failed an indenture contract. You won't be able to get a legitimate job willing to front you the money for another arm for a couple years. But, I could try to find you someone a little more desparate, who doesn't have a big pool of desparate captive workers to pull from, who needs someone locked out of the system, so they're willing to trade under the table. That you?\""
+    "Jason looks thoughtful for a moment. \"Well, the fact that you've only got one arm tells me you failed an indenture contract. You won't be able to get a legitimate job willing to front you the money for another arm for a couple years. But, I could try to find you someone a little more who doesn't have a big pool of desparate captive workers to pull from, who needs someone locked out of the system, so they're willing to trade under the table. That you?\" "
 
     options = [gbJasonYes]
 ;
